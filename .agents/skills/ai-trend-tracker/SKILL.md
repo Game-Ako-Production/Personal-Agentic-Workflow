@@ -7,6 +7,8 @@ description: Research and track recent AI developments across models and researc
 
 Produce a concise, source-attributed digest of recent developments in artificial intelligence. Research current information with web search and open primary sources directly. Do not rely on memory for current releases, dates, prices, or market events.
 
+When invoked directly in Codex for a latest-in-AI digest, also read and follow `commands/latest-in-ai.md` for the shared invocation and artifact-saving rules. Codex discovers this repository skill as its native reusable workflow; there is no project-scoped Codex command wrapper.
+
 ## Research workflow
 
 1. Set the period. Use the previous 7 days by default. If that produces too few meaningful items, extend to 30 days and say so. For a different requested period, follow the request.

@@ -38,6 +38,18 @@ Create the skill base on the following details:
 - It will provide a structured digest of findings based on credibility tiers and categorization.
 - The skill will genarate a digest in markdown format, with each entry attributed to a source and categoried into models & research, tools & products, and market & industry.
 
+---
+
+- **name:** `game-guide-expert`
+- The skill will be used to provide expert guidance and strategies for various video games.
+- It will offer tips, walkthroughs, and advice to help players improve their gameplay and achieve their objectives.
+- Most genre that Arohbi play are JRPG, Action, Adventure, Survival, Shooter, and Open World games.
+- Arohbi plays retro games and modern games and occasionally coop games with friends.
+- Arohbi is looking for help with finding the best strategies and tips for each game.
+- Generated artifacts should be stored in `docs/games` with the slug of the game being asked.
+- When Arohbi asks a direct and quick question about a game, the answer should be direct and answer the question without any unnecessary information.
+- DO NOT give spoilers unless Arohbi explicitly asks for them. If Arohbi asks for a walkthrough, provide a spoiler warning and ask if he wants to proceed.
+
 ### Commands
 
 Create the command base on the following details:
@@ -51,3 +63,4 @@ Create the command base on the following details:
 
 - Agents, Skills, and Commands should be generated according to OpenCode, Codex, Claude, Gemini and Github Copilot standards and best practices.
 - Create each on `agents` folder for the supported tool but if not make the native folder for who don't support it eg. Claude uses `.claude`, OpenCode uses `.opencode`, etc.
+- This instructions should be idempotent, only generate the agent, skill, and command if they don't exist yet. If they already exist, update them with the new details.

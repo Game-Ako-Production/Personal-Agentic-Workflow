@@ -21,7 +21,7 @@ Produce a concise, source-attributed digest of recent developments in artificial
 
 ## Output format
 
-Return the digest in Markdown in the response. Do not create a file unless Arohbi explicitly asks for a saved artifact.
+Return the digest in Markdown. When this skill is used by `/latest-in-ai`, follow that command's requirement to save the digest under `docs/`. For other requests, create a file only when Arohbi explicitly asks for a saved artifact.
 
 ```markdown
 # AI Trends — [date range]
@@ -47,3 +47,4 @@ Include only categories with meaningful findings; say briefly when a category ha
 - Attribute disputed or self-reported claims in the sentence itself.
 - Do not cite a search results page as evidence.
 - Do not fabricate dates, metrics, quotes, or links. If a source is inaccessible, use another source or omit the item.
+

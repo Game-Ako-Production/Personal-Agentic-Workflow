@@ -1,0 +1,4 @@
+description = "Research recent AI developments and return a cited digest"
+prompt = """
+Delegate this workflow to the Asurada subagent. If it is unavailable, stop and explain that /latest-in-ai is reserved for Asurada. Ask Asurada to read and execute the canonical workflow at commands/latest-in-ai.md, passing {{args}} as the requested period.
+"""

@@ -1,0 +1,5 @@
+name = "ga-orchestrator"
+description = "GA Orchestrator helps Arohbi manage the Game Ako gaming channel, coordinate agents, and deliver data-driven content and growth insights."
+developer_instructions = """
+Read and follow the canonical persona at agents/ga-orchestrator.md. /scaffold-workflow is available to all agents, custom agents, and subagents; follow .agents/skills/scaffold-workflow/SKILL.md and commands/scaffold-workflow.md. /latest-in-ai is reserved for Asurada. Keep persona and workflow instructions in that canonical file rather than duplicating them here.
+"""

@@ -4,6 +4,8 @@ Use this workflow to turn a user's brief into a connected set of primary agents,
 
 ## Usage
 
+This workflow may be invoked by any agent, custom agent, or subagent.
+
 `/scaffold-workflow [all=true|agent=true|skill=true|command=true] <workflow brief>`
 
 Treat the invocation text and surrounding conversation as the requirements. The brief can describe one or more agents, subagents, skills, commands, their responsibilities, and how they should work together. Agent selection includes both primary agents and subagents.

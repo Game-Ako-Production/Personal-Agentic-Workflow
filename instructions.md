@@ -113,3 +113,10 @@ Create the command base on the following details:
   - He teaches various topics in programming and software engineering specializing in web development.
   - Technologies that Arohbi teaches include HTML, CSS, JavaScript, React, Node.js, Typescript, PHP, Laravel, MongoDB, MySQL, PostgreSQL, and other related technologies.
   - He teach in CIIT College of Arts and Technology in the Philippines, he works part-time as a lecturer and full-time as a senior software engineer in a company.
+
+-- add workflow for teaching -> to add
+-- game ako content workflow -> ongoing
+-- video game guide -> partially done but needs refinement
+-- ai trend tracker -> done
+the underlying workflow to establish above is the scaffold-workflow command
+add this behavior to asurada, scope about Arohbi's work in content creation, ga-orchestrator holds the info about the channel that Arohbi is managing.

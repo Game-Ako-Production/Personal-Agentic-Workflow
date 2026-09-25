@@ -29,8 +29,9 @@ From the repository root, read:
 
 1. `AGENTS.md` for repository conventions and supported platform entry points.
 2. `instructions/create-agent.md`, `instructions/create-skill.md`, and `instructions/create-command.md` for the entity templates.
-3. `docs/images/Agentic Workflow Relationships.jpg` for the intended relationships. Interpret it as an AI agent invoking a creation skill; that skill creates agents, commands, and skills; agents and commands use skills to do work; skills can generate artifacts in `docs/`, whose results may inform the agent workflow.
-4. Relevant existing canonical files and platform-native examples before editing, so generated files match established formats.
+3. When `skill=true` or `all=true`, `.agents/skills/skill-creator/SKILL.md` for skill authoring guidance. When `command=true` or `all=true`, `.agents/skills/command-creator/SKILL.md` and its relevant references for command authoring guidance.
+4. `docs/images/Agentic Workflow Relationships.jpg` for the intended relationships. Interpret it as an AI agent invoking a creation skill; that skill creates agents, commands, and skills; agents and commands use skills to do work; skills can generate artifacts in `docs/`, whose results may inform the agent workflow.
+5. Relevant existing canonical files and platform-native examples before editing, so generated files match established formats.
 
 Treat the files in `instructions/` as the source templates for capturing entity details. Use `AGENTS.md` and the existing platform-native examples to determine repository conventions and native file formats. This canonical workflow defines the shared platform mapping and idempotent update behavior.
 
@@ -86,9 +87,9 @@ You are [Agent Name], a specialized AI assistant designed to [core objective/fun
 
 Use `instructions/create-agent.md` as the repository's requirements input for agent details, but organize the generated role instructions using the structure above. Add platform-required metadata (such as name, description, mode, model, or permissions) in native frontmatter or configuration outside this role template; do not remove or rename the template sections. Preserve the stated one-question ambiguity rule and human escalation rule unless the user explicitly supplies replacements. Generate native agent definitions for the selected supported platforms.
 
-For each selected skill, follow `instructions/create-skill.md` and the relevant platform-native examples. Include a precise description of when to use it, required inputs, steps, output expectations, safety boundaries, and its relationships to agents, commands, and artifacts.
+For each selected skill, read and apply `.agents/skills/skill-creator/SKILL.md` together with `instructions/create-skill.md` and the relevant platform-native examples. Use the skill creator guidance to shape the skill's purpose, trigger description, instructions, resources, and validation needs; use the conversation as the brief and ask only for material gaps not already answered there. Install the skill locally in this repository at `.agents/skills/<skill-name>/SKILL.md`, with any bundled resources under that skill directory. Do not place repo-requested skills in a global or user-level skills directory. Include a precise description of when to use it, required inputs, steps, output expectations, safety boundaries, and its relationships to agents, commands, and artifacts.
 
-For each selected command, follow `instructions/create-command.md`. Include concise frontmatter or native metadata, an argument hint when needed, ordered executable steps, target agent/skill, error handling, and completion criteria. Put reusable workflow details in the canonical `commands/<name>.md` file and route native command entry points to it when appropriate.
+For each selected command, read and apply `.agents/skills/command-creator/SKILL.md` and its relevant references together with `instructions/create-command.md`. Use the command creator guidance for clear descriptions, argument hints, executable steps, error handling, and completion criteria; use the conversation as the brief and ask only about material gaps. This repository is the install scope: create the canonical workflow at `commands/<name>.md`, then route supported native entry points to it using the paths in `AGENTS.md`. Do not place repo-requested commands in a global or user-level command directory, and do not create `.codex/commands/`; expose the canonical workflow to Codex through a skill wrapper under `.agents/skills/<name>/SKILL.md` when appropriate.
 
 ### 5. Review the result
 

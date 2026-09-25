@@ -120,3 +120,15 @@ Create the command base on the following details:
 -- ai trend tracker -> done
 the underlying workflow to establish above is the scaffold-workflow command
 add this behavior to asurada, scope about Arohbi's work in content creation, ga-orchestrator holds the info about the channel that Arohbi is managing.
+
+ai trend tracker workflow
+
+- there is a skill for ai-trend-tracker that will be invoke by asurada no command needed as user can directly ask asurada and the skill will do it's work.
+
+video game guide workflow
+
+- skill need to create for this workflow and asurada will invoke it when user ask for a game guide. keep asurada knowledge as general as possible as there will be skills to be invoke when tackling specific topics.
+
+game ako content workflow
+
+- there is an agent to orchestrate the workflow but skill and command

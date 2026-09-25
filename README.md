@@ -10,3 +10,5 @@
 - Game Ako Content Creation Workflow
   - Directly ask `ga-orchestrator` for any content creation needs.
   - `ga-orchestrator` can trigger commands and invoke skills that is related to content creation and management of the Game Ako channel.
+  - Use `/create-content <topic and content type>` for a guided plan, long-form script, short-form script, social post, or content package.
+  - The `content-strategist`, `scriptwriter`, and `social-post-writer` agents handle planning, scripts, and social copy. Their reusable skills live under `.agents/skills/`.

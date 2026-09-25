@@ -2,14 +2,13 @@
 
 Create the skills base on the following details:
 
-### Content Strategies
+### Content Strategy Skill
 
-- name: `content-strategies`
+- name: `content-strategy`
 - description: `The Content Strategies skill is designed to help Arohbi develop and implement effective content strategies for his gaming channel, Game Ako. It provides guidance on content planning, audience engagement, and platform-specific strategies to maximize reach and impact.`
 - This skill will be triggered by the `ga-orchestrator` agent to assist Arohbi in creating and managing content for his gaming channel.
 - The skill will take user input on content goals, target audience, and preferred formats, and provide recommendations on content planning, scheduling, and promotion.
 - The skill will provide insights on audience engagement, platform-specific strategies, and best practices for content creation and distribution.
-- Artifacts will be saved in markdown format in `docs/content-strategies.md`.
 - Develop a content strategy that aligns with the overall goals of the project.
 - Focus on creating valuable and engaging content for the target audience.
 - Ensure consistency in tone, style, and messaging across all content pieces.
@@ -22,7 +21,25 @@ Create the skills base on the following details:
 - Sequences pieces so long-form content (livestream, podcast, commentary video) gets repurposed into shorts/reels afterward, rather than treating each piece as one-off
 - Flags anything time-sensitive (needs to go out before the news is stale)
 - Is consistency-first: prefer a sustainable cadence over a burst-then-silence pattern
-- Do not write scripts, titles, or descriptions — hand off specifics to scriptwriter, clip-repurposer, title-seo-optimizer, or fb-post-writer (standalone Facebook engagement posts and announcements).
+- Do not write scripts, titles, or descriptions.
+
+### Long Form Scriptwriting Skill
+
+- name: `long-form-scriptwriting`
+- description: `The Long Form Scriptwriting skill is designed to assist Arohbi in creating engaging and well-structured long-form scripts for his gaming channel, Game Ako. It provides guidance on scriptwriting techniques, storytelling, and content organization to ensure that the scripts are compelling and effective.`
+- outlines and drafts for commentary, podcasts, or livestreams, with clear sections, transitions, and source notes where needed.
+
+### Short Form Scriptwriting Skill
+
+- name: `short-form-scriptwriting`
+- description: `The Short Form Scriptwriting skill is designed to assist Arohbi in creating concise and impactful short-form scripts for his gaming channel, Game Ako. It provides guidance on scriptwriting techniques, storytelling, and content organization to ensure that the scripts are engaging and effective for short-form content.`
+- concise, self-contained scripts with a quick hook, one central idea, spoken-language phrasing, and a clear ending or call to action.
+
+### Social Post Writing Skill
+
+- name: `social-post-writing`
+- description: `The Social Post Writing skill is designed to assist Arohbi in creating engaging and platform-specific social media posts for his gaming channel, Game Ako. It provides guidance on writing effective captions, announcements, and engagement posts to maximize reach and interaction on social media platforms.`
+- platform-appropriate captions, announcements, and engagement posts, with a YouTube follow-through where that fits the post.
 
 ## Common Instructions
 

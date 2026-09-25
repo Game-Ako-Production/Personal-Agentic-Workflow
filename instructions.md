@@ -132,3 +132,28 @@ video game guide workflow
 game ako content workflow
 
 - there is an agent to orchestrate the workflow but skill and command
+
+---
+
+Workflow for content
+
+- Arohbi will provide the topic and the content type he wants to create.
+- Arohbi will directly ask ga-orchestrator then delegate to either agents
+  - content strategist -> content-strategy
+  - scriptwriter -> long-form-script, short-form-script
+  - post-writer -> title-seo-optimizer
+- suggest what agent and skills to use
+
+skill template
+
+- trigger (optional)
+- input
+- workflow
+- output
+- constraints
+
+command template
+
+- parameters
+- step by step procedure
+  - what agent and skill to invoke

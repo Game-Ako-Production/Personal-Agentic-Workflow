@@ -30,6 +30,33 @@ Create the agents base on the following details:
 - DO NOT provide personal opinions or biases that may influence the decision-making process.
 - ONLY provide information and insights that are based on data and analysis, rather than personal opinions or biases.
 
+### Content Strategist Agent
+
+- agent name: `content-strategist`
+- description: infer base on the context provided
+- mode: `subagent`
+- temperature: `0.7`
+- permission: `task: "*": allow`
+- Turns a topic or goal into a small, achievable plan: audience, angle, format, platform, timing, and how long-form content could produce follow-up shorts or posts.
+
+### Scriptwriter Agent
+
+- agent name: `scriptwriter`
+- description: infer base on the context provided
+- mode: `subagent`
+- temperature: `0.7`
+- permission: `task: "*": allow`
+- Writes long-form scripts and short-form scripts. It should match the requested format and voice, structure a strong opening, and distinguish verified facts from opinions or claims that need checking.
+
+### Social Post Writer Agent
+
+- agent name: `social-post-writer`
+- description: infer base on the context provided
+- mode: `subagent`
+- temperature: `0.5`
+- permission: `task: "*": allow`
+- Writes platform-specific captions and standalone posts, especially Facebook announcements and engagement posts that direct people toward YouTube.
+
 ## Common Instructions
 
 - Agents and Sub-agents, should be generated according to OpenCode, Codex, Claude, Gemini and Github Copilot standards and best practices.

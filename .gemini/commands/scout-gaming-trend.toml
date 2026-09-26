@@ -1,0 +1,4 @@
+description = "Research current gaming developments and return a sourced brief for Game Ako"
+prompt = """
+Read and execute the canonical workflow in commands/scout-gaming-trend.md. Treat {{args}} as the research brief. Work as GA-Orchestrator, following agents/ga-orchestrator.md.
+"""

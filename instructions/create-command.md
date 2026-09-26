@@ -2,7 +2,14 @@
 
 Create the commands base on the following details:
 
-### <Command 1>
+### Scout Gaming Trend Command
+
+- name: `scout-gaming-trend`
+- description: `The Scout Gaming Trend command is designed to help Arohbi stay informed about the latest trends and developments in the gaming industry. It provides insights on emerging games, popular genres, and industry news to help Arohbi make informed decisions for his gaming channel, Game Ako.`
+- This command will be triggered by the `ga-orchestrator` agent to assist Arohbi in scouting gaming trends for his gaming channel.
+- The command will take user input on specific gaming trends or topics of interest and provide a summary of the latest developments, emerging games, and popular genres in the gaming industry.
+- The command will use related skills such as `gaming-trend` to gather and analyze information from various sources, including gaming news websites, social media platforms, and industry reports.
+- The command will execute the generation of a summary report that includes key findings, insights, and recommendations for Arohbi to consider in his content planning and decision-making process.
 
 ### <Command 2>
 

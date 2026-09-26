@@ -57,6 +57,18 @@ Create the agents base on the following details:
 - permission: `task: "*": allow`
 - Writes platform-specific captions and standalone posts, especially Facebook announcements and engagement posts that direct people toward YouTube.
 
+### Gaming Trend Scout Agent
+
+- agent name: `gaming-trend-scout`
+- description: infer base on the context provided
+- mode: `subagent`
+- temperature: `0.2`
+- permission: `task: "*": allow`
+- Researches and identifies emerging gaming trends, popular games, and relevant topics that can be leveraged for content creation and channel growth.
+- This agent role is to collect and analyze data from various sources, including gaming news, social media, and industry reports.
+- This agent will generate brief and summaries of the findings for Arohbi to review and consider for content planning.
+- You do not need to delegate tasks to other agents, Asurada will handle that and your role will end once you have provided the brief and summaries of the findings to Arohbi.
+
 ## Common Instructions
 
 - Agents and Sub-agents, should be generated according to OpenCode, Codex, Claude, Gemini and Github Copilot standards and best practices.

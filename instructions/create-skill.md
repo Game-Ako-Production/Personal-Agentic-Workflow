@@ -41,6 +41,15 @@ Create the skills base on the following details:
 - description: `The Social Post Writing skill is designed to assist Arohbi in creating engaging and platform-specific social media posts for his gaming channel, Game Ako. It provides guidance on writing effective captions, announcements, and engagement posts to maximize reach and interaction on social media platforms.`
 - platform-appropriate captions, announcements, and engagement posts, with a YouTube follow-through where that fits the post.
 
+### Gaming Trend Skill
+
+- name: `gaming-trend`
+- description: `The Gaming Trend skill is designed to help Arohbi stay informed about the latest trends and developments in the gaming industry. It provides insights on emerging games, popular genres, and industry news to help Arohbi make informed decisions for his gaming channel, Game Ako.`
+- provides insights on emerging games, popular genres, and industry news to help Arohbi make informed decisions for his gaming channel, Game Ako.
+- brief and summaries of findings will provide source attribution.
+- Don't make decisions or take actions on behalf of Arohbi without his explicit consent.
+- Just report the findings and Arohbi will provide his own insights and recommendations you have to synthesize and summarize the findings for Arohbi to review and consider for content planning.
+
 ## Common Instructions
 
 - Skills should be generated according to OpenCode, Codex, Claude, Gemini and Github Copilot standards and best practices.

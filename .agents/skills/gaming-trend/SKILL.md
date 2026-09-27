@@ -28,7 +28,7 @@ When a requested topic mixes included and excluded areas, focus on the in-scope 
 2. Search current, relevant sources. Prefer primary sources such as official game/developer/publisher announcements, platform-holder newsrooms, filings, and original datasets. Use reputable reporting for context and corroboration. Do not treat social posts, search snippets, or industry forecasts as independently verified facts.
 3. Verify important claims against the underlying source and, when consequential, a second independent source. Record when an event happened separately from when a source reported it. Note conflicting accounts and evidence gaps.
 4. Summarize only the strongest relevant findings. Distinguish verified facts, attributed claims, analysis, and speculation. Explain relevance to Game Ako without deciding what Arohbi should make.
-5. Provide a concise Markdown brief with the scope/date range, key findings, source links, and meaningful caveats. Keep the response on screen; create a saved artifact only when requested.
+5. Provide a concise Markdown brief with the scope/date range, key findings, source links, and meaningful caveats. Keep the response on screen; create a saved artifact only when requested, following `context/artifacts.md` and saving under `docs/game-ako/research/`.
 
 ## Output
 
@@ -48,9 +48,8 @@ End with a brief note on uncertainty or coverage gaps when applicable. Do not fo
 - Do not research or summarize esports, competitive scenes, or non-gacha mobile gaming under the default scope.
 - Do not make decisions or take actions on Arohbi's behalf, publish or share material, or generate files unless explicitly requested.
 - Do not write scripts, titles, or descriptions; hand those tasks to the relevant Game Ako writing workflow.
-- Do not invoke or delegate `/latest-in-ai`; it is reserved for Asurada.
 
 ## Related workflow
 
 - The `gaming-trend-scout` agent uses this skill for focused research.
-- The `/scout-gaming-trend` command runs the canonical workflow in `commands/scout-gaming-trend.md` and calls this skill through the gaming trend scout.
+- The `/scout-gaming-trend` command runs `commands/scout-gaming-trend.md` through the gaming trend scout. On platforms without project commands (Codex), when Arohbi asks to run `/scout-gaming-trend`, read and follow `commands/scout-gaming-trend.md`.

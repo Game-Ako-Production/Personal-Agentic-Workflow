@@ -1,17 +1,21 @@
 ---
-description: Research current console and PC premium AA and AAA games, plus gacha games including mobile gacha, and return a sourced Game Ako brief.
+name: scout-gaming-trend
+description: Research current console and PC premium AA and AAA games, plus gacha games including mobile gacha, and return a sourced Game Ako brief
 argument-hint: "<topic or trend> [time period]"
+domain: game-ako
+agent: gaming-trend-scout
+subtask: true
+skills:
+  - gaming-trend
+codex: gaming-trend
+targets: [opencode, claude, codex]
 ---
 
 # Scout Gaming Trend
 
-Research the supplied topic within the `gaming-trend` scope and return a concise, sourced brief for Game Ako content planning.
+Research `$ARGUMENTS` within the `gaming-trend` scope and return a concise, sourced brief for Game Ako content planning.
 
-## What This Command Does
-
-1. Applies the scope and date period from the research brief.
-2. Delegates focused research to `gaming-trend-scout`, which follows `.agents/skills/gaming-trend/SKILL.md`.
-3. Returns evidence, source links, and relevant caveats for Arohbi's review.
+This workflow runs as `gaming-trend-scout`. If you are a different agent, delegate the complete brief to `gaming-trend-scout` and return its brief; if delegation is unavailable, run the steps yourself. It usually runs as an isolated task, so state assumptions instead of asking follow-up questions unless the request is entirely out of scope.
 
 ## Usage
 
@@ -20,26 +24,24 @@ Research the supplied topic within the `gaming-trend` scope and return a concise
 /scout-gaming-trend "major updates to cross-platform gacha games" "last month"
 ```
 
-## Implementation Steps
+## Workflow
 
-1. **Parse the brief.** Treat the supplied topic, platforms, region, and time period as the research scope. If no period is supplied, focus on current developments and state the date range covered. Apply the scope in `.agents/skills/gaming-trend/SKILL.md`: prioritize premium console and PC AA/AAA games; include gacha games, including mobile gacha; exclude other mobile gaming, esports, and competitive scenes.
-2. **Delegate research.** Invoke `gaming-trend-scout` with the complete brief. Require current sourcing, primary sources where available, corroboration of consequential claims, and a distinction between event dates and report dates.
+1. **Parse the brief.** Treat the supplied topic, platforms, region, and time period as the research scope. If no period is supplied, focus on current developments and state the date range covered. Apply the coverage scope in the `gaming-trend` skill.
+2. **Research.** Follow the `gaming-trend` skill: current sourcing, primary sources where available, corroboration of consequential claims, and a distinction between event dates and report dates.
 3. **Return the brief.** Present a concise Markdown summary with key findings, evidence, direct source links, relevance to Game Ako, and uncertainty or coverage gaps. Keep facts, attributed claims, and analysis distinct.
-4. **Respect artifact boundaries.** Keep the result on screen unless Arohbi explicitly asks for a saved file. Do not publish or share the result.
+4. **Respect artifact boundaries.** Keep the result on screen unless Arohbi asks to save it; then follow `context/artifacts.md` and save under `docs/game-ako/research/`. Do not publish or share the result.
 
-## Important Notes
+## Notes
 
 - Narrow mixed in-scope and excluded topics to the in-scope part and state the boundary.
-- If a request is entirely about a currently excluded area, explain that it falls outside the scope and ask whether Arohbi wants to broaden it before researching.
+- If a request is entirely about an excluded area, explain that it falls outside the scope and ask whether Arohbi wants to broaden it before researching.
 - Do not fabricate metrics, citations, or trends; disclose unavailable or conflicting evidence.
-- Attribute forecasts, estimates, and promotional claims.
 - Report findings for Arohbi to consider; do not make decisions on his behalf.
-- Do not use `/latest-in-ai`; it is reserved for Asurada.
 
-## Error Handling
+## Error handling
 
-If current sources cannot be accessed or verified, explain the limitation and provide only findings supported by available evidence. If the delegated agent is unavailable, report that and offer verified research gathered so far without implying delegation succeeded.
+If current sources cannot be accessed or verified, explain the limitation and provide only findings supported by available evidence.
 
-## Success Criteria
+## Completion criteria
 
-Stop when the requested topic has a concise, date-scoped brief within the stated coverage scope, with direct supporting sources and material uncertainties clear, or explain which part could not be verified.
+The topic has a concise, date-scoped brief within the coverage scope, with direct supporting sources and material uncertainties clear, or an explanation of which part could not be verified.

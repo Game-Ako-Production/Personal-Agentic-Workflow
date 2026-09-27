@@ -1,0 +1,47 @@
+# Workflow registry source.
+#
+# Domains group agents, commands, and skills by field of expertise. Every canonical
+# agent (agents/*.md) and command (commands/*.md) declares a `domain` that must be
+# listed here. `npm run sync` generates registry.md and all managed platform files;
+# `npm run check` fails when anything is out of date or references are broken.
+
+front-door: asurada
+
+platforms:
+  managed: [opencode, claude, codex]
+  # Frozen platforms keep their existing hand-written files under .gemini/ and
+  # .github/. The generator and validator do not touch or check them.
+  frozen: [gemini, copilot]
+
+domains:
+  - id: personal
+    title: Personal assistance and AI trends
+    lead: asurada
+    purpose: Daily research, analysis, automation, decision support, and the weekly AI trend digest.
+    artifacts: [docs/ai-trends/]
+
+  - id: game-guide
+    title: Video game guides
+    lead: asurada
+    purpose: Walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play.
+    # A domain may claim skills whose users live in another domain (here, Asurada).
+    skills: [game-guide-expert]
+    artifacts: [docs/games/]
+
+  - id: game-ako
+    title: Game Ako content and blog
+    lead: ga-orchestrator
+    purpose: Game Ako channel planning, scripts, social posts, blog articles, and gaming trend research.
+    artifacts:
+      - docs/game-ako/sources/
+      - docs/game-ako/research/
+      - docs/game-ako/plans/
+      - docs/game-ako/scripts/
+      - docs/game-ako/articles/
+      - docs/game-ako/posts/
+
+  - id: utility
+    title: Workflow utilities
+    lead: any
+    purpose: Scaffold and maintain agents, subagents, skills, and commands in this repository.
+    artifacts: []

@@ -39,12 +39,7 @@ Do not present one playstyle as mandatory when several work. Tailor recommendati
 
 ## Guide artifacts
 
-Answer in the conversation by default. When Arohbi asks for a saved guide, walkthrough, checklist, or other file:
-
-1. Save it under `<repository-root>/docs/games/<slug>.md`, creating `docs/games/` if needed. Find the repository root from the working project context; do not save relative to an arbitrary current subdirectory.
-2. Use the game title as the slug unless Arohbi supplies one. Normalize to lowercase kebab-case; remove path separators, extensions, and other characters that could escape the target directory.
-3. Never overwrite an existing guide. Add `-2`, `-3`, and so on to the filename until it is unused.
-4. Make the artifact self-contained: include the game/version assumptions, spoiler notice when applicable, ordered guidance, and source links. Report the final path in the response.
+Answer in the conversation by default. When Arohbi asks for a saved guide, walkthrough, checklist, or other file, save it under `docs/games/` following `context/artifacts.md` (slug normalization, no overwrites, report the final path). Use the game title as the slug unless Arohbi supplies one. Make the artifact self-contained: game/version assumptions, spoiler notice when applicable, ordered guidance, and source links.
 
 ## Response style
 

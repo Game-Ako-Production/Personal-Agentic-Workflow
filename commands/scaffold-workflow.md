@@ -1,25 +1,50 @@
+---
+name: scaffold-workflow
+description: Scaffold or update agents, subagents, skills, commands, and domains from a workflow brief
+argument-hint: "[all=true|agent=true|skill=true|command=true] <workflow brief>"
+domain: utility
+subtask: false
+skills:
+  - skill-creator
+  - command-creator
+codex: wrapper
+targets: [opencode, claude, codex]
+---
+
 # Scaffold an Agentic Workflow
 
-Use this workflow to turn a user's brief into a connected set of primary agents, subagents, skills, and commands across the platforms supported by the repository.
+Turn a workflow brief into connected canonical agents, subagents, skills, commands, and domains, then generate every managed platform file with the sync script. Any agent may run this workflow.
 
 ## Usage
 
-This workflow may be invoked by any agent, custom agent, or subagent.
-
 `/scaffold-workflow [all=true|agent=true|skill=true|command=true] <workflow brief>`
 
-Treat the invocation text and surrounding conversation as the requirements. The brief can describe one or more agents, subagents, skills, commands, their responsibilities, and how they should work together. Agent selection includes both primary agents and subagents.
+Treat `$ARGUMENTS` and the surrounding conversation as the requirements. The brief may follow `templates/brief.md`, but free-form briefs are fine.
 
-### Component parameters
+### Component selectors
 
-Parse the leading component selectors before interpreting the rest as the workflow brief:
+Parse leading selectors before interpreting the rest as the brief:
 
-- `all=true`: scaffold agents, subagents, skills, and commands.
-- `agent=true`: scaffold primary agents and subagents only.
-- `skill=true`: scaffold skills only.
-- `command=true`: scaffold commands only.
+- `all=true`: agents, subagents, skills, and commands.
+- `agent=true`: primary agents and subagents only.
+- `skill=true`: skills only.
+- `command=true`: commands only.
 
-When one or more individual selectors are true, scaffold only those component types. `all=true` takes precedence over individual selectors. Omitted selectors default to `all=true`. Accept only literal `true` or `false`; if a supplied selector has another value, explain the accepted values and ask for a corrected invocation. If the selected component has no usable specifications in the brief or conversation, ask focused questions for that component before writing files. Do not create unselected component types, even when they are mentioned as dependencies; reference an existing dependency if available and report any missing dependency.
+When individual selectors are true, scaffold only those types. `all=true` takes precedence. Omitted selectors default to `all=true`. Accept only literal `true` or `false`; otherwise explain the accepted values and ask for a corrected invocation. If a selected component has no usable specification in the brief or conversation, ask focused questions before writing files. Do not create unselected component types, even when mentioned as dependencies; reference an existing dependency if available and report any missing one.
+
+## Source layout
+
+You edit only canonical sources:
+
+| Source | Path |
+| --- | --- |
+| Domains and platform settings | `workflow.yaml` |
+| Agents and subagents | `agents/<name>.md` |
+| Commands | `commands/<name>.md` |
+| Skills | `.agents/skills/<name>/SKILL.md` (plus bundled resources in that folder) |
+| Shared context | `context/*.md` |
+
+`npm run sync` generates everything else: `registry.md`, `.opencode/agents/`, `.opencode/commands/`, `.claude/agents/`, `.claude/commands/`, `.claude/skills/`, `.codex/agents/`, and Codex command wrappers in `.agents/skills/<command>/`. Never hand-edit generated files; they start with a GENERATED notice. `.gemini/` and `.github/` are frozen and are not created or updated unless Arohbi explicitly asks.
 
 ## Workflow
 
@@ -27,84 +52,60 @@ When one or more individual selectors are true, scaffold only those component ty
 
 From the repository root, read:
 
-1. `AGENTS.md` for repository conventions and supported platform entry points.
-2. `instructions/create-agent.md`, `instructions/create-skill.md`, and `instructions/create-command.md` for the entity templates.
-3. When `skill=true` or `all=true`, `.agents/skills/skill-creator/SKILL.md` for skill authoring guidance. When `command=true` or `all=true`, `.agents/skills/command-creator/SKILL.md` and its relevant references for command authoring guidance.
-4. `docs/images/Agentic Workflow Relationships.jpg` for the intended relationships. Interpret it as an AI agent invoking a creation skill; that skill creates agents, commands, and skills; agents and commands use skills to do work; skills can generate artifacts in `docs/`, whose results may inform the agent workflow.
-5. Relevant existing canonical files and platform-native examples before editing, so generated files match established formats.
+1. `AGENTS.md`, `workflow.yaml`, and `registry.md` for conventions, domains, and existing entities.
+2. The matching templates: `templates/agent.md`, `templates/skill.md`, `templates/command.md`.
+3. When skills are selected, `.agents/skills/skill-creator/SKILL.md`. When commands are selected, `.agents/skills/command-creator/SKILL.md` and its relevant references.
+4. `docs/architecture/agentic-workflow-relationships.jpg` for the intended relationships: an agent triggers a creation skill; it creates agents, commands, and skills; agents and commands use skills; skills produce artifacts in `docs/` that feed later work.
+5. The existing canonical files for any entity the brief names, and one or two similar entities as format examples.
 
-Treat the files in `instructions/` as the source templates for capturing entity details. Use `AGENTS.md` and the existing platform-native examples to determine repository conventions and native file formats. This canonical workflow defines the shared platform mapping and idempotent update behavior.
+`docs/archive/briefs/` holds historical briefs. Do not treat them as requirements.
 
 ### 2. Resolve the requested design
 
-Extract the requested entity names, purpose, descriptions, responsibilities, inputs, outputs, constraints, dependencies, and platform targets. Classify each agent as a primary agent or subagent, and map which agent invokes each skill or command and what artifact each skill can produce.
+Extract entity names, purpose, descriptions, responsibilities, inputs, outputs, constraints, dependencies, and platforms. For each entity:
 
-Do not invent missing requirements that materially change behavior, permissions, publication, or data handling. If the brief lacks details needed to produce a coherent entity, ask focused questions about only those gaps before writing files. Use reasonable defaults for routine metadata and state them in the completion summary.
+- Assign a domain from `workflow.yaml`. When the brief introduces a new field of work, add a domain entry (id, title, lead, purpose, artifacts, and optionally `skills` it owns when those skills are used by an agent from another domain) and create its artifact folders with a `.gitkeep`.
+- Classify agents as `primary`, `subagent`, or `all`. Record who delegates to each subagent (`delegates` on the caller) and which skills it uses.
+- For commands, choose the running `agent`, whether it runs as an isolated `subtask`, its `skills`, and its Codex entry (`wrapper`, an existing skill name, or `none`).
 
-If the request names an existing entity, inspect its canonical and native files first. Create missing files and update existing files in place only when the brief adds or changes information. Compare the requested details with the current content before editing. Preserve existing information not superseded by the user, unrelated content, and local conventions. If a repeat invocation adds no information and requests no changes, leave the files byte-for-byte unchanged and report that no update was needed. Do not reformat or rewrite equivalent content just to match a preferred phrasing.
+Do not invent requirements that materially change behavior, permissions, publication, or data handling. Ask focused questions about material gaps only. Use reasonable defaults for routine metadata and state them in the completion summary.
+
+If the brief names an existing entity, compare the requested details with its canonical file. Update in place only where the brief adds or changes information. Preserve unrelated content and local conventions. If a repeat invocation adds nothing, leave files byte-for-byte unchanged and report that no update was needed. Do not rewrite equivalent content just to match a preferred phrasing.
 
 ### 3. Design the dependency flow
 
-Plan the workflow before generating files:
+1. Primary agents are user-facing coordinators; subagents are focused workers with a named caller in some agent's `delegates`.
+2. Skills capture repeatable capabilities, with activation criteria, inputs, process, output, and boundaries. Make descriptions distinct from neighbouring skills so triggers do not overlap. Do not give a skill the same name as an agent or command.
+3. Commands are invoked workflows that call an agent and skills. Keep the full workflow in `commands/<name>.md`.
+4. Avoid orphaned skills, commands without an execution target, and subagents with no caller, unless the brief asks for standalone entities.
+5. Record artifact destinations in the domain entry and follow `context/artifacts.md`. Never publish, send, or share generated artifacts unless explicitly requested.
 
-1. Define primary agents as user-facing coordinators and subagents as focused workers with a clear parent or caller.
-2. Define reusable skills for repeatable capabilities, including their activation criteria, inputs, process, output, and boundaries.
-3. Define commands as user- or agent-invoked workflows that call the appropriate agent and/or skill. Keep canonical workflow instructions in `commands/`; make native command or prompt files concise entry points that route to the canonical file where the platform supports them.
-4. Connect the entities explicitly. Avoid orphaned skills, commands with no execution target, and subagents with no caller unless the brief explicitly requests standalone entities.
-5. Record artifact destinations and feedback paths where relevant. Never publish, send, or share generated artifacts unless explicitly requested.
+### 4. Write canonical files
 
-### 4. Generate canonical and native files
+- **Agents:** copy `templates/agent.md`, fill every frontmatter field, and keep the body sections exactly: Role & Identity, About the User / Context, Standing Rules (Always / Never), Tone & Format Preferences, Error Handling & Escalation. A coordinator may add a Routing section. Preserve the one-question ambiguity rule and the Human-in-the-Loop escalation rule unless Arohbi supplies replacements. Use `includes` for shared context rather than restating it. Remove the template's reference comment.
+- **Skills:** apply the `skill-creator` guidance with `templates/skill.md`. Save at `.agents/skills/<name>/SKILL.md` in this repository, never in a global or user-level folder. Use only standard frontmatter fields.
+- **Commands:** apply the `command-creator` guidance with `templates/command.md`. Save at `commands/<name>.md`. Use `$ARGUMENTS` for user input.
+- **Registry and platforms:** do not write these by hand. Run:
 
-Use the paths and formats specified by the entity templates in `instructions/` and the existing repository examples. Create parent directories as needed. Keep shared instructions canonical and platform wrappers short; do not create a platform command format the repository instructions say the platform cannot discover. For this repository's supported native entry points, use `.claude/commands/` for Claude, `.gemini/commands/` for Gemini, `.github/prompts/` for GitHub Copilot, `.opencode/commands/` for OpenCode, and `.agents/skills/<skill-name>/SKILL.md` for Codex-discoverable skills. Codex has no project-scoped custom command folder: when exposing a canonical command workflow to Codex, create a small skill wrapper that routes to `commands/<name>.md`; never create `.codex/commands/`.
+  ```sh
+  npm run sync
+  npm run check
+  ```
 
-For each agent or subagent, use this exact structure as the canonical role and behavior template, filling every field from the brief and asking about material gaps instead of inventing them:
-
-```markdown
-# Role & Identity
-
-You are [Agent Name], a specialized AI assistant designed to [core objective/function].
-
-# About the User / Context
-
-- Target Audience/User: [Role, team, or customer type]
-- Operating Environment: [Connected tools, databases, or platforms]
-
-# Standing Rules (Always / Never)
-
-- ALWAYS: [e.g., Verify data against the knowledge base before answering; cite sources for every factual claim.]
-- NEVER: [e.g., Guess missing numbers; execute destructive database actions without explicit human approval.]
-
-# Tone & Format Preferences
-
-- Tone: [e.g., Professional, concise, objective]
-- Output Format: [e.g., Markdown-structured bullets, JSON for API handoffs]
-
-# Error Handling & Escalation
-
-- If a request is ambiguous, ask 1 clarifying question.
-- If a task exceeds your capabilities or requires authorization, trigger a Human-in-the-Loop escalation.
-```
-
-Use `instructions/create-agent.md` as the repository's requirements input for agent details, but organize the generated role instructions using the structure above. Add platform-required metadata (such as name, description, mode, model, or permissions) in native frontmatter or configuration outside this role template; do not remove or rename the template sections. Preserve the stated one-question ambiguity rule and human escalation rule unless the user explicitly supplies replacements. Generate native agent definitions for the selected supported platforms.
-
-For each selected skill, read and apply `.agents/skills/skill-creator/SKILL.md` together with `instructions/create-skill.md` and the relevant platform-native examples. Use the skill creator guidance to shape the skill's purpose, trigger description, instructions, resources, and validation needs; use the conversation as the brief and ask only for material gaps not already answered there. Install the skill locally in this repository at `.agents/skills/<skill-name>/SKILL.md`, with any bundled resources under that skill directory. Do not place repo-requested skills in a global or user-level skills directory. Include a precise description of when to use it, required inputs, steps, output expectations, safety boundaries, and its relationships to agents, commands, and artifacts.
-
-For each selected command, read and apply `.agents/skills/command-creator/SKILL.md` and its relevant references together with `instructions/create-command.md`. Use the command creator guidance for clear descriptions, argument hints, executable steps, error handling, and completion criteria; use the conversation as the brief and ask only about material gaps. This repository is the install scope: create the canonical workflow at `commands/<name>.md`, then route supported native entry points to it using the paths in `AGENTS.md`. Do not place repo-requested commands in a global or user-level command directory, and do not create `.codex/commands/`; expose the canonical workflow to Codex through a skill wrapper under `.agents/skills/<name>/SKILL.md` when appropriate.
+  Fix every reported problem in the canonical sources and repeat until `npm run check` passes. If you cannot run shell commands, stop after writing canonical files and ask Arohbi to run both commands, then review the output with him.
 
 ### 5. Review the result
 
-Read every created or updated file. Confirm that:
+Read every canonical file you created or updated, and spot-check the generated files. Confirm that:
 
-- Names, descriptions, and references agree across canonical and native files.
-- Each selected and requested agent, subagent, skill, and command has been accounted for; unselected component types were not created.
-- Native file formats and paths match the applicable entity template and repository examples.
-- Commands point to real canonical workflows; workflow dependencies point to real agents and skills.
-- Existing unrelated content and files are preserved, and no duplicate files were created.
-- Existing files were changed only where the brief supplied new or changed information; identical repeat runs produced no file changes.
+- Names, descriptions, and references agree; `npm run check` passes.
+- Every selected entity is accounted for, and unselected component types were not created.
+- Delegation, skills, and commands connect with no orphans, and `registry.md` shows the intended map.
+- Unrelated content is preserved, no duplicates exist, and identical repeat runs produce no changes.
 - Artifact paths, permissions, and publication boundaries match the brief.
 
 If a reference or format cannot be satisfied, do not fabricate a substitute. Report the exact gap and finish all unaffected work.
 
 ## Completion response
 
-Summarize the workflow created, how its agents, skills, and commands connect, and list the canonical and platform-native files created or updated. Mention any assumptions or unresolved platform limitations. Do not claim that generated commands were executed or artifacts produced during scaffolding.
+Summarize the workflow created, how its agents, skills, and commands connect, and which canonical files changed. Mention assumptions, defaults, and any platform limitation. Do not claim that generated commands were executed or artifacts produced during scaffolding. Remind Arohbi to restart OpenCode, Claude Code, or Codex sessions so they load the new files.

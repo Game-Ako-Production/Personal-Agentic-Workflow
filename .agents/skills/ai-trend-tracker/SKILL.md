@@ -23,7 +23,7 @@ When invoked directly in Codex for a latest-in-AI digest, also read and follow `
 
 ## Output format
 
-Return the digest in Markdown. When this skill is used by `/latest-in-ai`, follow that command's requirement to save the digest under `docs/`. For other requests, create a file only when Arohbi explicitly asks for a saved artifact.
+Return the digest in Markdown. When this skill is used by `/latest-in-ai`, follow that command's requirement to save the digest under `docs/ai-trends/`. For other requests, create a file only when Arohbi explicitly asks for a saved artifact, following `context/artifacts.md`.
 
 ```markdown
 # AI Trends — [date range]

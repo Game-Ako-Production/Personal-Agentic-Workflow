@@ -1,17 +1,19 @@
 ---
-description: Draft a researched Game Ako gaming article, review, news update, feature, or opinion piece
-argument-hint: <topic and article type>
+name: write-article
+description: Draft a researched Game Ako blog article, review, news update, feature, or opinion piece
+argument-hint: "<topic and article type>"
+domain: game-ako
+agent: ga-orchestrator
+subtask: false
+skills:
+  - article-writing
+codex: article-writing
+targets: [opencode, claude, codex]
 ---
 
 # Write Article
 
-Create a well-structured gaming article for Game Ako from the user's topic and article brief. The draft should be accurate, engaging, reader-focused, and discoverable without misleading headlines.
-
-## What This Command Does
-
-1. Clarifies article type, topic, audience, platform, and any essential constraints.
-2. Delegates research and drafting to `game-content-writer`, which follows `.agents/skills/game-content-writer/SKILL.md`.
-3. Returns the article with direct source links and any necessary fact-check notes.
+Create a well-structured gaming article for the Game Ako blog from `$ARGUMENTS` and the surrounding request. The draft should be accurate, engaging, reader-focused, and discoverable without misleading headlines.
 
 ## Usage
 
@@ -20,25 +22,24 @@ Create a well-structured gaming article for Game Ako from the user's topic and a
 /write-article "How premium RPGs are changing; feature article for PC and console players"
 ```
 
-## Implementation Steps
+## Workflow
 
-1. **Parse the brief.** Identify the article topic and type (review, news update, feature, or opinion), target reader, platform, length, tone, supplied notes, and any deadline. Ask one clarifying question only if a missing detail materially changes the article; otherwise have the agent state a brief assumption.
-2. **Delegate writing.** Invoke `game-content-writer` with the full brief. Require it to follow `.agents/skills/game-content-writer/SKILL.md`, research factual or current claims, cite sources, distinguish facts from opinion, optimize naturally for the requested platform, and avoid clickbait.
-3. **Check review claims.** For a requested hands-on review, pass through the user's gameplay notes. If none are supplied, do not claim hands-on experience; return a source-based overview/preview or ask whether Arohbi wants to provide notes.
-4. **Return the draft.** Present the headline, article, source notes, and relevant verification caveats. Keep it on screen unless Arohbi explicitly asks for a saved artifact.
+1. **Parse the brief.** Identify the article topic and type (review, news update, feature, or opinion), target reader, length, tone, language (English by default), supplied notes, and any deadline. Ask one clarifying question only if a missing detail materially changes the article; otherwise state a brief assumption.
+2. **Delegate writing.** Give `game-content-writer` the full brief. Require it to follow the `article-writing` skill, research factual or current claims, cite sources, distinguish facts from opinion, optimize naturally for the blog, and avoid clickbait. If you are `game-content-writer` or delegation is unavailable, follow the skill yourself.
+3. **Check review claims.** For a hands-on review, pass through Arohbi's gameplay notes. If none are supplied, do not claim hands-on experience; return a source-based overview or preview, or ask whether Arohbi wants to provide notes.
+4. **Return the draft.** Present the headline, article, source notes, and verification caveats. Keep it on screen unless Arohbi asks to save it; then follow `context/artifacts.md` and save under `docs/game-ako/articles/`.
 5. **Respect publication boundaries.** Do not publish, schedule, or share the draft.
 
-## Important Notes
+## Notes
 
 - Preserve the requested article type and intended audience.
-- Use direct sources for factual claims; clearly attribute promotional or forecast claims.
-- Keep social posts and captions within `social-post-writing`; this command creates editorial articles.
-- `/latest-in-ai` is reserved for Asurada; do not invoke or delegate it.
+- Use direct sources for factual claims; attribute promotional or forecast claims.
+- Social posts and captions belong to `social-post-writer`; this command creates editorial articles.
 
-## Error Handling
+## Error handling
 
-If relevant sources cannot be accessed or claims cannot be verified, say which details need checking and keep them out of the article as established facts. If the writing agent is unavailable, explain that and offer only work supported by the available evidence without implying delegation succeeded.
+If sources cannot be accessed or claims cannot be verified, say which details need checking and keep them out of the article as established facts. If the writing agent is unavailable, say so and offer only work supported by the available evidence, without implying delegation succeeded.
 
-## Success Criteria
+## Completion criteria
 
-Stop when a coherent article fits the brief, important factual claims have direct source support or are clearly flagged, and any assumptions or review limitations are visible.
+A coherent article fits the brief, important factual claims have direct source support or are clearly flagged, and assumptions or review limitations are visible.

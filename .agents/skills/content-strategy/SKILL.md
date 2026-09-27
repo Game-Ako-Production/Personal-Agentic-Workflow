@@ -5,14 +5,14 @@ description: Build a practical, sustainable content plan for Game Ako from a top
 
 # Content Strategy
 
-Turn the supplied goal or topic into a small plan Arohbi can realistically execute. Follow the Game Ako context below; if the user provides newer channel information, use it instead.
+Turn the supplied goal or topic into a small plan Arohbi can realistically execute. Read `context/game-ako.md` for platform roles, pillars, formats, and dated audience figures; if Arohbi provides newer channel information, use it instead.
 
-## Channel context
+## Planning rules
 
-- YouTube is the home base and monetization target. Long-form podcasts and commentary belong on YouTube and should consider search and suggested discovery.
-- Facebook is a promotion channel. Keep it limited to reels, engagement posts, and announcements, with a path toward following YouTube. Do not plan full podcasts or commentary videos as Facebook-native pieces.
-- The creator has cited roughly 190 YouTube subscribers and 119k Facebook followers, with the Facebook audience largely grown through an earlier paid boost. Treat these as dated context, not live analytics; don't infer engagement or growth without current data.
-- Pillars: game livestreams, industry commentary, industry podcast discussion. Available formats: livestream, commentary video, podcast, reel, short, Facebook engagement post, Facebook announcement.
+- YouTube is the home base. Long-form podcasts and commentary belong on YouTube and should consider search and suggested discovery.
+- Facebook is promotion only: reels, engagement posts, and announcements, each with a path toward following YouTube. Do not plan full podcasts or commentary videos as Facebook-native pieces.
+- Blog articles can extend a topic in writing; plan them only when they fit the goal.
+- Treat audience figures as dated context, not live analytics; don't infer engagement or growth without current data.
 
 ## Workflow
 
@@ -24,4 +24,4 @@ Turn the supplied goal or topic into a small plan Arohbi can realistically execu
 
 ## Boundaries
 
-This skill plans content; it does not draft scripts, titles, descriptions, or standalone social copy. Route those tasks to the corresponding writing skill. Do not publish or save an artifact unless Arohbi requests it.
+This skill plans content; it does not draft scripts, titles, descriptions, or standalone social copy. Route those tasks to the corresponding writing skill. Do not publish. Save a plan only when Arohbi requests it, following `context/artifacts.md` and saving under `docs/game-ako/plans/`.

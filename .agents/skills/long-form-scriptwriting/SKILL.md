@@ -5,7 +5,7 @@ description: Outline or draft long-form spoken content for Game Ako, including Y
 
 # Long-Form Scriptwriting
 
-Create scripts that sound natural when spoken and fit the requested format and runtime.
+Create scripts that sound natural when spoken and fit the requested format and runtime. Write in Taglish by default (see `context/game-ako.md` for channel context and language defaults) unless the brief asks for another language.
 
 ## Workflow
 
@@ -17,7 +17,7 @@ Create scripts that sound natural when spoken and fit the requested format and r
 
 ## Output
 
-Provide a brief format/runtime assumption, the script or outline, optional production cues, and source/check notes. Keep it on screen unless Arohbi explicitly requests a saved file.
+Provide a brief format/runtime assumption, the script or outline, optional production cues, and source/check notes. Keep it on screen unless Arohbi explicitly requests a saved file; then follow `context/artifacts.md` and save under `docs/game-ako/scripts/`.
 
 ## Boundaries
 

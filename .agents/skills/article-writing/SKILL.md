@@ -1,20 +1,20 @@
 ---
-name: game-content-writer
-description: Write engaging and well-researched Game Ako gaming articles, reviews, news updates, features, and opinion pieces. Use whenever Arohbi requests gaming editorial content, with source attribution, natural SEO, and honest distinction between reporting and opinion.
+name: article-writing
+description: Write engaging, well-researched Game Ako blog articles, reviews, news updates, features, and opinion pieces. Use whenever Arohbi requests gaming editorial content or runs /write-article; provides source attribution, natural SEO, and honest separation of reporting and opinion.
 ---
 
-# Game Content Writer
+# Article Writing
 
-Create useful, engaging editorial content for Game Ako. Use the requested article type, topic, audience, platform, and voice; ask one clarifying question only when a missing detail materially changes the result.
+Create useful, engaging editorial content for the Game Ako blog. Use the requested article type, topic, audience, and voice; ask one clarifying question only when a missing detail materially changes the result. Channel facts and language defaults are in `context/game-ako.md` (blog articles default to English).
 
 ## Workflow
 
-1. **Set the brief.** Identify whether the user wants a review, news update, feature, opinion piece, or another editorial format. Capture the topic, intended reader, platform, desired length, tone, and deadline if provided. When details are missing but not essential, state a short assumption.
+1. **Set the brief.** Identify whether the user wants a review, news update, feature, opinion piece, or another editorial format. Capture the topic, intended reader, desired length, tone, language, and deadline if provided. When details are missing but not essential, state a short assumption.
 2. **Research claims.** For current or factual topics, use available research tools to verify important claims. Prefer primary sources such as developer or publisher announcements, official social accounts, official documentation, and original data; use transparent industry reports and reliable independent reporting for context. Cite direct links, distinguish event dates from report dates when useful, attribute forecasts and promotional claims, and flag unresolved details.
 3. **Handle reviews honestly.** Use first-hand gameplay notes and opinions supplied by Arohbi. Do not imply that the writer played a game, tested a feature, or experienced an event. If no first-hand experience is supplied, write a clearly labeled source-based overview or preview, or ask for notes if a hands-on review is essential.
 4. **Shape the article.** Build a clear structure suited to the requested format. Use an accurate, engaging headline and introduction; organize sections around reader value; keep the tone friendly and authoritative. Add humor or puns sparingly when they fit.
-5. **Optimize without clickbait.** Use likely search terms naturally in the headline and body. Make the article easy to scan with useful headings. Add concise SEO elements such as a meta description or keyword suggestions only when they help the requested platform or deliverable. Do not promise search ranking or reach.
-6. **Review and deliver.** Check clarity, structure, factual support, attribution, tone, and that the headline matches the article. Separate source notes and fact-check caveats from the publishable draft. Present on screen unless Arohbi explicitly requests a saved file.
+5. **Optimize without clickbait.** Use likely search terms naturally in the headline and body. Make the article easy to scan with useful headings. Add concise SEO elements such as a meta description or keyword suggestions when they help the blog post. Do not promise search ranking or reach.
+6. **Review and deliver.** Check clarity, structure, factual support, attribution, tone, and that the headline matches the article. Separate source notes and fact-check caveats from the publishable draft. Present on screen unless Arohbi explicitly requests a saved file; then follow `context/artifacts.md` and save under `docs/game-ako/articles/`.
 
 ## Output
 
@@ -38,5 +38,4 @@ For opinion pieces, label opinion as opinion and support factual premises with s
 ## Related workflow
 
 - The `game-content-writer` agent uses this skill for editorial drafting.
-- The `/write-article` command runs `commands/write-article.md` and delegates to that agent.
-
+- The `/write-article` command runs `commands/write-article.md` and delegates to that agent. On platforms without project commands (Codex), when Arohbi asks to run `/write-article`, read and follow `commands/write-article.md`.

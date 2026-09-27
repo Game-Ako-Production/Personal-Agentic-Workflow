@@ -5,7 +5,7 @@ description: Write or revise concise, self-contained scripts for YouTube Shorts,
 
 # Short-Form Scriptwriting
 
-Make each script easy to understand without requiring the viewer to have seen a longer video.
+Make each script easy to understand without requiring the viewer to have seen a longer video. Write in Taglish by default (see `context/game-ako.md` for channel context and language defaults) unless the brief asks for another language.
 
 ## Workflow
 
@@ -17,7 +17,7 @@ Make each script easy to understand without requiring the viewer to have seen a 
 
 ## Output
 
-Return the spoken script with optional on-screen text or simple production cues, plus an estimated duration and any fact-check notes. Keep it on screen unless Arohbi asks for a saved file.
+Return the spoken script with optional on-screen text or simple production cues, plus an estimated duration and any fact-check notes. Keep it on screen unless Arohbi asks for a saved file; then follow `context/artifacts.md` and save under `docs/game-ako/scripts/`.
 
 ## Boundaries
 

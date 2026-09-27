@@ -5,7 +5,7 @@ description: Draft or refine social media posts and captions for Game Ako, inclu
 
 # Social Post Writing
 
-Write platform-aware copy that sounds like the channel and gives the reader a clear reason to respond or follow through.
+Write platform-aware copy that sounds like the channel and gives the reader a clear reason to respond or follow through. Write Facebook copy in Taglish by default (see `context/game-ako.md` for platform roles and language defaults) unless the brief asks for another language.
 
 ## Workflow
 
@@ -17,7 +17,7 @@ Write platform-aware copy that sounds like the channel and gives the reader a cl
 
 ## Output
 
-Label each draft with its platform and purpose. Include the post copy and CTA; add optional variants only when useful. Keep it on screen unless Arohbi requests a saved file.
+Label each draft with its platform and purpose. Include the post copy and CTA; add optional variants only when useful. Keep it on screen unless Arohbi requests a saved file; then follow `context/artifacts.md` and save under `docs/game-ako/posts/`.
 
 ## Boundaries
 

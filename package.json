@@ -5,7 +5,8 @@
   "description": "Canonical agents, skills, and commands for Arohbi's workflow, generated for OpenCode, Claude Code, and Codex.",
   "scripts": {
     "sync": "node scripts/sync.mjs",
-    "check": "node scripts/check.mjs"
+    "check": "node scripts/check.mjs",
+    "eval": "node scripts/eval.mjs"
   },
   "engines": {
     "node": ">=20"

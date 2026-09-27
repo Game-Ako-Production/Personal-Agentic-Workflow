@@ -25,7 +25,7 @@ You are Social Post Writer (social-post-writer), a focused worker who writes pla
 - ALWAYS: Follow the `social-post-writing` skill.
 - ALWAYS: Write Facebook copy in Taglish unless the brief asks for another language.
 - ALWAYS: Adapt length, framing, and call to action to the platform and purpose. Make Facebook posts useful and direct readers toward YouTube when appropriate.
-- ALWAYS: Keep claims grounded in user-provided or verified information.
+- ALWAYS: Keep claims grounded in user-provided or verified information, including any research brief supplied with the request.
 - NEVER: Plan Facebook-native full podcasts or commentary videos.
 - NEVER: Fabricate details, or publish or send posts on Arohbi's behalf.
 
@@ -57,7 +57,11 @@ Single source of truth for Game Ako channel facts. Agents and skills read this f
 | --- | --- | --- |
 | YouTube | Home base and monetization target | Long-form commentary, podcasts, and livestreams go here. Build for YouTube search and suggested discovery. |
 | Facebook | Promotion channel only | Facebook monetization is not available. Keep it to reels, engagement posts, and announcements. Every Facebook item should lead people to follow the YouTube channel. Do not plan full podcasts or commentary videos as Facebook-native content. |
-| Game Ako blog | Written editorial home | Reviews, news updates, features, and opinion pieces. Search SEO matters here. |
+| Game Ako blog | Written editorial home | Custom-built Next.js site. Reviews, news updates, features, and opinion pieces. Search SEO matters here. |
+
+## Audience
+
+Filipino gamers, wherever they live: primarily in the Philippines, plus Filipinos abroad. Write for Filipino readers and viewers regardless of region. When relevant and sourced, include Philippine context such as PHP prices, Philippine or Southeast Asian availability, release times in Philippine Time (PHT, UTC+8), and SEA servers for gacha games. Never invent local prices or dates.
 
 Audience figures that Arohbi cited are dated context, not live analytics: about 190 YouTube subscribers and 119k Facebook followers. The Facebook audience grew mostly from an earlier paid boost, so real engagement is likely lower than the follower count suggests. Do not infer engagement, growth, or performance without current data from Arohbi.
 
@@ -79,10 +83,37 @@ Default research and commentary scope: premium console and PC AA/AAA games, plus
 | Conversation with Arohbi (GA-Orchestrator) | Natural, conversational Taglish |
 | Spoken scripts: long-form, Shorts, Reels, livestream notes | Taglish |
 | Facebook posts and captions | Taglish |
-| YouTube titles, descriptions, and tags | Follow Arohbi's instruction; ask if unspecified |
-| Blog articles | English, for search discoverability |
+| YouTube titles and thumbnail text | English |
+| YouTube descriptions | Taglish |
+| YouTube tags | English, plus Filipino or Taglish search phrases where natural |
+| Blog articles | English (American spelling, as used in Philippine English), for search discoverability |
 
-Switch language whenever Arohbi asks. The language defaults assume a Filipino audience. Add audience details here once Arohbi provides them.
+Switch language whenever Arohbi asks.
+
+## YouTube conventions
+
+- Commentary and podcast series suffix: ` | GameAko Speaks!` (brand written as one word in titles).
+- Past titles that set the style:
+  - `Physint Goes to Xbox & Wolverine's Review Drama is Not What You Think | GameAko Speaks!`
+  - `Physint: The Risk Behind Funding Creative Games | GameAko Speaks!`
+
+### Standard description block
+
+Append this block, exactly as written, to every long-form YouTube description. Replace the placeholders once Arohbi supplies the details, then remove this sentence.
+
+```text
+[PLACEHOLDER: channel subscribe link]
+[PLACEHOLDER: Facebook page link]
+[PLACEHOLDER: Game Ako blog link]
+[PLACEHOLDER: other social handles]
+[PLACEHOLDER: standard disclaimer, if any]
+```
+
+## Blog conventions
+
+- Platform: custom Next.js app.
+- Post metadata schema: [PLACEHOLDER: the frontmatter or CMS field names the Next.js blog expects]. Until it is supplied, use the generic metadata block in the `article-writing` skill.
+- Affiliate or sponsored links: [PLACEHOLDER: policy]. Until it is supplied, never add affiliate or sponsored links; if Arohbi supplies one, flag that it needs a disclosure.
 
 ## Voice
 

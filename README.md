@@ -5,34 +5,89 @@ Arohbi's unified agent workspace. One front door, Asurada, routes work to domain
 | Domain | Lead | Use it for |
 | --- | --- | --- |
 | Personal and AI trends | Asurada | Research, analysis, automation, decisions; `/latest-in-ai` weekly digest |
-| Video game guides | Asurada + `game-guide-expert` skill | Builds, bosses, routes, walkthroughs |
-| Game Ako content and blog | GA-Orchestrator | `/create-content`, `/write-article`, `/scout-gaming-trend` |
+| Video game guides | Game Guide (SecondSeat principle) | Quick, spoiler-safe help while playing: builds, bosses, routes, missables |
+| Game Ako content and blog | GA-Orchestrator | `/create-content`, `/write-article`, `/scout-gaming-trend`, YouTube packaging |
 | Workflow utilities | Any agent | `/scaffold-workflow` to add agents, skills, commands, and domains |
 
-`registry.md` has the full, always-current map, including the delegation diagram.
+`registry.md` has the full, always-current map of agents, commands, skills, and artifact folders.
+
+## Delegation map
+
+Double-bordered boxes are agents you can open directly; single boxes are subagents; hexagons are commands. Solid arrows are delegation; dotted arrows show direct access or which agent a command runs as.
+
+<!-- BEGIN GENERATED: delegation-map (npm run sync) -->
+
+```mermaid
+flowchart LR
+  user([Arohbi])
+  subgraph domain_personal["Personal assistance and AI trends"]
+    asurada[[asurada]]
+    cmd_latest_in_ai{{"/latest-in-ai"}}
+  end
+  subgraph domain_game_guide["Video game guides"]
+    game_guide[[game-guide]]
+    cmd_game_guide{{"/game-guide"}}
+  end
+  subgraph domain_game_ako["Game Ako content and blog"]
+    content_strategist[content-strategist]
+    ga_orchestrator[[ga-orchestrator]]
+    game_content_writer[game-content-writer]
+    gaming_trend_scout[gaming-trend-scout]
+    scriptwriter[scriptwriter]
+    social_post_writer[social-post-writer]
+    cmd_create_content{{"/create-content"}}
+    cmd_scout_gaming_trend{{"/scout-gaming-trend"}}
+    cmd_write_article{{"/write-article"}}
+  end
+  subgraph domain_utility["Workflow utilities"]
+    cmd_scaffold_workflow{{"/scaffold-workflow"}}
+  end
+  user --> asurada
+  user -.-> ga_orchestrator
+  user -.-> game_guide
+  asurada --> domain_game_guide
+  asurada --> domain_game_ako
+  ga_orchestrator --> content_strategist
+  ga_orchestrator --> scriptwriter
+  ga_orchestrator --> social_post_writer
+  ga_orchestrator --> game_content_writer
+  ga_orchestrator --> gaming_trend_scout
+  cmd_create_content -.-> ga_orchestrator
+  cmd_game_guide -.-> game_guide
+  cmd_latest_in_ai -.-> asurada
+  cmd_scout_gaming_trend -.-> gaming_trend_scout
+  cmd_write_article -.-> ga_orchestrator
+```
+
+<!-- END GENERATED: delegation-map -->
+
+How the pieces fit together (sources, generator, skills, and artifacts): `docs/architecture/workflow-relationships.md`.
 
 ## Using it
 
-- **OpenCode / Claude Code:** sessions in this repository open as Asurada. Ask for anything; Asurada delegates single deliverables straight to a specialist and hands multi-piece Game Ako work to GA-Orchestrator. You can also switch to GA-Orchestrator directly.
-- **Codex:** ask for the `asurada` or `ga-orchestrator` agent. Commands are available as skills (for example, "run create-content").
+- **OpenCode / Claude Code:** sessions in this repository open as Asurada. Ask for anything; Asurada answers directly, delegates single deliverables to a specialist, and hands multi-piece Game Ako work to GA-Orchestrator. You can also switch straight to GA-Orchestrator or Game Guide.
+- **Codex:** ask for the `asurada`, `ga-orchestrator`, or `game-guide` agent. Commands are available as skills (for example, "run create-content").
 
 Commands:
 
 - `/latest-in-ai [slug]` saves an AI trend digest to `docs/ai-trends/` (Asurada only).
-- `/create-content <topic and content type>` plans or drafts Game Ako scripts, posts, and packages.
-- `/write-article <topic and article type>` drafts a Game Ako blog article.
+- `/game-guide <game> <question>` gives quick, spoiler-safe help for a game you are playing.
+- `/create-content <topic and content type>` plans or drafts Game Ako scripts, YouTube packaging, posts, and packages.
+- `/write-article <topic and article type>` drafts a Game Ako blog article with SEO metadata.
 - `/scout-gaming-trend <topic> [time period]` returns a sourced gaming trend brief.
 - `/scaffold-workflow [all=true|agent=true|skill=true|command=true] <brief>` extends the workspace.
 
 ## Extending it
 
 1. Describe the new work (see `templates/brief.md`) and run `/scaffold-workflow`, or edit the canonical sources directly: `workflow.yaml`, `agents/`, `commands/`, `.agents/skills/`, `context/`.
-2. Run `npm run sync` to regenerate platform files and `registry.md`.
+2. Run `npm run sync` to regenerate platform files, `registry.md`, and the map above.
 3. Run `npm run check` until it passes.
-4. Restart your OpenCode, Claude Code, or Codex session to load the changes.
+4. Optionally add routing cases to `tests/routing.yaml` and run `npm run eval` (uses OpenCode and model calls).
+5. Restart your OpenCode, Claude Code, or Codex session to load the changes.
 
 See `AGENTS.md` for conventions and platform details.
 
 ## Open items
 
-- Add the SecondSeat principle to `game-guide-expert` once it is defined.
+- Fill in the placeholders in `context/game-ako.md`: the YouTube standard description block, the Next.js blog metadata schema, and the affiliate or sponsorship policy.
+- Analytics-fed channel review is deferred.

@@ -24,4 +24,4 @@ Turn the supplied goal or topic into a small plan Arohbi can realistically execu
 
 ## Boundaries
 
-This skill plans content; it does not draft scripts, titles, descriptions, or standalone social copy. Route those tasks to the corresponding writing skill. Do not publish. Save a plan only when Arohbi requests it, following `context/artifacts.md` and saving under `docs/game-ako/plans/`.
+This skill plans content; it does not draft scripts, titles, descriptions, or standalone social copy. Route those tasks to the corresponding writing skill (`long-form-scriptwriting`, `short-form-scriptwriting`, `youtube-packaging`, `social-post-writing`, or `article-writing`). Do not publish. Save a plan only when Arohbi requests it, following `context/artifacts.md` and saving under `docs/game-ako/plans/`.

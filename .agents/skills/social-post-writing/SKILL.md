@@ -21,4 +21,4 @@ Label each draft with its platform and purpose. Include the post copy and CTA; a
 
 ## Boundaries
 
-This skill writes post copy; it does not create scripts, content calendars, or YouTube SEO packages. Do not publish, schedule, or send posts.
+This skill writes post copy; it does not create scripts, content calendars, or YouTube titles, descriptions, and tags (use `youtube-packaging`). Do not publish, schedule, or send posts.

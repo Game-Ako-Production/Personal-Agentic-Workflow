@@ -5,15 +5,25 @@ description: Write engaging, well-researched Game Ako blog articles, reviews, ne
 
 # Article Writing
 
-Create useful, engaging editorial content for the Game Ako blog. Use the requested article type, topic, audience, and voice; ask one clarifying question only when a missing detail materially changes the result. Channel facts and language defaults are in `context/game-ako.md` (blog articles default to English).
+Create useful, engaging editorial content for the Game Ako blog, a custom Next.js site read mainly by Filipino gamers in the Philippines and abroad. Use the requested article type, topic, audience, and voice; ask one clarifying question only when a missing detail materially changes the result. Channel facts, audience, language defaults, and blog conventions are in `context/game-ako.md` (blog articles default to English with American spelling).
+
+## Length defaults
+
+| Type | Words |
+| --- | --- |
+| News update | 400–700 |
+| Opinion piece | 800–1,400 |
+| Feature or review | 1,000–1,800 |
+
+Follow any length Arohbi specifies instead.
 
 ## Workflow
 
 1. **Set the brief.** Identify whether the user wants a review, news update, feature, opinion piece, or another editorial format. Capture the topic, intended reader, desired length, tone, language, and deadline if provided. When details are missing but not essential, state a short assumption.
-2. **Research claims.** For current or factual topics, use available research tools to verify important claims. Prefer primary sources such as developer or publisher announcements, official social accounts, official documentation, and original data; use transparent industry reports and reliable independent reporting for context. Cite direct links, distinguish event dates from report dates when useful, attribute forecasts and promotional claims, and flag unresolved details.
+2. **Research claims.** When the brief includes a research brief from `gaming-trend-scout` or sources from Arohbi, use them as the factual basis and fill gaps with your own checks. For current or factual topics, use available research tools to verify important claims. Prefer primary sources such as developer or publisher announcements, official social accounts, official documentation, and original data; use transparent industry reports and reliable independent reporting for context. Cite direct links, distinguish event dates from report dates when useful, attribute forecasts and promotional claims, and flag unresolved details.
 3. **Handle reviews honestly.** Use first-hand gameplay notes and opinions supplied by Arohbi. Do not imply that the writer played a game, tested a feature, or experienced an event. If no first-hand experience is supplied, write a clearly labeled source-based overview or preview, or ask for notes if a hands-on review is essential.
 4. **Shape the article.** Build a clear structure suited to the requested format. Use an accurate, engaging headline and introduction; organize sections around reader value; keep the tone friendly and authoritative. Add humor or puns sparingly when they fit.
-5. **Optimize without clickbait.** Use likely search terms naturally in the headline and body. Make the article easy to scan with useful headings. Add concise SEO elements such as a meta description or keyword suggestions when they help the blog post. Do not promise search ranking or reach.
+5. **Optimize without clickbait.** Pick one primary keyword that Filipino gamers would actually search (usually English; add a Filipino or Taglish phrase only when that is how people search). Use it naturally in the headline, the first paragraph, and at least one subheading. Make the article easy to scan with descriptive H2 and H3 headings. Add Philippine context when relevant and sourced (PHP prices, PH/SEA availability, release times in PHT, SEA servers). Produce the SEO metadata block below. Do not promise search ranking or reach.
 6. **Review and deliver.** Check clarity, structure, factual support, attribution, tone, and that the headline matches the article. Separate source notes and fact-check caveats from the publishable draft. Present on screen unless Arohbi explicitly requests a saved file; then follow `context/artifacts.md` and save under `docs/game-ako/articles/`.
 
 ## Output
@@ -21,19 +31,42 @@ Create useful, engaging editorial content for the Game Ako blog. Use the request
 Return a concise note of any assumptions, then:
 
 - Headline (and useful headline alternatives only when requested or genuinely helpful)
-- Article introduction and body with clear section headings
+- Article introduction and body with clear section headings (Markdown, starting at H2; the headline is the page title)
+- SEO metadata block (below)
 - Source notes with direct links for factual reporting
-- Optional SEO elements, when relevant to the brief
 - Fact-check questions or limits, if any
 
 For opinion pieces, label opinion as opinion and support factual premises with sources. Keep the article itself readable; don't overload it with research notes.
+
+### SEO metadata block
+
+If `context/game-ako.md` defines the Next.js blog's metadata schema, use its field names exactly. Until then, return this YAML block so it can be pasted into post frontmatter or a CMS:
+
+```yaml
+title: "Headline shown on the page"
+seoTitle: "Search title, at most 60 characters, primary keyword first"
+slug: "lowercase-kebab-case-with-primary-keyword"
+metaDescription: "140 to 160 characters that summarize the article and include the primary keyword"
+excerpt: "One or two sentences for the blog listing card"
+primaryKeyword: "main search phrase"
+secondaryKeywords: ["related phrase", "related phrase"]
+category: "News | Review | Feature | Opinion"
+tags: ["game title", "studio", "platform"]
+ogTitle: "Social share title (may match title)"
+ogDescription: "Social share description, up to about 200 characters"
+featuredImageAlt: "Literal description of the suggested featured image"
+featuredImageSuggestion: "What image to use and where it comes from (official press kit, screenshot)"
+internalLinkIdeas: ["Topic of a related Game Ako post or video to link, if one exists"]
+```
+
+Never invent URLs for internal links; describe the related topic and let Arohbi supply the link. Do not add affiliate or sponsored links unless Arohbi supplies them, and flag any that need a disclosure.
 
 ## Boundaries
 
 - Do not invent facts, dates, quotes, sources, metrics, gameplay, or first-person experience.
 - Do not write misleading clickbait or present an opinion as verified fact.
 - Do not publish, schedule, or share drafts or create saved artifacts unless explicitly requested.
-- Do not write scripts; use the Game Ako scriptwriting skills. Route short platform captions or posts to `social-post-writing`.
+- Do not write scripts; use the Game Ako scriptwriting skills. Route short platform captions or posts to `social-post-writing`, and YouTube titles or descriptions to `youtube-packaging`.
 
 ## Related workflow
 

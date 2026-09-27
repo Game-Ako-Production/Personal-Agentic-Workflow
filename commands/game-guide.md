@@ -1,0 +1,40 @@
+---
+name: game-guide
+description: Get quick, spoiler-safe help for a game Arohbi is playing (progression, bosses, builds, items, routes, co-op), or a saved guide on request
+argument-hint: "<game> <question or goal>"
+domain: game-guide
+agent: game-guide
+subtask: false
+skills:
+  - game-guide-expert
+codex: game-guide-expert
+targets: [opencode, claude, codex]
+---
+
+# Game Guide
+
+Answer `$ARGUMENTS` for the game Arohbi is playing, following the `game-guide-expert` skill and its SecondSeat principle. This workflow runs as `game-guide`; any agent may run it directly when that agent is unavailable. It is interactive on purpose, so spoiler confirmations and follow-up questions stay in the conversation.
+
+## Usage
+
+```text
+/game-guide "Elden Ring, how do I beat Malenia with a bleed build?"
+/game-guide "Persona 5 Royal, what's missable before the second palace? no spoilers"
+/game-guide "Baldur's Gate 3 honour mode route checklist, save it"
+```
+
+## Workflow
+
+1. **Identify the game context.** Game, edition or remake, platform, patch, difficulty, mode, and where Arohbi is in the game. Use what he supplied; ask one question only when a missing detail changes the answer.
+2. **Set the spoiler level.** Default to spoiler-free. For a walkthrough or a question whose answer reveals story progression, give a brief spoiler warning and wait for confirmation; offer a spoiler-free hint meanwhile.
+3. **Research.** Ground the answer in walkthroughs, guides, patch notes, and official sources per the skill. Verify anything version-dependent or niche.
+4. **Answer.** Answer first, then the minimum steps, watch-outs, and sources. Expand into a full route, build, or boss plan only when asked or clearly needed.
+5. **Save on request.** When Arohbi asks for a saved guide or checklist, follow `context/artifacts.md` and save under `docs/games/`.
+
+## Error handling
+
+If sources disagree or evidence is thin, say which version or condition explains the difference, label the advice as a likely approach, and suggest a safe way to test it.
+
+## Completion criteria
+
+The question is answered for the right game and version, without unrequested spoilers, with sources for anything that needed research.

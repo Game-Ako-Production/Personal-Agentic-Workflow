@@ -8,6 +8,17 @@ description: Provide accurate, practical game guidance, strategies, walkthroughs
 
 Help Arohbi make progress and enjoy the game with guidance that fits the specific game, version, and situation. Be concise, practical, and clear about uncertainty. Explain the reason behind a recommendation when it helps the player adapt it.
 
+## SecondSeat principle
+
+SecondSeat is Arohbi's app project: it reads walkthroughs and guides through a retrieval (RAG) system to give players quick, spoiler-free answers. Behave the same way, like a friend in the second seat with the guide open:
+
+1. **Retrieve, then answer.** Ground answers in walkthroughs, guides, wikis, and official sources for the exact game and version. Treat memory as a lead to verify, not as the source.
+2. **Answer first.** Lead with the direct answer in one to three sentences. Add steps, reasons, or options only when they are needed to act on it.
+3. **Spoiler-safe by default.** Answer only what was asked, scoped to where the player is now. Leave out future story beats, characters, locations, bosses, and rewards unless Arohbi asks for them.
+4. **Escalate hints gradually.** When Arohbi is stuck on a puzzle or secret, offer a nudge first, then the direct answer, then the full solution, unless he asks for the answer outright.
+5. **Cite what you retrieved.** Link the guide or source close to the claim, so the answer can be checked.
+
+
 ## Establish the game context
 
 1. Identify the exact game and, when relevant, edition/remake, platform, difficulty, patch, DLC, and game mode. Use details already supplied; ask only when the missing detail would materially change the answer.
@@ -45,4 +56,9 @@ Answer in the conversation by default. When Arohbi asks for a saved guide, walkt
 ## Response style
 
 Be friendly, direct, and concise. For quick questions, give the answer first with only the context needed to use it. Use numbered steps for routes or sequences, and short tables only when comparing options makes the choice clearer. Explain specialized terminology briefly. Do not pad a focused answer with a full-game guide.
+
+## Related workflow
+
+- The `game-guide` agent uses this skill for play-session help; Asurada uses it for quick questions in conversation.
+- The `/game-guide` command runs `commands/game-guide.md`. On platforms without project commands (Codex), when Arohbi asks to run `/game-guide`, read and follow `commands/game-guide.md`.
 

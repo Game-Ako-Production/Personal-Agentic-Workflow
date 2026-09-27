@@ -1,4 +1,5 @@
 // Structural validation of the canonical sources. Returns { errors, warnings }.
+import YAML from 'yaml'
 import {
   ACTIONS,
   MANAGED_DIRS,
@@ -154,6 +155,39 @@ export function validate(model) {
     }
   }
   for (const name of Object.keys(model.lock)) if (!skills.has(name)) warn('skills-lock.json', `locked skill "${name}" is not installed in .agents/skills/`)
+
+  // ---- routing test cases ----
+  if (exists('tests/routing.yaml')) {
+    const file = 'tests/routing.yaml'
+    let cases = []
+    try {
+      cases = YAML.parse(readText(file))?.cases ?? []
+    } catch (e) {
+      err(file, `cannot parse: ${e.message}`)
+    }
+    const ids = new Set()
+    for (const c of cases) {
+      const where = `${file} (${c?.id ?? '?'})`
+      if (!c?.id || ids.has(c.id)) err(where, 'every case needs a unique id')
+      ids.add(c?.id)
+      if (!agents.has(c?.agent)) err(where, `agent "${c?.agent}" is not an agent`)
+      else if (agents.get(c.agent).data.mode === 'subagent') err(where, `agent "${c.agent}" is a subagent; start cases from a primary agent`)
+      if (typeof c?.prompt !== 'string' || !c.prompt.trim()) err(where, 'missing prompt')
+      if (!isStringList(c?.expect) || !c.expect.length) {
+        err(where, '`expect` must be a non-empty list')
+        continue
+      }
+      for (const e of c.expect) {
+        const [kind, ...rest] = e.split(':')
+        const value = rest.join(':')
+        if (e === 'none') continue
+        if (kind === 'skill' && skills.has(value)) continue
+        if (kind === 'task' && agents.has(value)) continue
+        if (kind === 'read' && exists(value)) continue
+        err(where, `expectation "${e}" does not match an existing skill, agent, or file`)
+      }
+    }
+  }
 
   // ---- file references in canonical docs ----
   const docs = [

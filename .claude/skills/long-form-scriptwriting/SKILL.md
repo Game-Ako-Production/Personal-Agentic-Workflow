@@ -22,4 +22,4 @@ Provide a brief format/runtime assumption, the script or outline, optional produ
 
 ## Boundaries
 
-Do not invent quotations, statistics, current events, or sources. Do not publish or send the content. For short scripts use `short-form-scriptwriting`; for standalone platform copy use `social-post-writing`.
+Do not invent quotations, statistics, current events, or sources. Do not publish or send the content. For short scripts use `short-form-scriptwriting`; for YouTube titles, descriptions, chapters, and tags use `youtube-packaging`; for standalone platform copy use `social-post-writing`.

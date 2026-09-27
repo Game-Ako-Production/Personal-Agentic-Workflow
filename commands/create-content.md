@@ -1,14 +1,16 @@
 ---
 name: create-content
-description: Plan and create a Game Ako content piece or package (plan, long-form script, short-form script, social post) with companion pieces
+description: Plan and create a Game Ako content piece or package (plan, long-form script, short-form script, YouTube packaging, social post) with companion pieces
 argument-hint: "<topic and content type>"
 domain: game-ako
 agent: ga-orchestrator
 subtask: false
 skills:
+  - gaming-trend
   - content-strategy
   - long-form-scriptwriting
   - short-form-scriptwriting
+  - youtube-packaging
   - social-post-writing
 codex: wrapper
 targets: [opencode, claude, codex]
@@ -20,13 +22,15 @@ Treat `$ARGUMENTS` and the surrounding request as the brief. GA-Orchestrator nor
 
 ## Workflow
 
-1. Identify the requested output (long-form script, short-form script, social post, plan, or a package), topic, platform, audience, language, source material, desired length or timing, and constraints. Ask one clarifying question if a missing detail materially changes the work; otherwise state a concise assumption.
-2. If Arohbi asks for a plan or has not settled the angle, delegate to `content-strategist` (skill: `content-strategy`). Keep the plan achievable and YouTube-first.
-3. For a long-form script, delegate to `scriptwriter` (skill: `long-form-scriptwriting`). For a Short or Reel, delegate to `scriptwriter` (skill: `short-form-scriptwriting`). Match format, runtime, voice, language, and platform.
-4. For captions, announcements, or engagement copy, delegate to `social-post-writer` (skill: `social-post-writing`). Facebook posts stay promotional and direct readers to YouTube where relevant.
-5. For a package, produce the anchor piece first, then derive companion Shorts, Reels, or posts from its actual content. Preserve meaning and note what source material is needed before drafting clips.
-6. Verify factual and time-sensitive claims when research tools are available. Prefer primary sources, cite claims, and label uncertainty or opinion. Never invent details or metrics.
-7. Review returned pieces for consistency, unsupported claims, platform fit, language, and an appropriate call to action. Present the result with any assumptions and verification notes. When Arohbi asks to save, follow `context/artifacts.md` (plans in `docs/game-ako/plans/`, scripts in `docs/game-ako/scripts/`, posts in `docs/game-ako/posts/`).
+1. Identify the requested output (long-form script, short-form script, YouTube packaging, social post, plan, or a package), topic, platform, audience, language, source material, desired length or timing, and constraints. Ask one clarifying question if a missing detail materially changes the work; otherwise state a concise assumption.
+2. **Research first when the topic is time-sensitive.** If the content depends on current news or recent developments and Arohbi has not supplied current sources, delegate to `gaming-trend-scout` (skill: `gaming-trend`) for a short, sourced brief. Pass that brief to every writer below as source material. Skip this for evergreen topics.
+3. If Arohbi asks for a plan or has not settled the angle, delegate to `content-strategist` (skill: `content-strategy`). Keep the plan achievable and YouTube-first.
+4. For a long-form script, delegate to `scriptwriter` (skill: `long-form-scriptwriting`). For a Short or Reel, delegate to `scriptwriter` (skill: `short-form-scriptwriting`). Match format, runtime, voice, language, and platform.
+5. For YouTube titles, description, thumbnail text, chapters, or tags, delegate to `scriptwriter` (skill: `youtube-packaging`), passing the finished script when one exists. Include packaging by default in a full YouTube package.
+6. For captions, announcements, or engagement copy, delegate to `social-post-writer` (skill: `social-post-writing`). Facebook posts stay promotional and direct readers to YouTube where relevant.
+7. For a package, produce the anchor piece first, then derive its YouTube packaging and companion Shorts, Reels, or posts from its actual content. Preserve meaning and note what source material is needed before drafting clips.
+8. Check that factual and time-sensitive claims trace to the research brief or other cited sources. Label uncertainty and opinion; keep Arohbi's takes labelled as his and any suggested angle labelled as a suggestion. Never invent details or metrics.
+9. Review returned pieces for consistency, unsupported claims, platform fit, language, and an appropriate call to action. Present the result with any assumptions and verification notes. When Arohbi asks to save, follow `context/artifacts.md` (plans in `docs/game-ako/plans/`, scripts in `docs/game-ako/scripts/`, posts in `docs/game-ako/posts/`).
 
 ## Error handling
 

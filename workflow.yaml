@@ -22,9 +22,9 @@ domains:
 
   - id: game-guide
     title: Video game guides
-    lead: asurada
-    purpose: Walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play.
-    # A domain may claim skills whose users live in another domain (here, Asurada).
+    lead: game-guide
+    purpose: Quick, spoiler-safe walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play (SecondSeat principle).
+    # A domain may claim skills that agents from other domains also use (here, Asurada).
     skills: [game-guide-expert]
     artifacts: [docs/games/]
 

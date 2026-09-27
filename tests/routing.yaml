@@ -1,0 +1,78 @@
+# Routing test cases, run with `npm run eval` (OpenCode).
+#
+# Each case sends `prompt` to `agent` and records the first routing action:
+#   skill:<name>    the agent loaded a skill
+#   task:<agent>    the agent delegated to a subagent
+#   read:<path>     the agent opened a canonical workflow in commands/ or agents/
+#   none            the agent answered without any of the above
+# The case passes when that first action is listed in `expect`.
+# `npm run check` verifies that every name here exists.
+
+cases:
+  # ---- Asurada (front door) ----
+  - id: guide-quick-question
+    agent: asurada
+    prompt: "Elden Ring: where do I get the Mimic Tear spirit ash? Keep it spoiler-free."
+    expect: [skill:game-guide-expert, task:game-guide]
+
+  - id: ai-trends
+    agent: asurada
+    prompt: "What were the biggest AI model releases this past week? Just a quick roundup, no need to save."
+    expect: [skill:ai-trend-tracker]
+
+  - id: route-short-script
+    agent: asurada
+    prompt: "Write a Taglish YouTube Short script about Physint moving to Xbox."
+    expect: [task:gaming-trend-scout, task:scriptwriter, task:ga-orchestrator]
+
+  - id: route-blog-review
+    agent: asurada
+    prompt: "Draft a blog review of Clair Obscur: Expedition 33 from my notes: combat is excellent, the story drags in act 2, soundtrack is a 10/10."
+    expect: [task:game-content-writer, task:ga-orchestrator]
+
+  - id: route-content-plan
+    agent: asurada
+    prompt: "Plan the next two weeks of Game Ako content around the recent Xbox studio layoffs."
+    expect: [task:ga-orchestrator, task:gaming-trend-scout, task:content-strategist]
+
+  - id: route-youtube-packaging
+    agent: asurada
+    prompt: "I need a title, description, and tags for my GameAko Speaks! episode about the risk of funding creative games like Physint."
+    expect: [task:scriptwriter, task:ga-orchestrator]
+
+  - id: route-scaffold
+    agent: asurada
+    prompt: "I want to add a new domain to this workspace for my software engineering work, with a subagent that reviews pull requests. Set it up."
+    expect: [read:commands/scaffold-workflow.md, skill:scaffold-workflow]
+
+  - id: no-overtrigger
+    agent: asurada
+    prompt: "In two sentences, what is the difference between TCP and UDP?"
+    expect: [none]
+
+  # ---- GA-Orchestrator ----
+  - id: ga-facebook-post
+    agent: ga-orchestrator
+    prompt: "Gawa ka ng Facebook post announcing na live na yung bagong GameAko Speaks! episode namin sa YouTube tungkol sa AAA budgets."
+    expect: [task:social-post-writer]
+
+  - id: ga-gacha-trends
+    agent: ga-orchestrator
+    prompt: "Ano ang mga bagong updates sa Genshin Impact at Honkai: Star Rail this month?"
+    expect: [task:gaming-trend-scout]
+
+  - id: ga-scout-first-news
+    agent: ga-orchestrator
+    prompt: "Write a blog news article about this week's biggest console gaming announcement."
+    expect: [task:gaming-trend-scout]
+
+  - id: ga-evergreen-script
+    agent: ga-orchestrator
+    prompt: "Write a 10-minute GameAko Speaks! commentary script on why players love turn-based JRPG combat. Evergreen topic, no news needed."
+    expect: [task:scriptwriter]
+
+  # ---- Game Guide ----
+  - id: guide-missables
+    agent: game-guide
+    prompt: "Persona 5 Royal: is there anything missable before the second palace? No story spoilers."
+    expect: [skill:game-guide-expert]

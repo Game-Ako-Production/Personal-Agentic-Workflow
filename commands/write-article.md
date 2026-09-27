@@ -6,6 +6,7 @@ domain: game-ako
 agent: ga-orchestrator
 subtask: false
 skills:
+  - gaming-trend
   - article-writing
 codex: article-writing
 targets: [opencode, claude, codex]
@@ -25,10 +26,11 @@ Create a well-structured gaming article for the Game Ako blog from `$ARGUMENTS` 
 ## Workflow
 
 1. **Parse the brief.** Identify the article topic and type (review, news update, feature, or opinion), target reader, length, tone, language (English by default), supplied notes, and any deadline. Ask one clarifying question only if a missing detail materially changes the article; otherwise state a brief assumption.
-2. **Delegate writing.** Give `game-content-writer` the full brief. Require it to follow the `article-writing` skill, research factual or current claims, cite sources, distinguish facts from opinion, optimize naturally for the blog, and avoid clickbait. If you are `game-content-writer` or delegation is unavailable, follow the skill yourself.
-3. **Check review claims.** For a hands-on review, pass through Arohbi's gameplay notes. If none are supplied, do not claim hands-on experience; return a source-based overview or preview, or ask whether Arohbi wants to provide notes.
-4. **Return the draft.** Present the headline, article, source notes, and verification caveats. Keep it on screen unless Arohbi asks to save it; then follow `context/artifacts.md` and save under `docs/game-ako/articles/`.
-5. **Respect publication boundaries.** Do not publish, schedule, or share the draft.
+2. **Research first when the topic is time-sensitive.** For news updates, and any article that depends on recent developments, delegate to `gaming-trend-scout` (skill: `gaming-trend`) for a sourced brief unless Arohbi already supplied current sources. Skip this for evergreen topics or reviews built on his own notes.
+3. **Delegate writing.** Give `game-content-writer` the full brief, including the research brief as source material. Require it to follow the `article-writing` skill, research factual or current claims, cite sources, distinguish facts from opinion, optimize naturally for the blog, and avoid clickbait. If you are `game-content-writer` or delegation is unavailable, follow the skill yourself.
+4. **Check review claims.** For a hands-on review, pass through Arohbi's gameplay notes. If none are supplied, do not claim hands-on experience; return a source-based overview or preview, or ask whether Arohbi wants to provide notes.
+5. **Return the draft.** Present the headline, article, SEO metadata block, source notes, and verification caveats. Keep it on screen unless Arohbi asks to save it; then follow `context/artifacts.md` and save under `docs/game-ako/articles/`.
+6. **Respect publication boundaries.** Do not publish, schedule, or share the draft.
 
 ## Notes
 

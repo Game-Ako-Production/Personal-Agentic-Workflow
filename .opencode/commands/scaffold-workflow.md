@@ -47,7 +47,7 @@ From the repository root, read:
 1. `AGENTS.md`, `workflow.yaml`, and `registry.md` for conventions, domains, and existing entities.
 2. The matching templates: `templates/agent.md`, `templates/skill.md`, `templates/command.md`.
 3. When skills are selected, `.agents/skills/skill-creator/SKILL.md`. When commands are selected, `.agents/skills/command-creator/SKILL.md` and its relevant references.
-4. `docs/architecture/agentic-workflow-relationships.jpg` for the intended relationships: an agent triggers a creation skill; it creates agents, commands, and skills; agents and commands use skills; skills produce artifacts in `docs/` that feed later work.
+4. `docs/architecture/workflow-relationships.md` for the intended relationships: an agent triggers a creation skill; it creates agents, commands, and skills; agents and commands use skills; skills produce artifacts in `docs/` that feed later work.
 5. The existing canonical files for any entity the brief names, and one or two similar entities as format examples.
 
 `docs/archive/briefs/` holds historical briefs. Do not treat them as requirements.

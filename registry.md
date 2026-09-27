@@ -9,7 +9,7 @@ Start with `asurada`: it handles general requests and routes specialist work to 
 | Domain | Lead | Purpose | Artifacts |
 | --- | --- | --- | --- |
 | Personal assistance and AI trends (`personal`) | `asurada` | Daily research, analysis, automation, decision support, and the weekly AI trend digest. | `docs/ai-trends/` |
-| Video game guides (`game-guide`) | `asurada` | Walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play. | `docs/games/` |
+| Video game guides (`game-guide`) | `game-guide` | Quick, spoiler-safe walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play (SecondSeat principle). | `docs/games/` |
 | Game Ako content and blog (`game-ako`) | `ga-orchestrator` | Game Ako channel planning, scripts, social posts, blog articles, and gaming trend research. | `docs/game-ako/sources/`<br>`docs/game-ako/research/`<br>`docs/game-ako/plans/`<br>`docs/game-ako/scripts/`<br>`docs/game-ako/articles/`<br>`docs/game-ako/posts/` |
 | Workflow utilities (`utility`) | any agent | Scaffold and maintain agents, subagents, skills, and commands in this repository. | — |
 
@@ -18,30 +18,43 @@ Start with `asurada`: it handles general requests and routes specialist work to 
 ```mermaid
 flowchart LR
   user([Arohbi])
-  asurada[asurada]
-  content_strategist[content-strategist]
-  ga_orchestrator[ga-orchestrator]
-  game_content_writer[game-content-writer]
-  gaming_trend_scout[gaming-trend-scout]
-  scriptwriter[scriptwriter]
-  social_post_writer[social-post-writer]
+  subgraph domain_personal["Personal assistance and AI trends"]
+    asurada[[asurada]]
+    cmd_latest_in_ai{{"/latest-in-ai"}}
+  end
+  subgraph domain_game_guide["Video game guides"]
+    game_guide[[game-guide]]
+    cmd_game_guide{{"/game-guide"}}
+  end
+  subgraph domain_game_ako["Game Ako content and blog"]
+    content_strategist[content-strategist]
+    ga_orchestrator[[ga-orchestrator]]
+    game_content_writer[game-content-writer]
+    gaming_trend_scout[gaming-trend-scout]
+    scriptwriter[scriptwriter]
+    social_post_writer[social-post-writer]
+    cmd_create_content{{"/create-content"}}
+    cmd_scout_gaming_trend{{"/scout-gaming-trend"}}
+    cmd_write_article{{"/write-article"}}
+  end
+  subgraph domain_utility["Workflow utilities"]
+    cmd_scaffold_workflow{{"/scaffold-workflow"}}
+  end
   user --> asurada
   user -.-> ga_orchestrator
-  asurada --> content_strategist
-  asurada --> ga_orchestrator
-  asurada --> game_content_writer
-  asurada --> gaming_trend_scout
-  asurada --> scriptwriter
-  asurada --> social_post_writer
+  user -.-> game_guide
+  asurada --> domain_game_guide
+  asurada --> domain_game_ako
   ga_orchestrator --> content_strategist
   ga_orchestrator --> scriptwriter
   ga_orchestrator --> social_post_writer
   ga_orchestrator --> game_content_writer
   ga_orchestrator --> gaming_trend_scout
-  cmd_create_content{{"/create-content"}} -.-> ga_orchestrator
-  cmd_latest_in_ai{{"/latest-in-ai"}} -.-> asurada
-  cmd_scout_gaming_trend{{"/scout-gaming-trend"}} -.-> gaming_trend_scout
-  cmd_write_article{{"/write-article"}} -.-> ga_orchestrator
+  cmd_create_content -.-> ga_orchestrator
+  cmd_game_guide -.-> game_guide
+  cmd_latest_in_ai -.-> asurada
+  cmd_scout_gaming_trend -.-> gaming_trend_scout
+  cmd_write_article -.-> ga_orchestrator
 ```
 
 ## Personal assistance and AI trends (`personal`)
@@ -68,13 +81,25 @@ Daily research, analysis, automation, decision support, and the weekly AI trend 
 
 ## Video game guides (`game-guide`)
 
-Walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play.
+Quick, spoiler-safe walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play (SecondSeat principle).
+
+**Agents**
+
+| Agent | Mode | Called by | Delegates to | Skills | Description |
+| --- | --- | --- | --- | --- | --- |
+| `game-guide` | all | `asurada` | — | `game-guide-expert` | Game Guide gives quick, spoiler-safe help for Arohbi's own play sessions, including builds, bosses, routes, missables, co-op, and walkthroughs on request. Grounded in walkthroughs and guides, following the SecondSeat principle. |
+
+**Commands**
+
+| Command | Runs as | Isolated | Skills | Codex entry | Description |
+| --- | --- | --- | --- | --- | --- |
+| `/game-guide <game> <question or goal>` | `game-guide` | no | `game-guide-expert` | skill `game-guide-expert` | Get quick, spoiler-safe help for a game Arohbi is playing (progression, bosses, builds, items, routes, co-op), or a saved guide on request |
 
 **Skills**
 
 | Skill | Used by | Description |
 | --- | --- | --- |
-| `game-guide-expert` | `asurada` | Provide accurate, practical game guidance, strategies, walkthroughs, builds, boss help, progression routes, and co-op advice for retro and modern games. Use whenever Arohbi asks how to progress, improve, choose a build, beat an encounter, find an item, or plan a route in a game, especially JRPGs, action, adventure, survival, shooter, and open-world games. Check the exact game, edition, platform, and patch when they affect the answer; save requested guide artifacts under docs/games/. |
+| `game-guide-expert` | `asurada`, `game-guide`, `/game-guide` | Provide accurate, practical game guidance, strategies, walkthroughs, builds, boss help, progression routes, and co-op advice for retro and modern games. Use whenever Arohbi asks how to progress, improve, choose a build, beat an encounter, find an item, or plan a route in a game, especially JRPGs, action, adventure, survival, shooter, and open-world games. Check the exact game, edition, platform, and patch when they affect the answer; save requested guide artifacts under docs/games/. |
 
 ## Game Ako content and blog (`game-ako`)
 
@@ -85,19 +110,19 @@ Game Ako channel planning, scripts, social posts, blog articles, and gaming tren
 | Agent | Mode | Called by | Delegates to | Skills | Description |
 | --- | --- | --- | --- | --- | --- |
 | `content-strategist` | subagent | `asurada`, `ga-orchestrator` | — | `content-strategy` | Turns Game Ako goals and topics into achievable YouTube-first content plans, formats, schedules, and repurposing paths. |
-| `ga-orchestrator` | all | `asurada` | `content-strategist`, `scriptwriter`, `social-post-writer`, `game-content-writer`, `gaming-trend-scout` | — | GA Orchestrator leads the Game Ako domain, coordinating content plans, scripts, social posts, blog articles, and gaming trend research for Arohbi's YouTube and Facebook channel and blog. |
+| `ga-orchestrator` | all | `asurada` | `content-strategist`, `scriptwriter`, `social-post-writer`, `game-content-writer`, `gaming-trend-scout` | — | GA Orchestrator leads the Game Ako domain, coordinating content plans, scripts, YouTube packaging, social posts, blog articles, and gaming trend research for Arohbi's YouTube and Facebook channel and blog. |
 | `game-content-writer` | subagent | `asurada`, `ga-orchestrator` | — | `article-writing` | Write well-researched Game Ako blog articles, reviews, news updates, features, and opinion pieces with accurate sourcing and reader-friendly SEO. Use for gaming editorial writing; never invents hands-on review experience. |
 | `gaming-trend-scout` | subagent | `asurada`, `ga-orchestrator` | — | `gaming-trend` | Research current console and PC gaming developments, focusing on premium AA and AAA games, and cover gacha games including mobile gacha. Exclude other mobile gaming, esports, and competitive scenes. |
-| `scriptwriter` | subagent | `asurada`, `ga-orchestrator` | — | `long-form-scriptwriting`, `short-form-scriptwriting` | Writes conversational long-form and short-form scripts for Game Ako videos, podcasts, livestreams, Shorts, and Reels. |
+| `scriptwriter` | subagent | `asurada`, `ga-orchestrator` | — | `long-form-scriptwriting`, `short-form-scriptwriting`, `youtube-packaging` | Writes conversational long-form and short-form scripts for Game Ako videos, podcasts, livestreams, Shorts, and Reels, plus YouTube packaging (titles, descriptions, thumbnail text, chapters, tags). |
 | `social-post-writer` | subagent | `asurada`, `ga-orchestrator` | — | `social-post-writing` | Writes platform-specific social copy for Game Ako, with Facebook promotion that points viewers toward YouTube. |
 
 **Commands**
 
 | Command | Runs as | Isolated | Skills | Codex entry | Description |
 | --- | --- | --- | --- | --- | --- |
-| `/create-content <topic and content type>` | `ga-orchestrator` | no | `content-strategy`, `long-form-scriptwriting`, `short-form-scriptwriting`, `social-post-writing` | wrapper skill `create-content` | Plan and create a Game Ako content piece or package (plan, long-form script, short-form script, social post) with companion pieces |
+| `/create-content <topic and content type>` | `ga-orchestrator` | no | `gaming-trend`, `content-strategy`, `long-form-scriptwriting`, `short-form-scriptwriting`, `youtube-packaging`, `social-post-writing` | wrapper skill `create-content` | Plan and create a Game Ako content piece or package (plan, long-form script, short-form script, YouTube packaging, social post) with companion pieces |
 | `/scout-gaming-trend <topic or trend> [time period]` | `gaming-trend-scout` | yes | `gaming-trend` | skill `gaming-trend` | Research current console and PC premium AA and AAA games, plus gacha games including mobile gacha, and return a sourced Game Ako brief |
-| `/write-article <topic and article type>` | `ga-orchestrator` | no | `article-writing` | skill `article-writing` | Draft a researched Game Ako blog article, review, news update, feature, or opinion piece |
+| `/write-article <topic and article type>` | `ga-orchestrator` | no | `gaming-trend`, `article-writing` | skill `article-writing` | Draft a researched Game Ako blog article, review, news update, feature, or opinion piece |
 
 **Skills**
 
@@ -105,10 +130,11 @@ Game Ako channel planning, scripts, social posts, blog articles, and gaming tren
 | --- | --- | --- |
 | `article-writing` | `game-content-writer`, `/write-article` | Write engaging, well-researched Game Ako blog articles, reviews, news updates, features, and opinion pieces. Use whenever Arohbi requests gaming editorial content or runs /write-article; provides source attribution, natural SEO, and honest separation of reporting and opinion. |
 | `content-strategy` | `content-strategist`, `/create-content` | Build a practical, sustainable content plan for Game Ako from a topic, goal, audience, or requested cadence. Use whenever Arohbi asks what to make, how to sequence content, or how to plan YouTube and Facebook content. |
-| `gaming-trend` | `gaming-trend-scout`, `/scout-gaming-trend` | Research current console and PC gaming news, trends, announcements, and market developments, focusing on premium AA and AAA games. Also cover gacha games as an explicit exception, including mobile gacha; exclude other mobile gaming, esports, and competitive scenes. Use whenever Arohbi asks what is happening in these areas or wants a sourced brief for Game Ako content planning. |
+| `gaming-trend` | `gaming-trend-scout`, `/create-content`, `/scout-gaming-trend`, `/write-article` | Research current console and PC gaming news, trends, announcements, and market developments, focusing on premium AA and AAA games. Also cover gacha games as an explicit exception, including mobile gacha; exclude other mobile gaming, esports, and competitive scenes. Use whenever Arohbi asks what is happening in these areas or wants a sourced brief for Game Ako content planning. |
 | `long-form-scriptwriting` | `scriptwriter`, `/create-content` | Outline or draft long-form spoken content for Game Ako, including YouTube commentary videos, podcasts, and livestreams. Use whenever Arohbi asks for a full script, outline, episode structure, talking points, or long-form rewrite. |
 | `short-form-scriptwriting` | `scriptwriter`, `/create-content` | Write or revise concise, self-contained scripts for YouTube Shorts, Facebook Reels, and other short-form gaming content. Use whenever Arohbi requests a short video script, reel, short, hook, or a short-form adaptation. |
 | `social-post-writing` | `social-post-writer`, `/create-content` | Draft or refine social media posts and captions for Game Ako, including Facebook announcements, engagement posts, and captions for YouTube or short-form video. Use whenever Arohbi asks for platform-specific post copy. |
+| `youtube-packaging` | `scriptwriter`, `/create-content` | Package a Game Ako YouTube upload with English title options, a Taglish description, thumbnail text, chapters, and tags. Use when Arohbi asks for a YouTube title, description, thumbnail text, chapters, timestamps, tags, or upload metadata for a video, podcast, livestream, or Short. |
 
 ## Workflow utilities (`utility`)
 

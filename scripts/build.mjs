@@ -177,6 +177,61 @@ function mirrorSkill(skill, out) {
   }
 }
 
+// ---- Diagrams ---------------------------------------------------------------------
+
+/**
+ * Mermaid flowchart: agents and commands grouped by domain. Solid arrows are delegation,
+ * dotted arrows are "you can open this directly" or "command runs as". A wildcard delegate
+ * ("*") is drawn as one arrow per domain instead of one per agent.
+ */
+export function delegationMermaid(model) {
+  const { workflow, agents, commands } = model
+  const id = (s) => s.replace(/[^A-Za-z0-9]/g, '_')
+  const dom = (d) => `domain_${id(d)}`
+  const frontDoor = workflow['front-door']
+  const L = ['```mermaid', 'flowchart LR', '  user([Arohbi])']
+
+  for (const d of workflow.domains ?? []) {
+    const dAgents = [...agents.values()].filter((a) => a.data.domain === d.id)
+    const dCommands = [...commands.values()].filter((c) => c.data.domain === d.id)
+    if (!dAgents.length && !dCommands.length) continue
+    L.push(`  subgraph ${dom(d.id)}["${d.title}"]`)
+    for (const a of dAgents) L.push(`    ${id(a.name)}${a.data.mode === 'subagent' ? `[${a.name}]` : `[[${a.name}]]`}`)
+    for (const c of dCommands) L.push(`    cmd_${id(c.name)}{{"/${c.name}"}}`)
+    L.push('  end')
+  }
+
+  if (frontDoor) L.push(`  user --> ${id(frontDoor)}`)
+  for (const a of agents.values()) if (a.name !== frontDoor && a.data.mode !== 'subagent') L.push(`  user -.-> ${id(a.name)}`)
+  for (const a of agents.values()) {
+    if (delegatesOf(a).includes('*')) {
+      const own = [...agents.values()].filter((b) => b.data.domain === a.data.domain && b.name !== a.name)
+      for (const b of own) L.push(`  ${id(a.name)} --> ${id(b.name)}`)
+      for (const d of workflow.domains ?? []) {
+        if (d.id !== a.data.domain && [...agents.values()].some((b) => b.data.domain === d.id)) L.push(`  ${id(a.name)} --> ${dom(d.id)}`)
+      }
+    } else {
+      for (const t of delegatesOf(a)) L.push(`  ${id(a.name)} --> ${id(t)}`)
+    }
+  }
+  for (const c of commands.values()) if (c.data.agent) L.push(`  cmd_${id(c.name)} -.-> ${id(c.data.agent)}`)
+  L.push('```')
+  return L.join('\n')
+}
+
+const README_BEGIN = '<!-- BEGIN GENERATED: delegation-map (npm run sync) -->'
+const README_END = '<!-- END GENERATED: delegation-map -->'
+
+/** README.md with its marked delegation-map section refreshed, or null when the markers are absent. */
+function readmeWithMap(model) {
+  if (!exists('README.md')) return null
+  const text = readText('README.md')
+  const start = text.indexOf(README_BEGIN)
+  const end = text.indexOf(README_END)
+  if (start < 0 || end < start) return null
+  return `${text.slice(0, start + README_BEGIN.length)}\n\n${delegationMermaid(model)}\n\n${text.slice(end)}`
+}
+
 // ---- Registry ---------------------------------------------------------------------
 
 function registry(model) {
@@ -215,19 +270,7 @@ function registry(model) {
     L.push(`| ${cell(d.title)} (${code(d.id)}) | ${lead} | ${cell(d.purpose)} | ${(d.artifacts ?? []).map(code).join('<br>') || '—'} |`)
   }
 
-  const id = (s) => s.replace(/[^A-Za-z0-9]/g, '_')
-  L.push('', '## Delegation map', '', '```mermaid', 'flowchart LR', '  user([Arohbi])')
-  for (const a of agents.values()) L.push(`  ${id(a.name)}[${a.name}]`)
-  if (workflow['front-door']) L.push(`  user --> ${id(workflow['front-door'])}`)
-  for (const a of agents.values()) {
-    if (a.name !== workflow['front-door'] && a.data.mode !== 'subagent') L.push(`  user -.-> ${id(a.name)}`)
-  }
-  for (const a of agents.values()) for (const t of delegationTargets(a, model)) L.push(`  ${id(a.name)} --> ${id(t)}`)
-  for (const c of commands.values()) {
-    if (!c.data.agent) continue
-    L.push(`  cmd_${id(c.name)}{{"/${c.name}"}} -.-> ${id(c.data.agent)}`)
-  }
-  L.push('```', '')
+  L.push('', '## Delegation map', '', delegationMermaid(model), '')
 
   const sectionDomains = [...domains.map((d) => ({ id: d.id, title: d.title, purpose: d.purpose, lead: d.lead }))]
   for (const d of sectionDomains) {
@@ -306,6 +349,8 @@ export function build(model) {
   for (const name of claudeSkillNames(model)) mirrorSkill(model.skills.get(name), out)
 
   out.set('registry.md', registry(model))
+  const readme = readmeWithMap(model)
+  if (readme) out.set('README.md', readme)
   return out
 }
 

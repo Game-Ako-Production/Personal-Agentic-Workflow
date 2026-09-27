@@ -49,6 +49,18 @@ Create the skills base on the following details:
 - brief and summaries of findings will provide source attribution.
 - Don't make decisions or take actions on behalf of Arohbi without his explicit consent.
 - Just report the findings and Arohbi will provide his own insights and recommendations you have to synthesize and summarize the findings for Arohbi to review and consider for content planning.
+- Scope: prioritize premium console and PC AA/AAA games; include gacha games, including mobile gacha, as an explicit exception; exclude other mobile gaming, esports, and competitive scenes unless Arohbi explicitly broadens the scope.
+
+### Game Content Writer Skill
+
+- name: `game-content-writer`
+- description: `The Game Content Writer skill is designed to assist Arohbi in creating engaging and informative content for gaming-related posts, articles, and other media. It provides guidance on writing game reviews, news updates, feature articles, and opinion pieces to enhance the content offerings of his gaming channel, Game Ako.`
+- This skill will focus on creating written content that is relevant to the gaming industry, including game reviews, news updates, feature articles, and opinion pieces.
+- Create optimized content for search engines and social media platforms to increase visibility and engagement.
+- Ensure that all content is well-researched, accurate, and provides value to the audience.
+- Site source attribution for any information or data used in the content.
+- Create catchy headlines and engaging introductions to capture the audience's attention.
+- Don't write clickbait or misleading content. Ensure that the content is informative, entertaining, and aligns with the overall goals of the gaming channel.
 
 ## Common Instructions
 
@@ -57,3 +69,4 @@ Create the skills base on the following details:
 - This instructions should be idempotent, only generate the skill if they don't exist yet. If they already exist, update them with the new details.
 - `/scaffold-workflow` is available to all agents, custom agents, and subagents; route them to `.agents/skills/scaffold-workflow/SKILL.md` and `commands/scaffold-workflow.md`.
 - `/latest-in-ai` is reserved for Asurada. Other agents must not invoke or delegate that command.
+

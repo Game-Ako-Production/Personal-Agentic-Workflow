@@ -1,5 +1,5 @@
 ---
-description: Research current gaming developments and return a sourced brief for Game Ako
+description: Research current console and PC premium AA and AAA games, plus gacha games including mobile gacha, and return a sourced Game Ako brief.
 argument-hint: topic or trend and optional time period
 ---
 

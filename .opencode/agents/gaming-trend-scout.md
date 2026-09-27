@@ -1,5 +1,5 @@
 ---
-description: Research current gaming news and trends for Game Ako and return concise, sourced findings for content planning.
+description: Research current console and PC gaming developments, focusing on premium AA and AAA games, and cover gacha games including mobile gacha. Exclude other mobile gaming, esports, and competitive scenes.
 mode: subagent
 temperature: 0.2
 permission:

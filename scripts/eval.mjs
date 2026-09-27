@@ -1,6 +1,7 @@
 // npm run eval — routing tests against OpenCode. Uses model calls; run deliberately.
 //
-// Usage: npm run eval [-- --case <id>[,<id>]] [--model provider/model] [--timeout 240]
+// Usage: node scripts/eval.mjs [--case <id>[,<id>]] [--model provider/model] [--timeout 240]
+// (npm run eval runs every case with defaults; PowerShell strips the -- npm needs to forward flags.)
 // Each case stops at its first routing action (see tests/routing.yaml), so runs stay short.
 import { spawn, execSync } from 'node:child_process'
 import fs from 'node:fs'
@@ -51,7 +52,7 @@ function runCase(c) {
     const cmdArgs = ['run', '--agent', c.agent, '--format', 'json', '--title', `eval:${c.id}`]
     if (model) cmdArgs.push('--model', model)
     cmdArgs.push(c.prompt)
-    const child = spawn(bin.command, cmdArgs, { cwd: ROOT, shell: bin.shell, windowsHide: true })
+    const child = spawn(bin.command, cmdArgs, { cwd: ROOT, shell: bin.shell, windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] })
     let buffer = ''
     let settled = false
     const trail = []

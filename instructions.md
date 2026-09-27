@@ -157,3 +157,7 @@ command template
 - parameters
 - step by step procedure
   - what agent and skill to invoke
+
+  how to invoke eval manually.
+  opencode run --model opencode/nemotron-3.5-lightning-free --agent asurada --format json --title eval:guide-quick-question "Elden Ring: where do I get the Mimic Tear spirit ash? Keep it spoiler-free."
+  - check tests/routing.yaml

@@ -5,7 +5,7 @@ description: Create educational materials, assignments, lecture talking points, 
 
 # Educational Content Creation
 
-Develop accurate, engaging classroom materials that directly support supplied learning objectives, lesson plans, standards, and learner needs.
+Develop accurate, engaging classroom materials in English only, directly supporting the supplied learning objectives, lesson plans, standards, and learner needs.
 
 ## Inputs
 
@@ -20,13 +20,13 @@ If necessary information is missing, state a safe assumption or ask one focused 
 
 1. Identify the objective each requested material should support and the intended learner level.
 2. Draft the requested material type: explanations, examples, handouts, assignments, questions, talking points, or lecture scripts.
-3. Make instructions clear and age-appropriate. Check answer keys and factual claims for correctness; distinguish source-based facts from illustrative examples.
+3. Write all explanations, instructions, examples, and teacher notes in English, with age-appropriate wording. Check answer keys and factual claims for correctness; distinguish source-based facts from illustrative examples.
 4. Ensure activities and assessment items match the objectives and supplied standards. Flag any objective the requested content does not address.
 5. Return ready-to-use content with teacher notes or answer key clearly separated from learner-facing material.
 
 ## Output
 
-Provide requested educational material in a classroom-ready format. Keep it on screen unless saving is requested; save under `docs/teaching/` following `context/artifacts.md`.
+Provide requested educational material in English only and in a classroom-ready format. Keep it on screen unless saving is requested; save under `docs/teaching/` following `context/artifacts.md`.
 
 ## Boundaries
 
@@ -38,3 +38,4 @@ Provide requested educational material in a classroom-ready format. Keep it on s
 
 - Used by `prof-vahveh` and `content-creator`.
 - Receives lesson design from `lesson-planning`; assessment of completed student work belongs to `student-assessment`.
+

@@ -28,6 +28,11 @@ flowchart LR
     content_creator[content-creator]
     prof_vahveh[[prof-vahveh]]
   end
+  subgraph domain_agentic_developer_ph["Agentic Developer PH channel"]
+    adp_content_creator[adp-content-creator]
+    cmd_adp_content{{"/adp-content"}}
+    cmd_adp_social{{"/adp-social"}}
+  end
   subgraph domain_game_guide["Video game guides"]
     game_guide[[game-guide]]
     cmd_game_guide{{"/game-guide"}}
@@ -51,6 +56,7 @@ flowchart LR
   user -.-> game_guide
   user -.-> prof_vahveh
   asurada --> domain_teaching
+  asurada --> domain_agentic_developer_ph
   asurada --> domain_game_guide
   asurada --> domain_game_ako
   ga_orchestrator --> content_strategist
@@ -59,6 +65,9 @@ flowchart LR
   ga_orchestrator --> game_content_writer
   ga_orchestrator --> gaming_trend_scout
   prof_vahveh --> content_creator
+  prof_vahveh --> adp_content_creator
+  cmd_adp_content -.-> prof_vahveh
+  cmd_adp_social -.-> prof_vahveh
   cmd_create_content -.-> ga_orchestrator
   cmd_game_guide -.-> game_guide
   cmd_latest_in_ai -.-> asurada

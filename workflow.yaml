@@ -26,6 +26,13 @@ domains:
     purpose: To create a structured approach for teaching and learning activities.
     artifacts: [docs/teaching/]
 
+  - id: agentic-developer-ph
+    title: Agentic Developer PH channel
+    lead: prof-vahveh
+    purpose: Agentic Developer PH channel planning, scripts, social posts, blog articles, and ai trend research.
+    skills: [adp-content-writing, adp-social-media-posting]
+    artifacts: [docs/adp/]
+
   - id: game-guide
     title: Video game guides
     lead: game-guide
@@ -51,3 +58,5 @@ domains:
     lead: any
     purpose: Scaffold and maintain agents, subagents, skills, and commands in this repository.
     artifacts: []
+
+

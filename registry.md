@@ -10,6 +10,7 @@ Start with `asurada`: it handles general requests and routes specialist work to 
 | --- | --- | --- | --- |
 | Personal assistance and AI trends (`personal`) | `asurada` | Daily research, analysis, automation, decision support, and the weekly AI trend digest. | `docs/ai-trends/` |
 | Teaching and learning (`teaching`) | `prof-vahveh` | To create a structured approach for teaching and learning activities. | `docs/teaching/` |
+| Agentic Developer PH channel (`agentic-developer-ph`) | `prof-vahveh` | Agentic Developer PH channel planning, scripts, social posts, blog articles, and ai trend research. | `docs/adp/` |
 | Video game guides (`game-guide`) | `game-guide` | Quick, spoiler-safe walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play (SecondSeat principle). | `docs/games/` |
 | Game Ako content and blog (`game-ako`) | `ga-orchestrator` | Game Ako channel planning, scripts, social posts, blog articles, and gaming trend research. | `docs/game-ako/sources/`<br>`docs/game-ako/research/`<br>`docs/game-ako/plans/`<br>`docs/game-ako/scripts/`<br>`docs/game-ako/articles/`<br>`docs/game-ako/posts/` |
 | Workflow utilities (`utility`) | any agent | Scaffold and maintain agents, subagents, skills, and commands in this repository. | — |
@@ -26,6 +27,11 @@ flowchart LR
   subgraph domain_teaching["Teaching and learning"]
     content_creator[content-creator]
     prof_vahveh[[prof-vahveh]]
+  end
+  subgraph domain_agentic_developer_ph["Agentic Developer PH channel"]
+    adp_content_creator[adp-content-creator]
+    cmd_adp_content{{"/adp-content"}}
+    cmd_adp_social{{"/adp-social"}}
   end
   subgraph domain_game_guide["Video game guides"]
     game_guide[[game-guide]]
@@ -50,6 +56,7 @@ flowchart LR
   user -.-> game_guide
   user -.-> prof_vahveh
   asurada --> domain_teaching
+  asurada --> domain_agentic_developer_ph
   asurada --> domain_game_guide
   asurada --> domain_game_ako
   ga_orchestrator --> content_strategist
@@ -58,6 +65,9 @@ flowchart LR
   ga_orchestrator --> game_content_writer
   ga_orchestrator --> gaming_trend_scout
   prof_vahveh --> content_creator
+  prof_vahveh --> adp_content_creator
+  cmd_adp_content -.-> prof_vahveh
+  cmd_adp_social -.-> prof_vahveh
   cmd_create_content -.-> ga_orchestrator
   cmd_game_guide -.-> game_guide
   cmd_latest_in_ai -.-> asurada
@@ -73,7 +83,7 @@ Daily research, analysis, automation, decision support, and the weekly AI trend 
 
 | Agent | Mode | Called by | Delegates to | Skills | Description |
 | --- | --- | --- | --- | --- | --- |
-| `asurada` | primary | — | any agent | `ai-trend-tracker`, `game-guide-expert` | Asurada is Arohbi's primary assistant and front door for research, analysis, automation, decision support, game guides, and AI trends; routes specialist work to domain agents such as GA-Orchestrator. |
+| `asurada` | primary | — | any agent | `ai-trend-tracker`, `game-guide-expert` | Asurada is Arohbi's primary assistant and front door for research, analysis, automation, decision support, game guides, and AI trends; routes specialist work to domain agents such as Prof. Vahveh and GA-Orchestrator. |
 
 **Commands**
 
@@ -96,7 +106,7 @@ To create a structured approach for teaching and learning activities.
 | Agent | Mode | Called by | Delegates to | Skills | Description |
 | --- | --- | --- | --- | --- | --- |
 | `content-creator` | subagent | `asurada`, `prof-vahveh` | — | `content-creation` | Create accurate, engaging teaching materials, assignments, lecture talking points, and scripts aligned with supplied lesson plans and learning objectives. |
-| `prof-vahveh` | primary | `asurada` | `content-creator` | `lesson-planning`, `content-creation`, `student-assessment` | Lead teaching and learning workflows by planning lessons, coordinating educational content creation, and evaluating student work against learning objectives. |
+| `prof-vahveh` | primary | `asurada` | `content-creator`, `adp-content-creator` | `lesson-planning`, `content-creation`, `student-assessment`, `adp-content-writing`, `adp-social-media-posting` | Orchestrate teaching and Agentic Developer PH workflows, planning lessons, coordinating content creation and social publishing, and assessing student work. |
 
 **Skills**
 
@@ -105,6 +115,30 @@ To create a structured approach for teaching and learning activities.
 | `content-creation` | `content-creator`, `prof-vahveh` | Create educational materials, assignments, lecture talking points, and scripts from lesson plans and learning objectives. Use when a user asks to draft classroom-ready teaching content; this skill creates materials rather than planning lesson structure or evaluating student work. |
 | `lesson-planning` | `prof-vahveh` | Design structured lesson plans from learning objectives, curriculum standards, and student needs. Use when a user asks to plan, organize, sequence, or structure a lesson; focus on the lesson design rather than drafting its full teaching materials. |
 | `student-assessment` | `prof-vahveh` | Evaluate student work against supplied assessment criteria and learning objectives, then provide specific, constructive feedback. Use when a user asks to review, assess, score, or give feedback on student work; do not use for creating lesson plans or authoring assessment materials. |
+
+## Agentic Developer PH channel (`agentic-developer-ph`)
+
+Agentic Developer PH channel planning, scripts, social posts, blog articles, and ai trend research.
+
+**Agents**
+
+| Agent | Mode | Called by | Delegates to | Skills | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adp-content-creator` | subagent | `asurada`, `prof-vahveh` | — | `adp-content-writing`, `adp-social-media-posting` | Create researched, audience-aware scripts, social copy, and blog articles for Agentic Developer PH, following the requested format and content-writing or social-publishing workflow. |
+
+**Commands**
+
+| Command | Runs as | Isolated | Skills | Codex entry | Description |
+| --- | --- | --- | --- | --- | --- |
+| `/adp-content <topic> <format> <audience>` | `prof-vahveh` | no | `adp-content-writing` | skill `adp-content-writing` | Research and create Agentic Developer PH content in the requested format for its specified audience. |
+| `/adp-social <content> <platform> <audience>` | `prof-vahveh` | no | `adp-social-media-posting` | skill `adp-social-media-posting` | Format Agentic Developer PH content for a specified social platform and publish it when requested. |
+
+**Skills**
+
+| Skill | Used by | Description |
+| --- | --- | --- |
+| `adp-content-writing` | `adp-content-creator`, `prof-vahveh`, `/adp-content` | Research and create scripts, social copy drafts, and blog articles for Agentic Developer PH from a topic, format, and audience. Use when asked to write original channel content; it does not publish or post content to social platforms. |
+| `adp-social-media-posting` | `adp-content-creator`, `prof-vahveh`, `/adp-social` | Adapt supplied or approved Agentic Developer PH content for a specified social platform and publish it when the user requests a post. Use for platform formatting and posting tasks, not for writing scripts or blog articles. |
 
 ## Video game guides (`game-guide`)
 

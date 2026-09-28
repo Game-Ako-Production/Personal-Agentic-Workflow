@@ -1,0 +1,40 @@
+---
+name: student-assessment
+description: Evaluate student work against supplied assessment criteria and learning objectives, then provide specific, constructive feedback. Use when a user asks to review, assess, score, or give feedback on student work; do not use for creating lesson plans or authoring assessment materials.
+---
+
+# Student Assessment
+
+Analyze submitted student work against the provided rubric, criteria, and learning objectives, and return evidence-based feedback that supports learning.
+
+## Inputs
+
+- Student work to assess.
+- Assessment criteria, rubric, or scoring scale.
+- Relevant learning objectives and expected level.
+- Requested feedback style, scoring constraints, or accommodations.
+
+If criteria are missing, ask one focused question when a score or judgment depends on them. Otherwise provide descriptive feedback without inventing a rubric.
+
+## Workflow
+
+1. Identify applicable criteria and objectives. Do not infer missing requirements or student context.
+2. Review submitted work criterion by criterion, citing specific evidence from the work.
+3. Separate observed strengths, gaps, and next steps. If scoring is requested, apply only the supplied scale and explain each rating.
+4. Phrase feedback constructively and at an appropriate level. Distinguish evidence from interpretation and note uncertainty.
+5. Check that the report does not expose unnecessary personal information or claim more than the work supports.
+
+## Output
+
+Return a concise assessment report with criteria, evidence, strengths, areas to improve, actionable next steps, and scores only when supported by the supplied rubric. Keep it on screen unless saving is requested; save under `docs/teaching/` following `context/artifacts.md`.
+
+## Boundaries
+
+- This skill evaluates existing student work. It does not plan a lesson; use `lesson-planning`.
+- It does not author worksheets, assignments, or assessment instruments; use `content-creation` for creating those.
+- Do not invent scores, standards, student performance, or evidence. Do not make high-stakes placement or disciplinary decisions on the user's behalf.
+
+## Related workflow
+
+- Used by `prof-vahveh`.
+- May assess work produced in response to an assignment drafted with `content-creation`.

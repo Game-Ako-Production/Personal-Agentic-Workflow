@@ -169,6 +169,7 @@ Save under the repository root (the directory that contains `AGENTS.md`), never 
 | Game Ako | `docs/game-ako/scripts/` | Long-form and short-form scripts |
 | Game Ako | `docs/game-ako/articles/` | Blog article drafts |
 | Game Ako | `docs/game-ako/posts/` | Social post drafts |
+| Teaching | `docs/teaching/` | Lesson plans, educational materials, assignments, assessments, and feedback reports |
 
 `workflow.yaml` lists the folders owned by each domain. Add new folders there when adding a domain.
 

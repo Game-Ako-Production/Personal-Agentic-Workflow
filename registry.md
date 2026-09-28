@@ -9,6 +9,7 @@ Start with `asurada`: it handles general requests and routes specialist work to 
 | Domain | Lead | Purpose | Artifacts |
 | --- | --- | --- | --- |
 | Personal assistance and AI trends (`personal`) | `asurada` | Daily research, analysis, automation, decision support, and the weekly AI trend digest. | `docs/ai-trends/` |
+| Teaching and learning (`teaching`) | `prof-vahveh` | To create a structured approach for teaching and learning activities. | `docs/teaching/` |
 | Video game guides (`game-guide`) | `game-guide` | Quick, spoiler-safe walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play (SecondSeat principle). | `docs/games/` |
 | Game Ako content and blog (`game-ako`) | `ga-orchestrator` | Game Ako channel planning, scripts, social posts, blog articles, and gaming trend research. | `docs/game-ako/sources/`<br>`docs/game-ako/research/`<br>`docs/game-ako/plans/`<br>`docs/game-ako/scripts/`<br>`docs/game-ako/articles/`<br>`docs/game-ako/posts/` |
 | Workflow utilities (`utility`) | any agent | Scaffold and maintain agents, subagents, skills, and commands in this repository. | — |
@@ -21,6 +22,10 @@ flowchart LR
   subgraph domain_personal["Personal assistance and AI trends"]
     asurada[[asurada]]
     cmd_latest_in_ai{{"/latest-in-ai"}}
+  end
+  subgraph domain_teaching["Teaching and learning"]
+    content_creator[content-creator]
+    prof_vahveh[[prof-vahveh]]
   end
   subgraph domain_game_guide["Video game guides"]
     game_guide[[game-guide]]
@@ -43,6 +48,8 @@ flowchart LR
   user --> asurada
   user -.-> ga_orchestrator
   user -.-> game_guide
+  user -.-> prof_vahveh
+  asurada --> domain_teaching
   asurada --> domain_game_guide
   asurada --> domain_game_ako
   ga_orchestrator --> content_strategist
@@ -50,6 +57,7 @@ flowchart LR
   ga_orchestrator --> social_post_writer
   ga_orchestrator --> game_content_writer
   ga_orchestrator --> gaming_trend_scout
+  prof_vahveh --> content_creator
   cmd_create_content -.-> ga_orchestrator
   cmd_game_guide -.-> game_guide
   cmd_latest_in_ai -.-> asurada
@@ -78,6 +86,25 @@ Daily research, analysis, automation, decision support, and the weekly AI trend 
 | Skill | Used by | Description |
 | --- | --- | --- |
 | `ai-trend-tracker` | `asurada`, `/latest-in-ai` | Research and track recent AI developments across models and research, tools and products, and market and industry. Use when Arohbi asks for the latest AI news, a trend roundup, or a digest of AI developments. |
+
+## Teaching and learning (`teaching`)
+
+To create a structured approach for teaching and learning activities.
+
+**Agents**
+
+| Agent | Mode | Called by | Delegates to | Skills | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content-creator` | subagent | `asurada`, `prof-vahveh` | — | `content-creation` | Create accurate, engaging teaching materials, assignments, lecture talking points, and scripts aligned with supplied lesson plans and learning objectives. |
+| `prof-vahveh` | primary | `asurada` | `content-creator` | `lesson-planning`, `content-creation`, `student-assessment` | Lead teaching and learning workflows by planning lessons, coordinating educational content creation, and evaluating student work against learning objectives. |
+
+**Skills**
+
+| Skill | Used by | Description |
+| --- | --- | --- |
+| `content-creation` | `content-creator`, `prof-vahveh` | Create educational materials, assignments, lecture talking points, and scripts from lesson plans and learning objectives. Use when a user asks to draft classroom-ready teaching content; this skill creates materials rather than planning lesson structure or evaluating student work. |
+| `lesson-planning` | `prof-vahveh` | Design structured lesson plans from learning objectives, curriculum standards, and student needs. Use when a user asks to plan, organize, sequence, or structure a lesson; focus on the lesson design rather than drafting its full teaching materials. |
+| `student-assessment` | `prof-vahveh` | Evaluate student work against supplied assessment criteria and learning objectives, then provide specific, constructive feedback. Use when a user asks to review, assess, score, or give feedback on student work; do not use for creating lesson plans or authoring assessment materials. |
 
 ## Video game guides (`game-guide`)
 
@@ -155,6 +182,7 @@ Installed from `skills-lock.json`; update them with the skills installer, not by
 | `command-creator` | softaworks/agent-toolkit | `/scaffold-workflow` |
 | `create-agentsmd` | github/awesome-copilot | — |
 | `frontend-design` | anthropics/skills | — |
+| `professional-proofreader` | sickn33/agentic-awesome-skills | — |
 | `skill-creator` | anthropics/skills | `/scaffold-workflow` |
 
 ## Generated files

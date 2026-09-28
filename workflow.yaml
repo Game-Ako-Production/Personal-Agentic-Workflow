@@ -20,6 +20,12 @@ domains:
     purpose: Daily research, analysis, automation, decision support, and the weekly AI trend digest.
     artifacts: [docs/ai-trends/]
 
+  - id: teaching
+    title: Teaching and learning
+    lead: prof-vahveh
+    purpose: To create a structured approach for teaching and learning activities.
+    artifacts: [docs/teaching/]
+
   - id: game-guide
     title: Video game guides
     lead: game-guide

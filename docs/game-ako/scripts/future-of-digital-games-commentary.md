@@ -1,8 +1,8 @@
 # The Future of Digital Games May Be About Access, Not Ownership
 
 **Format:** YouTube commentary  
-**Runtime assumption:** 8–10 minutes at a conversational pace  
-**Estimated length:** approximately 1,170 words  
+**Runtime assumption:** 11–13 minutes at a conversational pace  
+**Estimated length:** approximately 1,770 words  
 **Language:** Taglish  
 **Angle:** Opinion and scenario analysis. Sony’s announced January 2028 cutoff is confirmed; a new physical-release option for games first released after the cutoff is not confirmed.
 
@@ -20,9 +20,9 @@ Pero may mas malaking tanong sa likod nito: **kapag binili mo ang isang game dig
 
 At kung physical games ay maging niche na lang, sino ang magdedesisyon kung aling games ang mananatiling available?
 
-Sony’s plan to end disc production for new PlayStation games starting January 2028 brings that question into focus. Hindi ibig sabihin nito na mawawala agad ang discs na nagawa na, o titigil gumana ang mga laro mo. Pero malaking pagbabago ito sa direksyon ng bagong PlayStation releases.
+Sony’s plan to end disc production for new PlayStation games starting January 2028 brings that question into focus. Hindi ibig sabihin nito na mawawala agad ang physical release sa mga games na narelease na o titigil gumana ang mga laro mo. Pero malaking pagbabago ito sa direksyon ng bagong PlayStation game releases.
 
-Tingnan natin kung ano ang maaaring itsura ng future na iyon. Linawin lang: may mga bagay na confirmed, pero ang iba ay posibilidad at opinyon pa lang.
+Tingnan natin kung ano ang maaaring itsura ng future na iyon. To be clear: may mga bagay na confirmed, pero ang iba ay posibilidad at opinyon ko lang.
 
 ### [Digital access is convenient—but it changes the deal]
 
@@ -46,7 +46,19 @@ May reports din na puwedeng mag-reorder ang publishers ng discs para sa mga game
 
 Dito pumapasok ang isang posibilidad: baka maging digital ang default, habang nagiging option na lang ang physical edition para sa mga game na may sapat na demand.
 
-Mahalagang idiin: **scenario lang iyan, hindi Sony policy na na-confirm.** Hindi pa malinaw kung papayagan ng Sony ang bagong PlayStation disc releases pagkatapos ng deadline.
+Ito yung point: **scenario lang iyan, hindi Sony policy na na-confirm.** Hindi pa malinaw kung papayagan ng Sony ang bagong PlayStation disc releases pagkatapos ng deadline.
+
+### [What might a Sony compromise look like?]
+
+Sony admitted na may attachment ang players sa physical games at sinabi nitong maingat nitong itutuloy ang plano. Pero wala itong inanunsyong compromise. Kung susubukan nitong tugunan ang backlash nang hindi binabaligtad ang desisyon, posibleng mas makitid na compromise ang pag-usapan—isang setup na magpapanatili ng ilang physical option habang mas kaunti ang manufacturing at logistics na pasan ng Sony. Scenario lang ito; wala pang ganitong programa.
+
+Una, puwedeng manatiling optional ang disc drive. Sa ilang PS5 Digital Edition at PS5 Pro models, may detachable drive na mabibili nang hiwalay. May mga report at analyst speculation tungkol sa susunod na PlayStation: may nagsasabing maaaring detachable ang drive, habang may analyst namang nag-isip na maaaring walang built-in drive ang base model. Hindi pa announced ang console, kaya walang confirmed configuration. Kung ganito ang magiging direksyon, puwedeng mas mababa ang gastos ng digital-only console at ang players na gusto ng drive ang bibili nito. Pero hardware lang ang nasosolusyonan nito. Hindi nito kusang ibinabalik ang bagong disc production para sa mga game na lalabas pagkatapos ng cutoff.
+
+Ikalawa, puwedeng isipin ang limited, licensed disc runs kung papayagan ito ng Sony. Mas maraming gastos at inventory risk ang maaaring akuin ng publisher o specialist partner para sa maliit na run. Pero mahalagang linawin: ang Limited Run Games ay hindi ebidensiya na third parties ay nakakapag-press ng PlayStation discs nang sarili nila. Sa kasalukuyang setup, dumadaan pa rin ang PlayStation disc manufacturing sa Sony. Walang kumpirmasyon na magbubukas ito ng bagong third-party production route pagkatapos ng 2028.
+
+Ikatlo, maaaring magkaroon ng physical release na parang Game-Key Card: may item sa kahon, pero kailangan i-download ang buong game. Nananatili ang retail presence, pero hindi nito inaalis ang paggawa at pagpapadala ng physical product. At sa player na gustong magkaroon ng game data sa disc, o gustong magpahiram, ibenta ulit, o maglaro nang offline, hindi ito katumbas ng full-data disc.
+
+Kaya ang posibleng compromise ay hindi nangangahulugang physical games gaya ng dati. Maaaring ang drive ay hiwalay na bilhin, at ang physical releases ay maging bihira at limitado—kung may paraan at pahintulot para gawin ang mga ito. Maaaring sapat iyon para sa ilang collectors, pero hindi para sa lahat ng may “No Disc, No Buy” na paninindigan.
 
 ### [Would a physical niche make business sense?]
 
@@ -116,5 +128,7 @@ Ikaw, ano ang mas mahalaga sa’yo: convenience, physical ownership, o assurance
 - [Limited Run Games order FAQ](https://support.limitedrungames.com/hc/en-us/articles/35113439191949-Questions-about-my-order): Products are made to demand after preorder windows; this manages some inventory exposure but does not remove production costs.
 - [iam8bit Presents](https://presents.iam8bit.com/): Company overview of its financing and publishing imprint.
 - [Nintendo’s Game-Key Card explanation](https://www.nintendo.com/us/whatsnew/not-sure-what-a-game-key-card-is-lets-talk-about-it/): Game-Key Cards require an initial download; used as analogy only, not evidence of private Nintendo requirements.
+- [PlayStation’s PS5 Disc Drive page](https://www.playstation.com/en-gb/accessories/ps5-disc-drive/): Sony currently sells an add-on drive for compatible PS5 Digital Edition and PS5 Pro consoles.
+- [Insider Gaming’s PS6 report](https://insider-gaming.com/exclusive-playstation-6-is-planned-to-have-a-detachable-disc-drive-on-launch/) and [GamesRadar’s report on analyst speculation](https://www.gamesradar.com/games/ps6-wont-arrive-until-2028-at-the-earliest-analyst-predicts-following-sonys-decision-to-kill-physical-games-and-the-base-model-wont-have-a-disc-drive/): conflicting, unconfirmed speculation about the next console’s disc-drive configuration.
+- [Ars Technica on the disc cutoff](https://arstechnica.com/gaming/2026/07/sony-will-stop-making-physical-copies-of-playstation-games-in-2028/): Reporting says Sony’s subsidiary is the PlayStation disc manufacturer; this does not establish any post-2028 new-release program.
 - Game preservation, commercial triage, and Sony’s potential platform strategy are commentary and inference, not confirmed plans.
-

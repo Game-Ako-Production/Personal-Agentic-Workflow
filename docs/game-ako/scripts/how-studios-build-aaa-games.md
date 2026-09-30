@@ -1,25 +1,25 @@
-# Bakit Mukhang Mas Mura Gumawa ng AAA Games ang Ibang Studios?
+# Iba’t Ibang Paraan ng Studios sa Pagbuo ng AAA Games
 
 **Format:** YouTube commentary  
 **Language:** Taglish  
 **Estimated runtime:** 8–10 minutes  
-**Scope:** Remedy, Game Science (_Black Myth: Wukong_), and Pearl Abyss (_Crimson Desert_)  
-**Research date:** September 29, 2026  
+**Scope:** Remedy, Game Science (_Black Myth: Wukong_), Pearl Abyss (_Crimson Desert_), and Capcom  
+**Research date:** September 30, 2026  
 **Assumptions:** Budget figures are estimates unless identified as company disclosures. Currency conversions are approximate and depend on exchange rates.
 
 ## Script
 
-**[OPEN — montage: Alan Wake 2, Control, Black Myth: Wukong, Crimson Desert]**
+**[OPEN — montage: Alan Wake 2, Control, Black Myth: Wukong, Crimson Desert, Resident Evil, Monster Hunter, Street Fighter]**
 
 Kapag nakakakita tayo ng AAA game, madalas ganito ang assumption: kailangan ng napakalaking studio, napakalaking budget, at ilang taon ng production.
 
 Pero may games na mukhang blockbuster ang quality kahit mas mababa ang reported budget compare sa pinakamalalaking Western productions.
 
-Kasama rito ang _Alan Wake 2_ ng Remedy, _Black Myth: Wukong_ ng Game Science sa China, at _Crimson Desert_ ng Pearl Abyss sa South Korea.
+Kasama rito ang _Alan Wake 2_ ng Remedy, _Black Myth: Wukong_ ng Game Science sa China, at _Crimson Desert_ ng Pearl Abyss sa South Korea. At kung gusto nating makita kung paano puwedeng lumaki ang ganitong production strategy sa mas malaking scale, magandang tingnan ang Capcom.
 
 Kaya ang tanong: may paraan ba ang mga studio na ito para makagawa ng high-end games nang mas controlled ang gastos? Mas mura ba talaga kapag hindi sa US ginagawa? At ano ang role ng technology, team size, at production choices?
 
-Bilang fan ng _Alan Wake_ at _Control_, nagsimula ako sa Remedy.
+Bilang fan ng _Alan Wake_ at _Control_, nagsimula ako sa Remedy. Pero habang kinukumpara ko ang public estimates, lumabas na magkakaiba ang paraan ng bawat studio—at hindi lang budget o labor cost ang paliwanag.
 
 **[TITLE CARD]**
 
@@ -69,7 +69,23 @@ Isang magandang project example ang _Crimson Desert_ ng Pearl Abyss. May seconda
 
 Kahit estimate lang, ipinapakita nito na puwedeng umabot sa mahigit $100 million ang isang Korean premium game. Hindi rin pareho ang scope ng _Crimson Desert_ at _Alan Wake 2_, kaya hindi natin dapat ituring ang mga numero bilang eksaktong apples-to-apples comparison.
 
-## Ano ang puwedeng matutunan sa tatlong studio?
+## Capcom: ganitong model, pero mas malaki ang scale
+
+Kung ang Remedy, Game Science, at Pearl Abyss ay mga halimbawa ng studios na bumubuo ng sariling paraan para mag-produce ng ambitious games, ang Capcom naman ang magandang halimbawa kung paano ito gumagana sa mas malawak at mas matagal nang production ecosystem.
+
+Ang RE Engine ang sentro ng strategy na iyon. Sa 2025 Integrated Report nito, sinabi ng Capcom na ginagamit na nila ang RE Engine para gawin ang lahat ng kanilang titles—mula photorealistic na _Resident Evil_ hanggang anime-style na _Monster Hunter Stories_. Sinasabi rin ng kumpanya na nakakatulong ang iisang engine sa mobility ng developers sa pagitan ng projects, at patuloy pa silang mag-iinvest dito para palakasin ang quality ng mga susunod na laro.
+
+Hindi natin alam kung magkano ang eksaktong ginastos ng Capcom para buuin at patuloy na i-maintain ang RE Engine. Pero malinaw na hindi maliit na one-time expense ang ganitong strategy: Capcom mismo ang naglalarawan dito bilang investment sa future. Noong una, sabay pang ginagawa ang _Resident Evil 7_ at ang bagong engine—ibig sabihin, may upfront technology work bago pa makita ang buong pakinabang nito sa maraming releases.
+
+Ang return ay hindi natin dapat sukatin sa engine lang, dahil hindi inilalathala ng Capcom ang per-game engine ROI. Pero sa paglipas ng panahon, nakagawa ito ng maraming releases sa iisang technology base, at sinasabi ng kumpanya na nakakatulong ang engine sa development efficiency at pagdadala ng bagong technology sa games. Kaya reasonable na isipin na mas sulit ang ganitong investment habang dumarami ang projects na nakikinabang dito—pero inference iyon, hindi disclosed accounting result.
+
+May isa pang malaking advantage ang Capcom: hindi lang technology ang nire-reuse nila, kundi audience knowledge at mga established franchise. Alam nila kung anong klase ng experience ang inaasahan ng fans ng _Resident Evil_, _Monster Hunter_, o _Street Fighter_—at kung ano ang bago o pagbabago na puwedeng ikatuwa o ikadismaya ng mga iyon.
+
+Hindi ito nangangahulugang lagi nilang nahuhulaan nang tama ang audience. Pero may formal feedback loop sila: sinasabi ng Capcom na ang questions at feedback na natatanggap ng customer support teams ay sinusuri at ginagamit sa development ng mga bagong produkto. Para sa akin, malaking bahagi rin ng mahusay nilang community management ang malinaw na communication at regular na updates mula sa mga teams at producers. Opinyon ko ito tungkol sa paraan ng pag-engage nila; hindi ibig sabihin na perpekto ang bawat release o bawat desisyon.
+
+At dito nagiging interesting ang Capcom bilang “at scale” example. Ang engine at shared development knowledge ay puwedeng makinabang ang maraming teams, habang ang malalakas na franchise ay nagbibigay ng existing audience at malinaw na expectations. Hindi nito ginagawang mura o madali ang paggawa ng games; nagbibigay ito ng mas malaking foundation na puwedeng gamitin nang paulit-ulit.
+
+## Ano ang puwedeng matutunan sa apat na studio?
 
 Kung hindi natin maipapaliwanag ang lahat sa “cheap labor,” ano ang mga bagay na talagang nakakaapekto sa production economics?
 
@@ -77,7 +93,7 @@ Una, **scope**. Ilang environments, characters, systems, cinematics, at gameplay
 
 Pangalawa, **staffing sa buong production**. Ang peak team size ay hindi katumbas ng average team size sa loob ng ilang taon. May ramp-up, peak production, polish, at post-launch work.
 
-Pangatlo, **technology at accumulated know-how**. Puwedeng makatulong ang sariling engine at reusable pipelines, gaya ng Northlight sa Remedy. Pero may gastos din ang pag-maintain ng ganoong technology.
+Pangatlo, **technology at accumulated know-how**. Puwedeng makatulong ang sariling engine at reusable pipelines, gaya ng Northlight sa Remedy at RE Engine sa Capcom. Pero may gastos din ang pag-maintain ng ganoong technology. Ang payoff ay nakadepende sa dami ng projects at taon na mapapakinabangan ito.
 
 Pang-apat, **external development at publishing arrangements**. Makakapagdagdag ng capacity o specialist skills ang external teams, pero may gastos at coordination work din. At kung may publisher na nagpopondo, nagbabago kung sino ang naglalabas ng pera at paano hinahati ang returns—hindi ibig sabihin na bumaba ang tunay na production cost.
 
@@ -87,7 +103,7 @@ At panghuli, **commercial risk**. Ang _Wukong_ ay naging napakalaking hit, pero 
 
 Para sa akin, hindi ang pinaka-interesting na lesson ay “may bansang mura gumawa ng AAA games.” Wala tayong sapat na public data para sa ganoong kalawak na konklusyon.
 
-Mas interesting na magkakaibang paraan ang ginagamit ng studios para makagawa ng premium games. Remedy has its own engine, tools, at creative identity. Game Science delivered _Wukong_ on a reported budget well below some mega-budget Western productions. At ipinapakita ng Pearl Abyss na ang Korean premium-game production ay puwede ring mangailangan ng malaking investment.
+Mas interesting na magkakaibang paraan ang ginagamit ng studios para makagawa ng premium games. Remedy has its own engine, tools, at creative identity. Game Science delivered _Wukong_ on a reported budget well below some mega-budget Western productions. Ipinapakita ng Pearl Abyss na ang Korean premium-game production ay puwede ring mangailangan ng malaking investment. At ipinapakita ng Capcom kung paano nagiging mas malawak na production foundation ang sariling engine kapag maraming teams at releases ang gumagamit nito.
 
 Iba-iba ang engines, team structures, project scopes, publisher deals, at risks. Kaya ang mas magandang tanong ay hindi lang, “Magkano ang budget?” kundi **“Paano ginamit ng studio ang budget, at anong klaseng laro ang pinili nitong gawin?”**
 
@@ -104,3 +120,6 @@ Kayo, anong tingin ninyo? Mas gusto ninyo ba ang focused games na may controlled
 - _Black Myth: Wukong_’s $70m estimate, six-year timeline, and 18m sales report: [Bloomberg report via Yahoo Finance](https://finance.yahoo.com/news/investor-risked-wukong-scores-another-063710088.html). The separate 300m yuan figure concerns R&D expenses cited in connection with tax incentives; it should not be presented as a directly comparable total production budget.
 - The approximately ₩200bn / $130m _Crimson Desert_ estimate is secondary reporting, not an official title-level budget disclosure: [budget estimate summary](https://thegameswiki.com/crimson-desert/wiki/sales-and-reception/).
 - Salary comparisons remain qualitative because the available Korean and US figures use different populations and methods: [Korean game-company pay reporting](https://biz.chosun.com/en/en-it/2026/03/27/KEKA3G4PMZBIZMNBNWTSGHAHUQ/?outputType=amp) and [GDC US salary survey summary](https://www.linkedin.com/posts/gdc-festival-of-gaming_gamedev-salaryreport-gdc2025-activity-7395197095730679809-efA6).
+- Capcom says RE Engine supports all its titles, improves developer mobility, and will continue receiving investment: [Capcom Integrated Report 2025 — RE Engine](https://www.capcom.co.jp/ir/english/data/oar/2025/re-engine.html).
+- Capcom's 2016 interview says the team worked on _Resident Evil 7_ and RE Engine development simultaneously: [Capcom developer interview](https://www.capcom.co.jp/ir/english/interview/2016/vol03.html).
+- Capcom says feedback received by customer support is analyzed and used in new product development: [Relationships with Customers and the Community](https://www.capcom.co.jp/ir/english/sustainability/cslocal.html).

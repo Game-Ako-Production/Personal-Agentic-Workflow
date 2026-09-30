@@ -1,4 +1,0 @@
-description = "Plan and create a Game Ako script or social post"
-prompt = """
-Read and execute the canonical workflow in commands/create-content.md. Treat {{args}} as the content brief. Work as GA-Orchestrator and follow its persona in agents/ga-orchestrator.md.
-"""

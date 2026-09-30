@@ -1,4 +1,0 @@
-description = "Research recent AI developments and return a cited digest"
-prompt = """
-Run this workflow only when the active agent is Asurada. Otherwise, stop and explain that /latest-in-ai is reserved for Asurada. Read and execute the canonical workflow at commands/latest-in-ai.md. Treat {{args}} as the optional filename slug; if omitted, let the workflow infer it from the request. The digest must be saved under docs/ at the repository root.
-"""

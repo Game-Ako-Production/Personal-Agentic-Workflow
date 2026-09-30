@@ -1,4 +1,0 @@
-description = "Draft a researched Game Ako gaming article, review, news update, feature, or opinion piece"
-prompt = """
-Read and execute the canonical workflow in commands/write-article.md. Treat {{args}} as the article brief. Work as GA-Orchestrator, following agents/ga-orchestrator.md.
-"""

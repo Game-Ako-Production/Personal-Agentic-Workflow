@@ -28,7 +28,7 @@ Return a concise note of any assumptions, then:
 
 For opinion pieces, label opinion as opinion and support factual premises with sources. Keep the article itself readable; don't overload it with research notes.
 
-Use the field names from the active domain context when it supplies a metadata schema. If it does not, do not reuse another domain's block or invent fields; omit metadata or ask whether a generic block is wanted. For Game Ako, never invent internal-link URLs or add affiliate/sponsored links; follow the rules and open policy questions in `context/game-ako.md`.
+Use the field names from the active domain context when it supplies a metadata schema. If it does not, do not reuse another domain's block or invent fields; omit metadata or ask whether a generic block is wanted. For Game Ako, never invent internal-link URLs or add affiliate/sponsored links; follow the rules and open policy questions in `context/game-ako-blog.md`.
 
 ## Boundaries
 

@@ -27,3 +27,9 @@ Usage: `/latest-in-ai [slug]`. `$ARGUMENTS` is the optional output filename slug
 6. Save the digest in `docs/ai-trends/` following `context/artifacts.md`: normalize the slug, never let it choose a path or extension, never overwrite (append `-2`, `-3`, and so on), and report the final path.
 
 If browsing or a source is unavailable, say so and continue only when reliable evidence is sufficient. Do not fill gaps with guesses or unverified rumors.
+
+## Completion criteria
+
+- The digest covers the stated date range across all three categories, or the coverage gap is reported.
+- Consequential claims carry direct source links and tier labels; event dates are distinguished from report dates.
+- The digest is saved under `docs/ai-trends/` with a unique normalized slug, and the final path is reported.

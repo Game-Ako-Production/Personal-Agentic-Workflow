@@ -35,7 +35,7 @@ If only a topic is supplied, state that the packaging is provisional and should 
    - A short summary of what the video covers.
    - Chapters, when available (see below).
    - Sources cited in the video, as direct links.
-   - The standard description block from `context/game-ako.md`, copied exactly. If it still has placeholders, leave them in place and point that out.
+   - The standard description block from `context/game-ako-youtube.md`, copied exactly. If it still has placeholders, leave them in place and point that out.
    - Three to five relevant hashtags at the end.
 4. **Chapters.** Only when a script with timing, a transcript, or real timestamps exists. Start at `0:00`, list at least three chapters, keep each at least 10 seconds long, and use short descriptive labels. Never estimate timestamps from a script without timing; instead, provide chapter labels and ask Arohbi to fill in the times after editing.
 5. **Tags.** 8 to 15 tags, most specific first (game title, studio, topic, series name, then broader terms). Keep the combined length under 500 characters.

@@ -43,6 +43,9 @@ function routingAction(event) {
     const p = String(input.filePath ?? input.path ?? '').replace(/\\/g, '/')
     const m = /(?:^|\/)((?:commands|agents)\/[^/]+\.md)$/.exec(p)
     if (m) return `read:${m[1]}`
+    // Reading a skill file directly routes to the skill just like the skill tool does.
+    const s = /(?:^|\/)\.(?:agents|claude)\/skills\/([^/]+)\/SKILL\.md$/.exec(p)
+    if (s) return `skill:${s[1]}`
   }
   return null
 }

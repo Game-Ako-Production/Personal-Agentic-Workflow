@@ -115,5 +115,5 @@ See `AGENTS.md` for conventions and platform details.
 
 ## Open items
 
-- Fill in the placeholders in `context/game-ako.md`: the YouTube standard description block, the Next.js blog metadata schema, and the affiliate or sponsorship policy.
+- Fill in the placeholders in `context/game-ako-youtube.md` (standard description block) and `context/game-ako-blog.md` (Next.js blog metadata schema, affiliate or sponsorship policy).
 - Analytics-fed channel review is deferred.

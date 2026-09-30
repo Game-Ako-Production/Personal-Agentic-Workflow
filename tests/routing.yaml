@@ -1,7 +1,7 @@
 # Routing test cases, run with `npm run eval` (OpenCode).
 #
 # Each case sends `prompt` to `agent` and records the first routing action:
-#   skill:<name>    the agent loaded a skill
+#   skill:<name>    the agent loaded a skill (skill tool or opening its SKILL.md)
 #   task:<agent>    the agent delegated to a subagent
 #   read:<path>     the agent opened a canonical workflow in commands/ or agents/
 #   none            the agent answered without any of the above
@@ -90,6 +90,22 @@ cases:
     agent: ga-orchestrator
     prompt: "Write a 10-minute GameAko Speaks! commentary script on why players love turn-based JRPG combat. Evergreen topic, no news needed."
     expect: [task:scriptwriter]
+
+  # ---- Prof. Vahveh ----
+  - id: teach-lesson-plan
+    agent: prof-vahveh
+    prompt: "Plan a 90-minute lab session on REST API design for my second-year college computing students."
+    expect: [skill:lesson-planning]
+
+  - id: teach-materials
+    agent: prof-vahveh
+    prompt: "Create a 10-item quiz with an answer key on binary search trees for my data structures class."
+    expect: [task:content-creator, skill:content-creation]
+
+  - id: teach-assessment
+    agent: prof-vahveh
+    prompt: "Score this student answer against my rubric and give constructive feedback. Rubric: correct base case (40%), correct recursive step (40%), clarity (20%). Student answer: 'def fact(n): return 1 if n == 0 else n * fact(n - 1)'."
+    expect: [skill:student-assessment]
 
   # ---- ADP Orchestrator ----
   - id: adp-content-draft

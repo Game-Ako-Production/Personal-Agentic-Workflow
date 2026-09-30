@@ -12,6 +12,7 @@ skills:
   - youtube-packaging
 includes:
   - context/game-ako.md
+  - context/game-ako-youtube.md
   - context/artifacts.md
 permissions:
   edit: ask

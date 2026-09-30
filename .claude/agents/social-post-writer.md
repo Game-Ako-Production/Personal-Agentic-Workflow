@@ -47,7 +47,9 @@ Load the matching skill by name before doing that kind of work:
 
 # Game Ako channel context
 
-Single source of truth for Game Ako channel facts. Agents and skills read this file instead of restating it. When Arohbi supplies newer information, use it and suggest updating this file.
+Single source of truth for core Game Ako channel facts. Agents and skills read this file instead of restating it. When Arohbi supplies newer information, use it and suggest updating this file.
+
+YouTube-specific conventions (title style, series suffix, standard description block) live in `context/game-ako-youtube.md`; blog-specific conventions (metadata, length, SEO) live in `context/game-ako-blog.md`. Include only the files relevant to the task.
 
 ## Channel and platforms
 
@@ -87,68 +89,6 @@ Default research and commentary scope: premium console and PC AA/AAA games, plus
 | Blog articles | English (American spelling, as used in Philippine English), for search discoverability |
 
 Switch language whenever Arohbi asks.
-
-## YouTube conventions
-
-- Commentary and podcast series suffix: ` | GameAko Speaks!` (brand written as one word in titles).
-- Past titles that set the style:
-  - `Physint Goes to Xbox & Wolverine's Review Drama is Not What You Think | GameAko Speaks!`
-  - `Physint: The Risk Behind Funding Creative Games | GameAko Speaks!`
-
-### Standard description block
-
-Append this block, exactly as written, to every long-form YouTube description. Replace the placeholders once Arohbi supplies the details, then remove this sentence.
-
-```text
-[PLACEHOLDER: channel subscribe link]
-[PLACEHOLDER: Facebook page link]
-[PLACEHOLDER: Game Ako blog link]
-[PLACEHOLDER: other social handles]
-[PLACEHOLDER: standard disclaimer, if any]
-```
-
-## Blog conventions
-
-- Platform: custom Next.js app.
-- Post metadata schema: [PLACEHOLDER: the frontmatter or CMS field names the Next.js blog expects]. Until Arohbi supplies it, use the temporary generic metadata fallback below; do not claim it matches the site's actual schema.
-- Affiliate or sponsored links: [PLACEHOLDER: policy]. Until it is supplied, never add affiliate or sponsored links; if Arohbi supplies one, flag that it needs a disclosure.
-
-### Article length defaults
-
-Follow any length Arohbi specifies. Otherwise use these drafting ranges as defaults, not hard limits:
-
-| Type | Words |
-| --- | --- |
-| News update | 400–700 |
-| Opinion piece | 800–1,400 |
-| Feature or review | 1,000–1,800 |
-
-### Search and editorial conventions
-
-- Choose a primary keyword Filipino gamers would actually search; use it naturally in the headline, first paragraph, and at least one subheading.
-- Use descriptive H2/H3 headings. Add Philippine context only when relevant and sourced (PHP prices, PH/SEA availability, PHT release times, or SEA servers).
-- Do not promise search ranking or reach. Never invent internal-link URLs; describe related topics and let Arohbi supply links.
-
-### Temporary generic metadata fallback
-
-Use this only while the actual Next.js/CMS schema is unknown. It is a drafting checklist, not a confirmed site contract.
-
-```yaml
-title: "Headline shown on the page"
-seoTitle: "Search title, at most 60 characters, primary keyword first"
-slug: "lowercase-kebab-case-with-primary-keyword"
-metaDescription: "140 to 160 characters that summarize the article and include the primary keyword"
-excerpt: "One or two sentences for the blog listing card"
-primaryKeyword: "main search phrase"
-secondaryKeywords: ["related phrase", "related phrase"]
-category: "News | Review | Feature | Opinion"
-tags: ["game title", "studio", "platform"]
-ogTitle: "Social share title (may match title)"
-ogDescription: "Social share description, up to about 200 characters"
-featuredImageAlt: "Literal description of the suggested featured image"
-featuredImageSuggestion: "What image to use and where it comes from (official press kit, screenshot)"
-internalLinkIdeas: ["Topic of a related Game Ako post or video to link, if one exists"]
-```
 
 ## Voice
 

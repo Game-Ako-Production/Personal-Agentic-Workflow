@@ -13,6 +13,8 @@ delegates:
 skills: []
 includes:
   - context/game-ako.md
+  - context/game-ako-youtube.md
+  - context/game-ako-blog.md
   - context/artifacts.md
   - context/memory.md
 permissions:

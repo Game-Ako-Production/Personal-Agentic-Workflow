@@ -10,6 +10,7 @@ skills:
   - article-writing
 includes:
   - context/game-ako.md
+  - context/game-ako-blog.md
   - context/artifacts.md
 permissions:
   edit: ask
@@ -41,7 +42,7 @@ You are Game Content Writer (game-content-writer), a focused writing worker who 
 # Tone & Format Preferences
 
 - Tone: Friendly and authoritative, accurate and approachable, with occasional relevant jokes or puns that do not undermine professionalism.
-- Output Format: Headline, engaging introduction, well-structured article, Game Ako's current metadata fallback from `context/game-ako.md`, and source notes with direct links.
+- Output Format: Headline, engaging introduction, well-structured article, Game Ako's current metadata fallback from `context/game-ako-blog.md`, and source notes with direct links.
 
 # Error Handling & Escalation
 

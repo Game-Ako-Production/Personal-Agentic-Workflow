@@ -10,7 +10,7 @@ Start with `asurada`: it handles general requests and routes specialist work to 
 | --- | --- | --- | --- |
 | Personal assistance and AI trends (`personal`) | `asurada` | Daily research, analysis, automation, decision support, Arohbi's private portable memory, and the weekly AI trend digest. | `docs/ai-trends/` |
 | Teaching and learning (`teaching`) | `prof-vahveh` | To create a structured approach for teaching and learning activities. | `docs/teaching/` |
-| Agentic Developer PH channel (`agentic-developer-ph`) | `prof-vahveh` | Agentic Developer PH channel planning, scripts, social posts, blog articles, and ai trend research. | `docs/adp/` |
+| Agentic Developer PH channel (`agentic-developer-ph`) | `adp-orchestrator` | Agentic Developer PH content planning, researched scripts and articles, social copy, platform adaptation, and explicitly requested publishing. | `docs/adp/` |
 | Video game guides (`game-guide`) | `game-guide` | Quick, spoiler-safe walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play (SecondSeat principle). | `docs/games/` |
 | Game Ako content and blog (`game-ako`) | `ga-orchestrator` | Game Ako channel planning, scripts, social posts, blog articles, and gaming trend research. | `docs/game-ako/sources/`<br>`docs/game-ako/research/`<br>`docs/game-ako/plans/`<br>`docs/game-ako/scripts/`<br>`docs/game-ako/articles/`<br>`docs/game-ako/posts/` |
 | Workflow utilities (`utility`) | any agent | Scaffold and maintain agents, subagents, skills, and commands in this repository. | — |
@@ -31,6 +31,7 @@ flowchart LR
   end
   subgraph domain_agentic_developer_ph["Agentic Developer PH channel"]
     adp_content_creator[adp-content-creator]
+    adp_orchestrator[[adp-orchestrator]]
     cmd_adp_content{{"/adp-content"}}
     cmd_adp_social{{"/adp-social"}}
   end
@@ -53,9 +54,11 @@ flowchart LR
     cmd_scaffold_workflow{{"/scaffold-workflow"}}
   end
   user --> asurada
+  user -.-> adp_orchestrator
   user -.-> ga_orchestrator
   user -.-> game_guide
   user -.-> prof_vahveh
+  adp_orchestrator --> adp_content_creator
   asurada --> domain_teaching
   asurada --> domain_agentic_developer_ph
   asurada --> domain_game_guide
@@ -66,9 +69,8 @@ flowchart LR
   ga_orchestrator --> game_content_writer
   ga_orchestrator --> gaming_trend_scout
   prof_vahveh --> content_creator
-  prof_vahveh --> adp_content_creator
-  cmd_adp_content -.-> prof_vahveh
-  cmd_adp_social -.-> prof_vahveh
+  cmd_adp_content -.-> adp_orchestrator
+  cmd_adp_social -.-> adp_orchestrator
   cmd_create_content -.-> ga_orchestrator
   cmd_game_guide -.-> game_guide
   cmd_latest_in_ai -.-> asurada
@@ -84,7 +86,7 @@ Daily research, analysis, automation, decision support, Arohbi's private portabl
 
 | Agent | Mode | Called by | Delegates to | Skills | Description |
 | --- | --- | --- | --- | --- | --- |
-| `asurada` | primary | — | any agent | `ai-trend-tracker`, `game-guide-expert`, `memory-management` | Asurada is Arohbi's primary assistant and front door for research, analysis, automation, decision support, game guides, and AI trends; routes specialist work to domain agents such as Prof. Vahveh and GA-Orchestrator. |
+| `asurada` | primary | — | any agent | `ai-trend-tracker`, `game-guide-expert`, `memory-management` | Asurada is Arohbi's primary assistant and front door for research, analysis, automation, decision support, game guides, and AI trends; routes specialist work to domain leads such as Prof. Vahveh, ADP Orchestrator, and GA-Orchestrator. |
 
 **Commands**
 
@@ -109,7 +111,7 @@ To create a structured approach for teaching and learning activities.
 | Agent | Mode | Called by | Delegates to | Skills | Description |
 | --- | --- | --- | --- | --- | --- |
 | `content-creator` | subagent | `asurada`, `prof-vahveh` | — | `content-creation` | Create accurate, engaging teaching materials, assignments, lecture talking points, and scripts aligned with supplied lesson plans and learning objectives. |
-| `prof-vahveh` | primary | `asurada` | `content-creator`, `adp-content-creator` | `lesson-planning`, `content-creation`, `student-assessment`, `adp-content-writing`, `adp-social-media-posting` | Orchestrate teaching and Agentic Developer PH workflows, planning lessons, coordinating content creation and social publishing, and assessing student work. |
+| `prof-vahveh` | primary | `asurada` | `content-creator` | `lesson-planning`, `content-creation`, `student-assessment` | Orchestrate teaching and learning workflows, planning lessons, coordinating educational content creation, and assessing student work. |
 
 **Skills**
 
@@ -121,27 +123,27 @@ To create a structured approach for teaching and learning activities.
 
 ## Agentic Developer PH channel (`agentic-developer-ph`)
 
-Agentic Developer PH channel planning, scripts, social posts, blog articles, and ai trend research.
+Agentic Developer PH content planning, researched scripts and articles, social copy, platform adaptation, and explicitly requested publishing.
 
 **Agents**
 
 | Agent | Mode | Called by | Delegates to | Skills | Description |
 | --- | --- | --- | --- | --- | --- |
-| `adp-content-creator` | subagent | `asurada`, `prof-vahveh` | — | `adp-content-writing`, `adp-social-media-posting` | Create researched, audience-aware scripts, social copy, and blog articles for Agentic Developer PH, following the requested format and content-writing or social-publishing workflow. |
+| `adp-content-creator` | subagent | `adp-orchestrator`, `asurada` | — | `content-writing`, `article-writing`, `long-form-scriptwriting`, `short-form-scriptwriting`, `social-post-writing` | Create researched Agentic Developer PH scripts, articles, and social copy drafts using shared writing methods and the supplied ADP context; never publishes. |
+| `adp-orchestrator` | primary | `asurada` | `adp-content-creator` | `social-post-writing`, `adp-social-media-posting` | Lead Agentic Developer PH workflows, coordinating channel planning, researched content drafts, platform adaptation, and explicitly requested social publishing. |
 
 **Commands**
 
 | Command | Runs as | Isolated | Skills | Codex entry | Description |
 | --- | --- | --- | --- | --- | --- |
-| `/adp-content <topic> <format> <audience>` | `prof-vahveh` | no | `adp-content-writing` | skill `adp-content-writing` | Research and create Agentic Developer PH content in the requested format for its specified audience. |
-| `/adp-social <content> <platform> <audience>` | `prof-vahveh` | no | `adp-social-media-posting` | skill `adp-social-media-posting` | Format Agentic Developer PH content for a specified social platform and publish it when requested. |
+| `/adp-content <topic> <format> <audience>` | `adp-orchestrator` | no | `content-writing`, `article-writing`, `long-form-scriptwriting`, `short-form-scriptwriting`, `social-post-writing` | skill `content-writing` | Research and create Agentic Developer PH content in the requested format for its specified audience. |
+| `/adp-social <content> <platform> <audience>` | `adp-orchestrator` | no | `social-post-writing`, `adp-social-media-posting` | skill `adp-social-media-posting` | Format Agentic Developer PH content for a specified social platform and publish it when requested. |
 
 **Skills**
 
 | Skill | Used by | Description |
 | --- | --- | --- |
-| `adp-content-writing` | `adp-content-creator`, `prof-vahveh`, `/adp-content` | Research and create scripts, social copy drafts, and blog articles for Agentic Developer PH from a topic, format, and audience. Use when asked to write original channel content; it does not publish or post content to social platforms. |
-| `adp-social-media-posting` | `adp-content-creator`, `prof-vahveh`, `/adp-social` | Adapt supplied or approved Agentic Developer PH content for a specified social platform and publish it when the user requests a post. Use for platform formatting and posting tasks, not for writing scripts or blog articles. |
+| `adp-social-media-posting` | `adp-orchestrator`, `/adp-social` | Publish an explicitly requested Agentic Developer PH social post through a clear, authorized destination. Use only for ADP posting; use social-post-writing for drafting/adapting copy and never publish without clear authorization. |
 
 ## Video game guides (`game-guide`)
 
@@ -175,29 +177,25 @@ Game Ako channel planning, scripts, social posts, blog articles, and gaming tren
 | --- | --- | --- | --- | --- | --- |
 | `content-strategist` | subagent | `asurada`, `ga-orchestrator` | — | `content-strategy` | Turns Game Ako goals and topics into achievable YouTube-first content plans, formats, schedules, and repurposing paths. |
 | `ga-orchestrator` | all | `asurada` | `content-strategist`, `scriptwriter`, `social-post-writer`, `game-content-writer`, `gaming-trend-scout` | — | GA Orchestrator leads the Game Ako domain, coordinating content plans, scripts, YouTube packaging, social posts, blog articles, and gaming trend research for Arohbi's YouTube and Facebook channel and blog. |
-| `game-content-writer` | subagent | `asurada`, `ga-orchestrator` | — | `article-writing` | Write well-researched Game Ako blog articles, reviews, news updates, features, and opinion pieces with accurate sourcing and reader-friendly SEO. Use for gaming editorial writing; never invents hands-on review experience. |
+| `game-content-writer` | subagent | `asurada`, `ga-orchestrator` | — | `content-writing`, `article-writing` | Write well-researched Game Ako blog articles, reviews, news updates, features, and opinion pieces with accurate sourcing and reader-friendly SEO. Use for gaming editorial writing; never invents hands-on review experience. |
 | `gaming-trend-scout` | subagent | `asurada`, `ga-orchestrator` | — | `gaming-trend` | Research current console and PC gaming developments, focusing on premium AA and AAA games, and cover gacha games including mobile gacha. Exclude other mobile gaming, esports, and competitive scenes. |
-| `scriptwriter` | subagent | `asurada`, `ga-orchestrator` | — | `long-form-scriptwriting`, `short-form-scriptwriting`, `youtube-packaging` | Writes conversational long-form and short-form scripts for Game Ako videos, podcasts, livestreams, Shorts, and Reels, plus YouTube packaging (titles, descriptions, thumbnail text, chapters, tags). |
-| `social-post-writer` | subagent | `asurada`, `ga-orchestrator` | — | `social-post-writing` | Writes platform-specific social copy for Game Ako, with Facebook promotion that points viewers toward YouTube. |
+| `scriptwriter` | subagent | `asurada`, `ga-orchestrator` | — | `content-writing`, `long-form-scriptwriting`, `short-form-scriptwriting`, `youtube-packaging` | Writes conversational long-form and short-form scripts for Game Ako videos, podcasts, livestreams, Shorts, and Reels, plus YouTube packaging (titles, descriptions, thumbnail text, chapters, tags). |
+| `social-post-writer` | subagent | `asurada`, `ga-orchestrator` | — | `content-writing`, `social-post-writing` | Writes platform-specific social copy for Game Ako, with Facebook promotion that points viewers toward YouTube. |
 
 **Commands**
 
 | Command | Runs as | Isolated | Skills | Codex entry | Description |
 | --- | --- | --- | --- | --- | --- |
-| `/create-content <topic and content type>` | `ga-orchestrator` | no | `gaming-trend`, `content-strategy`, `long-form-scriptwriting`, `short-form-scriptwriting`, `youtube-packaging`, `social-post-writing` | wrapper skill `create-content` | Plan and create a Game Ako content piece or package (plan, long-form script, short-form script, YouTube packaging, social post) with companion pieces |
+| `/create-content <topic and content type>` | `ga-orchestrator` | no | `gaming-trend`, `content-strategy`, `content-writing`, `long-form-scriptwriting`, `short-form-scriptwriting`, `youtube-packaging`, `social-post-writing` | wrapper skill `create-content` | Plan and create a Game Ako content piece or package (plan, long-form script, short-form script, YouTube packaging, social post) with companion pieces |
 | `/scout-gaming-trend <topic or trend> [time period]` | `gaming-trend-scout` | yes | `gaming-trend` | skill `gaming-trend` | Research current console and PC premium AA and AAA games, plus gacha games including mobile gacha, and return a sourced Game Ako brief |
-| `/write-article <topic and article type>` | `ga-orchestrator` | no | `gaming-trend`, `article-writing` | skill `article-writing` | Draft a researched Game Ako blog article, review, news update, feature, or opinion piece |
+| `/write-article <topic and article type>` | `ga-orchestrator` | no | `gaming-trend`, `content-writing`, `article-writing` | skill `article-writing` | Draft a researched Game Ako blog article, review, news update, feature, or opinion piece |
 
 **Skills**
 
 | Skill | Used by | Description |
 | --- | --- | --- |
-| `article-writing` | `game-content-writer`, `/write-article` | Write engaging, well-researched Game Ako blog articles, reviews, news updates, features, and opinion pieces. Use whenever Arohbi requests gaming editorial content or runs /write-article; provides source attribution, natural SEO, and honest separation of reporting and opinion. |
 | `content-strategy` | `content-strategist`, `/create-content` | Build a practical, sustainable content plan for Game Ako from a topic, goal, audience, or requested cadence. Use whenever Arohbi asks what to make, how to sequence content, or how to plan YouTube and Facebook content. |
 | `gaming-trend` | `gaming-trend-scout`, `/create-content`, `/scout-gaming-trend`, `/write-article` | Research current console and PC gaming news, trends, announcements, and market developments, focusing on premium AA and AAA games. Also cover gacha games as an explicit exception, including mobile gacha; exclude other mobile gaming, esports, and competitive scenes. Use whenever Arohbi asks what is happening in these areas or wants a sourced brief for Game Ako content planning. |
-| `long-form-scriptwriting` | `scriptwriter`, `/create-content` | Outline or draft long-form spoken content for Game Ako, including YouTube commentary videos, podcasts, and livestreams. Use whenever Arohbi asks for a full script, outline, episode structure, talking points, or long-form rewrite. |
-| `short-form-scriptwriting` | `scriptwriter`, `/create-content` | Write or revise concise, self-contained scripts for YouTube Shorts, Facebook Reels, and other short-form gaming content. Use whenever Arohbi requests a short video script, reel, short, hook, or a short-form adaptation. |
-| `social-post-writing` | `social-post-writer`, `/create-content` | Draft or refine social media posts and captions for Game Ako, including Facebook announcements, engagement posts, and captions for YouTube or short-form video. Use whenever Arohbi asks for platform-specific post copy. |
 | `youtube-packaging` | `scriptwriter`, `/create-content` | Package a Game Ako YouTube upload with English title options, a Taglish description, thumbnail text, chapters, and tags. Use when Arohbi asks for a YouTube title, description, thumbnail text, chapters, timestamps, tags, or upload metadata for a video, podcast, livestream, or Short. |
 
 ## Workflow utilities (`utility`)
@@ -209,6 +207,16 @@ Scaffold and maintain agents, subagents, skills, and commands in this repository
 | Command | Runs as | Isolated | Skills | Codex entry | Description |
 | --- | --- | --- | --- | --- | --- |
 | `/scaffold-workflow [all=true\|agent=true\|skill=true\|command=true] <workflow brief>` | current agent | no | `skill-creator`, `command-creator` | wrapper skill `scaffold-workflow` | Scaffold or update agents, subagents, skills, commands, and domains from a workflow brief |
+
+## Shared skills
+
+| Skill | Used by | Description |
+| --- | --- | --- |
+| `article-writing` | `adp-content-creator`, `game-content-writer`, `/adp-content`, `/write-article` | Draft sourced editorial articles, reviews, news updates, features, or opinion pieces for a supported content domain. Use with that domain's context for audience, language, style, and metadata conventions. |
+| `content-writing` | `adp-content-creator`, `game-content-writer`, `scriptwriter`, `social-post-writer`, `/adp-content`, `/create-content`, `/write-article` | Research and draft accurate original content across supported domains when Arohbi requests a script, article, or social copy. Use with the task-specific writing skill and loaded domain context; this skill does not publish. |
+| `long-form-scriptwriting` | `adp-content-creator`, `scriptwriter`, `/adp-content`, `/create-content` | Outline or draft long-form spoken content for a supported content domain, including commentary, podcasts, livestreams, and other requested formats. Use for full scripts, outlines, episode structures, talking points, or long-form rewrites; follow the active domain context for voice and language. |
+| `short-form-scriptwriting` | `adp-content-creator`, `scriptwriter`, `/adp-content`, `/create-content` | Write or revise concise, self-contained short-form scripts for a supported content domain. Use when Arohbi requests a short video script, reel, hook, or short-form adaptation; follow the active domain context for platform, audience, voice, and language. |
+| `social-post-writing` | `adp-content-creator`, `adp-orchestrator`, `social-post-writer`, `/adp-content`, `/adp-social`, `/create-content` | Draft or refine platform-specific social posts and captions for a supported content domain. Use when Arohbi asks for post copy or a caption; the active domain context supplies audience, language, voice, and call-to-action rules. This skill does not publish. |
 
 ## Installed third-party skills
 

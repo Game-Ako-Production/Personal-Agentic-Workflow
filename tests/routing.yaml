@@ -55,6 +55,16 @@ cases:
     prompt: "What do you remember about my content preferences?"
     expect: [skill:memory-management, read:commands/memory.md]
 
+  - id: route-adp-content
+    agent: asurada
+    prompt: "Draft a Taglish article for Agentic Developer PH about choosing a first web framework; target beginners and cite current claims."
+    expect: [task:adp-orchestrator]
+
+  - id: route-teaching
+    agent: asurada
+    prompt: "Help me plan a lesson on REST API design for my college computing students."
+    expect: [task:prof-vahveh]
+
   - id: no-overtrigger
     agent: asurada
     prompt: "In two sentences, what is the difference between TCP and UDP?"
@@ -80,6 +90,17 @@ cases:
     agent: ga-orchestrator
     prompt: "Write a 10-minute GameAko Speaks! commentary script on why players love turn-based JRPG combat. Evergreen topic, no news needed."
     expect: [task:scriptwriter]
+
+  # ---- ADP Orchestrator ----
+  - id: adp-content-draft
+    agent: adp-orchestrator
+    prompt: "Write a Taglish 60-second short-form script for beginner developers about Git branches."
+    expect: [task:adp-content-creator]
+
+  - id: adp-social-publish
+    agent: adp-orchestrator
+    prompt: "Publish this approved Agentic Developer PH post to the LinkedIn page I specified: [approved copy]."
+    expect: [skill:adp-social-media-posting]
 
   # ---- Game Guide ----
   - id: guide-missables

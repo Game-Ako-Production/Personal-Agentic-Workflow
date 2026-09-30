@@ -5,6 +5,8 @@ Arohbi's unified agent workspace. One front door, Asurada, routes work to domain
 | Domain | Lead | Use it for |
 | --- | --- | --- |
 | Personal and AI trends | Asurada | Research, analysis, automation, decisions; `/latest-in-ai` weekly digest |
+| Teaching and learning | Prof. Vahveh | Lesson planning, educational materials, assignments, student assessment |
+| Agentic Developer PH | ADP Orchestrator | Channel content drafts and explicitly requested social publishing |
 | Video game guides | Game Guide (SecondSeat principle) | Quick, spoiler-safe help while playing: builds, bosses, routes, missables |
 | Game Ako content and blog | GA-Orchestrator | `/create-content`, `/write-article`, `/scout-gaming-trend`, YouTube packaging |
 | Workflow utilities | Any agent | `/scaffold-workflow` to add agents, skills, commands, and domains |
@@ -31,6 +33,7 @@ flowchart LR
   end
   subgraph domain_agentic_developer_ph["Agentic Developer PH channel"]
     adp_content_creator[adp-content-creator]
+    adp_orchestrator[[adp-orchestrator]]
     cmd_adp_content{{"/adp-content"}}
     cmd_adp_social{{"/adp-social"}}
   end
@@ -53,9 +56,11 @@ flowchart LR
     cmd_scaffold_workflow{{"/scaffold-workflow"}}
   end
   user --> asurada
+  user -.-> adp_orchestrator
   user -.-> ga_orchestrator
   user -.-> game_guide
   user -.-> prof_vahveh
+  adp_orchestrator --> adp_content_creator
   asurada --> domain_teaching
   asurada --> domain_agentic_developer_ph
   asurada --> domain_game_guide
@@ -66,9 +71,8 @@ flowchart LR
   ga_orchestrator --> game_content_writer
   ga_orchestrator --> gaming_trend_scout
   prof_vahveh --> content_creator
-  prof_vahveh --> adp_content_creator
-  cmd_adp_content -.-> prof_vahveh
-  cmd_adp_social -.-> prof_vahveh
+  cmd_adp_content -.-> adp_orchestrator
+  cmd_adp_social -.-> adp_orchestrator
   cmd_create_content -.-> ga_orchestrator
   cmd_game_guide -.-> game_guide
   cmd_latest_in_ai -.-> asurada
@@ -84,13 +88,15 @@ The managed-platform contract and clean-checkout instructions are in `docs/archi
 
 ## Using it
 
-- **OpenCode / Claude Code:** sessions in this repository open as Asurada. Ask for anything; Asurada answers directly, delegates single deliverables to a specialist, and hands multi-piece Game Ako work to GA-Orchestrator. You can also switch straight to GA-Orchestrator or Game Guide.
-- **Codex:** ask for the `asurada`, `ga-orchestrator`, or `game-guide` agent. Commands are available as skills (for example, "run create-content").
+- **OpenCode / Claude Code:** sessions in this repository open as Asurada. Ask for anything; Asurada answers directly or routes to a domain lead. You can also switch directly to Prof. Vahveh, ADP Orchestrator, GA Orchestrator, or Game Guide.
+- **Codex:** ask for the `asurada`, `prof-vahveh`, `adp-orchestrator`, `ga-orchestrator`, or `game-guide` agent. Commands are available as skills (for example, "run create-content").
 
 Commands:
 
 - `/latest-in-ai [slug]` saves an AI trend digest to `docs/ai-trends/` (Asurada only).
 - `/memory <remember|recall|forget|compact|export|import> [detail]` manages your private, portable memory in the gitignored `memory/` folder.
+- `/adp-content <topic> <format> <audience>` coordinates an Agentic Developer PH draft.
+- `/adp-social <content> <platform> <audience>` adapts ADP copy and publishes only when explicitly authorized.
 - `/game-guide <game> <question>` gives quick, spoiler-safe help for a game you are playing.
 - `/create-content <topic and content type>` plans or drafts Game Ako scripts, YouTube packaging, posts, and packages.
 - `/write-article <topic and article type>` drafts a Game Ako blog article with SEO metadata.

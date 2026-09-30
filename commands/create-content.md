@@ -8,6 +8,7 @@ subtask: false
 skills:
   - gaming-trend
   - content-strategy
+  - content-writing
   - long-form-scriptwriting
   - short-form-scriptwriting
   - youtube-packaging

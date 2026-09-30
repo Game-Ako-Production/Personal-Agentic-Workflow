@@ -26,9 +26,9 @@ domains:
 
   - id: agentic-developer-ph
     title: Agentic Developer PH channel
-    lead: prof-vahveh
-    purpose: Agentic Developer PH channel planning, scripts, social posts, blog articles, and ai trend research.
-    skills: [adp-content-writing, adp-social-media-posting]
+    lead: adp-orchestrator
+    purpose: Agentic Developer PH content planning, researched scripts and articles, social copy, platform adaptation, and explicitly requested publishing.
+    skills: [adp-social-media-posting]
     artifacts: [docs/adp/]
 
   - id: game-guide

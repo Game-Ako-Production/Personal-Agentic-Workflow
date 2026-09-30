@@ -3,9 +3,10 @@ name: adp-social
 description: Format Agentic Developer PH content for a specified social platform and publish it when requested.
 argument-hint: "<content> <platform> <audience>"
 domain: agentic-developer-ph
-agent: prof-vahveh
+agent: adp-orchestrator
 subtask: false
 skills:
+  - social-post-writing
   - adp-social-media-posting
 codex: adp-social-media-posting
 targets: [opencode, claude, codex]
@@ -13,14 +14,15 @@ targets: [opencode, claude, codex]
 
 # ADP Social
 
-Format supplied Agentic Developer PH content for the requested platform. Publish only when `$ARGUMENTS` or the surrounding conversation clearly requests publication and the target destination is clear.
+Format the supplied Agentic Developer PH content in `$ARGUMENTS` for the requested platform. `adp-orchestrator` coordinates the workflow. Use `social-post-writing` for the copy and `adp-social-media-posting` only for an explicitly requested, authorized publish action.
 
 ## Workflow
 
 1. **Parse the brief.** Identify the content, platform, destination, audience, and whether the user requests a draft or publication. Ask one focused question if a required detail is missing.
-2. **Handle the social workflow.** Use `adp-social-media-posting` to adapt the content and, when explicitly requested, publish through an authorized platform connection. Do not create a new script or article in this workflow.
-3. **Check the result.** Confirm the platform and destination. If publishing, rely on the platform response to verify success; never report a post as published without confirmation.
-4. **Return.** Show the final platform-ready copy and report the confirmed publication result or precise blocker. Save a record only when requested under `docs/adp/` following `context/artifacts.md`.
+2. **Adapt the content.** Use `social-post-writing` to prepare platform-ready copy while preserving the approved source's meaning and factual claims.
+3. **Publish only if requested.** Use `adp-social-media-posting` only when the user explicitly requests publication, the destination is clear, and an authorized connection is available. Do not create a new article or script here.
+4. **Check the result.** Confirm the platform and destination. If publishing, rely on the platform response to verify success; never report a post as published without confirmation.
+5. **Return.** Show the final platform-ready copy and report the confirmed publication result or precise blocker. Save a record only when requested under `docs/adp/` following `context/artifacts.md`.
 
 ## Error handling
 

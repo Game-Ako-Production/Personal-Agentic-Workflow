@@ -2,8 +2,10 @@
 
 - [x] Add context for Agentic Developer PH (context/adp.md)
 - [ ] Workflow Evaluation and Optimization
-- [ ] Memory Management Improvements
+- [x] Memory Management Improvements
   - The goal is to keep user memory of topics discussed.
+- [ ] Add long form video analysis workflow, make use of Gemini API as the model.
+- [ ] Add a way to track installed skills and custom skills created by /scaffold-workflow command.
 
 ## Backlogs Topic
 

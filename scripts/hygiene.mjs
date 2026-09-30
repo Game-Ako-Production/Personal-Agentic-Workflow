@@ -12,7 +12,6 @@ const ROOT_FILES = [
   '.gitignore',
   'AGENTS.md',
   'README.md',
-  'instructions.md',
   'opencode.json',
   'package.json',
   'package-lock.json',

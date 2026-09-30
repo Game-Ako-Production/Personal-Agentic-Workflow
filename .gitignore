@@ -1,1 +1,4 @@
 node_modules/
+
+# Arohbi's private, portable memory (context/memory.md). Never commit.
+memory/

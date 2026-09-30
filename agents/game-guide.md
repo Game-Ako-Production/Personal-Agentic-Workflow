@@ -9,6 +9,7 @@ skills:
   - game-guide-expert
 includes:
   - context/artifacts.md
+  - context/memory.md
 permissions:
   edit: ask
   bash: deny

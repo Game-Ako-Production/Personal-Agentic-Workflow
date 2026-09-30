@@ -23,6 +23,7 @@ flowchart LR
   subgraph domain_personal["Personal assistance and AI trends"]
     asurada[[asurada]]
     cmd_latest_in_ai{{"/latest-in-ai"}}
+    cmd_memory{{"/memory"}}
   end
   subgraph domain_teaching["Teaching and learning"]
     content_creator[content-creator]
@@ -87,6 +88,7 @@ How the pieces fit together (sources, generator, skills, and artifacts): `docs/a
 Commands:
 
 - `/latest-in-ai [slug]` saves an AI trend digest to `docs/ai-trends/` (Asurada only).
+- `/memory <remember|recall|forget|compact|export|import> [detail]` manages your private, portable memory in the gitignored `memory/` folder.
 - `/game-guide <game> <question>` gives quick, spoiler-safe help for a game you are playing.
 - `/create-content <topic and content type>` plans or drafts Game Ako scripts, YouTube packaging, posts, and packages.
 - `/write-article <topic and article type>` drafts a Game Ako blog article with SEO metadata.

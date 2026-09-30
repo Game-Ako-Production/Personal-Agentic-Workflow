@@ -8,7 +8,7 @@ Start with `asurada`: it handles general requests and routes specialist work to 
 
 | Domain | Lead | Purpose | Artifacts |
 | --- | --- | --- | --- |
-| Personal assistance and AI trends (`personal`) | `asurada` | Daily research, analysis, automation, decision support, and the weekly AI trend digest. | `docs/ai-trends/` |
+| Personal assistance and AI trends (`personal`) | `asurada` | Daily research, analysis, automation, decision support, Arohbi's private portable memory, and the weekly AI trend digest. | `docs/ai-trends/` |
 | Teaching and learning (`teaching`) | `prof-vahveh` | To create a structured approach for teaching and learning activities. | `docs/teaching/` |
 | Agentic Developer PH channel (`agentic-developer-ph`) | `prof-vahveh` | Agentic Developer PH channel planning, scripts, social posts, blog articles, and ai trend research. | `docs/adp/` |
 | Video game guides (`game-guide`) | `game-guide` | Quick, spoiler-safe walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play (SecondSeat principle). | `docs/games/` |
@@ -23,6 +23,7 @@ flowchart LR
   subgraph domain_personal["Personal assistance and AI trends"]
     asurada[[asurada]]
     cmd_latest_in_ai{{"/latest-in-ai"}}
+    cmd_memory{{"/memory"}}
   end
   subgraph domain_teaching["Teaching and learning"]
     content_creator[content-creator]
@@ -77,25 +78,27 @@ flowchart LR
 
 ## Personal assistance and AI trends (`personal`)
 
-Daily research, analysis, automation, decision support, and the weekly AI trend digest.
+Daily research, analysis, automation, decision support, Arohbi's private portable memory, and the weekly AI trend digest.
 
 **Agents**
 
 | Agent | Mode | Called by | Delegates to | Skills | Description |
 | --- | --- | --- | --- | --- | --- |
-| `asurada` | primary | — | any agent | `ai-trend-tracker`, `game-guide-expert` | Asurada is Arohbi's primary assistant and front door for research, analysis, automation, decision support, game guides, and AI trends; routes specialist work to domain agents such as Prof. Vahveh and GA-Orchestrator. |
+| `asurada` | primary | — | any agent | `ai-trend-tracker`, `game-guide-expert`, `memory-management` | Asurada is Arohbi's primary assistant and front door for research, analysis, automation, decision support, game guides, and AI trends; routes specialist work to domain agents such as Prof. Vahveh and GA-Orchestrator. |
 
 **Commands**
 
 | Command | Runs as | Isolated | Skills | Codex entry | Description |
 | --- | --- | --- | --- | --- | --- |
 | `/latest-in-ai [slug]` | `asurada` | no | `ai-trend-tracker` | skill `ai-trend-tracker` | Research recent AI developments and save a cited digest |
+| `/memory <remember\|recall\|forget\|compact\|export\|import> [detail]` | current agent | no | `memory-management` | skill `memory-management` | Manage Arohbi's private, portable memory — remember, recall, forget, compact, export, and import |
 
 **Skills**
 
 | Skill | Used by | Description |
 | --- | --- | --- |
 | `ai-trend-tracker` | `asurada`, `/latest-in-ai` | Research and track recent AI developments across models and research, tools and products, and market and industry. Use when Arohbi asks for the latest AI news, a trend roundup, or a digest of AI developments. |
+| `memory-management` | `asurada`, `/memory` | Manage Arohbi's private, portable memory — remember, recall, forget, compact session notes, and export or import plain bundles when switching models or harnesses. Use when Arohbi asks to remember, recall, or forget something, asks what the workflow knows about him, or runs /memory. |
 
 ## Teaching and learning (`teaching`)
 

@@ -43,6 +43,10 @@ Use `/scaffold-workflow` (canonical workflow: `commands/scaffold-workflow.md`) t
 
 Answer on screen by default. Saved outputs follow `context/artifacts.md` and live under `docs/` in the folder owned by each domain in `workflow.yaml`. `docs/archive/briefs/` holds historical workflow briefs for reference only; they are not requirements.
 
+## Memory
+
+`memory/` holds Arohbi's private, portable memory and is gitignored — never commit it, and never add its files to an agent's `includes` (includes are inlined into the tracked generated platform files). The tracked policy and schema live in `context/memory.md`; the `/memory` command (canonical: `commands/memory.md`, skill: `memory-management`) manages remember, recall, forget, compact, export, and import. A fresh clone without `memory/` must still sync and validate.
+
 ## Dependencies
 
 The root `package.json` provides the generator (`yaml` is its only dependency). The `.opencode/` package holds the OpenCode plugin dependency; run `npm install` there only when needed.

@@ -14,6 +14,7 @@ skills: []
 includes:
   - context/game-ako.md
   - context/artifacts.md
+  - context/memory.md
 permissions:
   edit: ask
   bash: deny

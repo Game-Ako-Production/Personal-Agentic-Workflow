@@ -17,7 +17,7 @@ domains:
   - id: personal
     title: Personal assistance and AI trends
     lead: asurada
-    purpose: Daily research, analysis, automation, decision support, and the weekly AI trend digest.
+    purpose: Daily research, analysis, automation, decision support, Arohbi's private portable memory, and the weekly AI trend digest.
     artifacts: [docs/ai-trends/]
 
   - id: teaching

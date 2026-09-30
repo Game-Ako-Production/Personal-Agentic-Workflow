@@ -45,6 +45,16 @@ cases:
     prompt: "I want to add a new domain to this workspace for my software engineering work, with a subagent that reviews pull requests. Set it up."
     expect: [read:commands/scaffold-workflow.md, skill:scaffold-workflow]
 
+  - id: memory-remember
+    agent: asurada
+    prompt: "Remember that I prefer concise answers with sources."
+    expect: [skill:memory-management, read:commands/memory.md]
+
+  - id: memory-recall
+    agent: asurada
+    prompt: "What do you remember about my content preferences?"
+    expect: [skill:memory-management, read:commands/memory.md]
+
   - id: no-overtrigger
     agent: asurada
     prompt: "In two sentences, what is the difference between TCP and UDP?"

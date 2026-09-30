@@ -1,0 +1,71 @@
+---
+name: memory-management
+description: Manage Arohbi's private, portable memory — remember, recall, forget, compact session notes, and export or import plain bundles when switching models or harnesses. Use when Arohbi asks to remember, recall, or forget something, asks what the workflow knows about him, or runs /memory.
+---
+
+# Memory Management
+
+Operate on the private memory store in `memory/` so the workflow remembers Arohbi across models and harnesses. The policy, layout, entry format, and privacy rules are in `context/memory.md`; read it first when it is not already in your context. Never store secrets or data Arohbi has asked to keep out.
+
+When invoked directly in Codex for a memory request, also read and follow `commands/memory.md` for the shared invocation rules. Codex discovers this repository skill as its native reusable workflow; there is no project-scoped Codex command wrapper.
+
+## Inputs
+
+- Subaction: `remember`, `recall`, `forget`, `compact`, `export`, or `import` (from `/memory` or a natural-language request).
+- The fact, topic, entry, or bundle path the request is about.
+- The current date, for dating entries and bundles.
+
+## Bootstrap
+
+Before any write, ensure the layout from `context/memory.md` exists. When `memory/` is missing, create it: `memory/MEMORY.md` (frontmatter `schema: 1`, the file map, and an empty compaction log), `memory/profile.md` (empty `Identity`, `Preferences`, and `Defaults` sections), and the `memory/domains/`, `memory/sessions/`, `memory/archive/`, and `memory/exports/` directories. Report that memory was bootstrapped.
+
+## Procedures
+
+### remember \<fact\>
+
+1. Classify the fact: profile (stable identity, preference, or default) or domain (project context or durable fact tied to one domain). Ask one focused question when the fact is sensitive or the destination is ambiguous.
+2. Append a dated entry in the format from `context/memory.md` to `memory/profile.md` or the matching file in `memory/domains/`, creating the domain file when needed. Never overwrite existing entries to make room.
+3. Confirm on screen: what was stored and where.
+
+### recall [topic]
+
+1. Read `memory/MEMORY.md` and `memory/profile.md`. When a topic is given, also read the relevant files in `memory/domains/` and `memory/sessions/`.
+2. Answer with the matching entries and where each lives, labeled as memory. When nothing matches, say so; never invent memories.
+
+### forget \<item\>
+
+1. Search the store for matching entries and show them.
+2. When exactly one clear match exists, remove it. Otherwise list the candidates and let Arohbi pick before changing anything. Confirm what was removed.
+
+### compact
+
+1. Snapshot `memory/MEMORY.md`, `memory/profile.md`, `memory/domains/`, and `memory/sessions/` into a dated folder under `memory/archive/`.
+2. Summarize session notes into dated entries in the right domain files or the profile. Deduplicate against existing entries and mark uncertain inferences.
+3. Clear the compacted session notes, then log the run (date and a short summary of what moved) in `memory/MEMORY.md`. Report the result on screen.
+
+### export
+
+1. Create a dated bundle folder under `memory/exports/` named `memory-export-<date>` (append `-2`, `-3`, and so on when it exists) containing a copy of `memory/MEMORY.md`, `memory/profile.md`, `memory/domains/`, and `memory/sessions/`. Exclude `memory/archive/` and older exports.
+2. Write `BUNDLE.md` in the bundle root: schema version, export date, and the list of included files.
+3. Report the bundle path. Never upload or transmit the bundle; moving it to another machine or harness is Arohbi's action.
+
+### import \<path\>
+
+1. Read the bundle's `BUNDLE.md`. Stop and report when the manifest is missing, unreadable, or declares a schema newer than the one in `context/memory.md`.
+2. Preview before writing: list the files and entries that would be added, and the conflicts (same topic with different content, or incoming entries dated older than existing local ones).
+3. Apply only after Arohbi approves the preview: append new dated entries, keep the local entry on conflict unless he chooses otherwise, and log the import in `memory/MEMORY.md`.
+
+## Output
+
+Short on-screen confirmations: what changed, where, and anything skipped or waiting on Arohbi's decision. Memory files are the artifact; do not save extra copies under `docs/`.
+
+## Boundaries
+
+- This skill manages the local memory store only. It does not publish, upload, or share memory, and it does not create workflow artifacts under `docs/`.
+- Never add memory files to agent `includes` or to generated platform files; `context/memory.md` explains why.
+- For conversationally adopting a memory export from a different AI assistant, the installed `import-memory` skill can complement this one; write the accepted result into this store following `context/memory.md`.
+
+## Related workflow
+
+- `/memory` command: `commands/memory.md`.
+- Used by `asurada`; any agent follows it when running the `/memory` workflow.

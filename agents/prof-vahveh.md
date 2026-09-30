@@ -15,6 +15,7 @@ skills:
   - adp-social-media-posting
 includes:
   - context/artifacts.md
+  - context/memory.md
 permissions:
   edit: allow
   bash: allow

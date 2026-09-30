@@ -97,9 +97,9 @@ Create the command base on the following details:
 
 #### Common Instructions
 
-- Agents, Skills, and Commands should be generated according to OpenCode, Codex, Claude, Gemini and Github Copilot standards and best practices.
-- Create each on `agents` folder for the supported tool but if not make the native folder for who don't support it eg. Claude uses `.claude`, OpenCode uses `.opencode`, etc.
-- This instructions should be idempotent, only generate the agent, skill, and command if they don't exist yet. If they already exist, update them with the new details.
+- Agents, skills, and commands are authored once in canonical sources and generated for the managed targets: OpenCode, Claude Code, and Codex.
+- Do not hand-create platform output files or add another harness without updating the generator, validator, and `docs/architecture/portability.md`.
+- Generation is idempotent: edit canonical sources, then run `npm run sync` and `npm run check`.
 
 - **name:** `prof-vahveh`
 - **description:** infer base on the context provided

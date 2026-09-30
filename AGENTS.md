@@ -25,7 +25,7 @@ This repository stores Arohbi's agent workflow configuration, not application so
 After changing any canonical source:
 
 ```sh
-npm install   # first time only
+npm ci        # reproducible install from package-lock.json
 npm run sync
 npm run check
 ```
@@ -37,7 +37,8 @@ Use `/scaffold-workflow` (canonical workflow: `commands/scaffold-workflow.md`) t
 - OpenCode discovers `.opencode/agents/`, `.opencode/commands/`, and skills in `.agents/skills/` and `.claude/skills/` (duplicates resolve to the same content).
 - Claude Code discovers `.claude/agents/`, `.claude/commands/`, and `.claude/skills/`, and reads this `AGENTS.md` when no `CLAUDE.md` exists. Do not add a `CLAUDE.md` unless it imports `@AGENTS.md`.
 - Codex discovers `.codex/agents/*.toml` and `.agents/skills/`. It has no project-scoped command folder, so commands reach Codex through a skill: either a generated wrapper (`codex: wrapper`) or an existing skill that routes to the workflow (`codex: <skill-name>`). Never create `.codex/commands/`.
-- Gemini CLI (`.gemini/`) and GitHub Copilot (`.github/agents/`, `.github/prompts/`) are frozen: hand-maintained, not generated or validated, and may reference outdated paths. Leave them untouched unless Arohbi asks.
+- Gemini CLI and GitHub Copilot are not supported targets. Do not create platform-specific workflow files for them unless they are deliberately added to the managed portability contract.
+- See `docs/architecture/portability.md` for canonical metadata, adapter behavior, clean-checkout steps, and known platform differences.
 
 ## Artifacts
 

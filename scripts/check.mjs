@@ -1,10 +1,12 @@
 // npm run check — validate canonical sources and confirm generated files are up to date. Never writes.
 import { build, findStale } from './build.mjs'
 import { exists, loadModel, normalize, readAny } from './lib.mjs'
+import { findCanonicalHygieneIssues } from './hygiene.mjs'
 import { validate } from './validate.mjs'
 
 const model = loadModel()
 const { errors, warnings } = validate(model)
+errors.push(...findCanonicalHygieneIssues(model))
 
 if (!errors.length) {
   const outputs = build(model)

@@ -9,9 +9,7 @@ front-door: asurada
 
 platforms:
   managed: [opencode, claude, codex]
-  # Frozen platforms keep their existing hand-written files under .gemini/ and
-  # .github/. The generator and validator do not touch or check them.
-  frozen: [gemini, copilot]
+  frozen: []
 
 domains:
   - id: personal

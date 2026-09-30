@@ -80,6 +80,8 @@ flowchart LR
 
 How the pieces fit together (sources, generator, skills, and artifacts): `docs/architecture/workflow-relationships.md`.
 
+The managed-platform contract and clean-checkout instructions are in `docs/architecture/portability.md`.
+
 ## Using it
 
 - **OpenCode / Claude Code:** sessions in this repository open as Asurada. Ask for anything; Asurada answers directly, delegates single deliverables to a specialist, and hands multi-piece Game Ako work to GA-Orchestrator. You can also switch straight to GA-Orchestrator or Game Guide.

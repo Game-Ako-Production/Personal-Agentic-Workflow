@@ -2,7 +2,7 @@
 
 # Workflow registry
 
-Start with `asurada`: it handles general requests and routes specialist work to the domain lead or subagent listed here. Managed platforms: opencode, claude, codex. Frozen platforms (hand-maintained, not generated): gemini, copilot.
+Start with `asurada`: it handles general requests and routes specialist work to the domain lead or subagent listed here. Managed platforms: opencode, claude, codex. Frozen platforms (hand-maintained, not generated): none.
 
 ## Domains
 

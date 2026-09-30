@@ -37,7 +37,7 @@ You edit only canonical sources:
 | Skills | `.agents/skills/<name>/SKILL.md` (plus bundled resources in that folder) |
 | Shared context | `context/*.md` |
 
-`npm run sync` generates everything else: `registry.md`, `.opencode/agents/`, `.opencode/commands/`, `.claude/agents/`, `.claude/commands/`, `.claude/skills/`, `.codex/agents/`, and Codex command wrappers in `.agents/skills/<command>/`. Never hand-edit generated files; they start with a GENERATED notice. `.gemini/` and `.github/` are frozen and are not created or updated unless Arohbi explicitly asks.
+`npm run sync` generates everything else: `registry.md`, `.opencode/agents/`, `.opencode/commands/`, `.claude/agents/`, `.claude/commands/`, `.claude/skills/`, `.codex/agents/`, and Codex command wrappers in `.agents/skills/<command>/`. Never hand-edit generated files; they start with a GENERATED notice. The managed targets are OpenCode, Claude Code, and Codex. Do not create outputs for another harness unless it is deliberately added to the portability contract in `docs/architecture/portability.md`.
 
 ## Workflow
 

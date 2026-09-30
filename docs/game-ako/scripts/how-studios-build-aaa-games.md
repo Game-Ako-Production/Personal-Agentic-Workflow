@@ -1,8 +1,8 @@
-# Iba’t Ibang Paraan ng Studios sa Pagbuo ng AAA Games
+# AAA Game Production: Paano Ito Gumagana at Bakit Nasa Pressure Ngayon?
 
 **Format:** YouTube commentary  
 **Language:** Taglish  
-**Estimated runtime:** 8–10 minutes  
+**Estimated runtime:** 15–18 minutes  
 **Scope:** Remedy, Game Science (_Black Myth: Wukong_), Pearl Abyss (_Crimson Desert_), and Capcom  
 **Research date:** September 30, 2026  
 **Assumptions:** Budget figures are estimates unless identified as company disclosures. Currency conversions are approximate and depend on exchange rates.
@@ -11,17 +11,63 @@
 
 **[OPEN — montage: Alan Wake 2, Control, Black Myth: Wukong, Crimson Desert, Resident Evil, Monster Hunter, Street Fighter]**
 
-Kapag nakakakita tayo ng AAA game, madalas ganito ang assumption: kailangan ng napakalaking studio, napakalaking budget, at ilang taon ng production.
+AAA games are bigger, more detailed, and more expensive than ever. Pero bakit parang sabay-sabay din tayong nakakakita ng layoffs, cancellations, at studios na nagiging mas maingat sa greenlight ng bagong projects?
 
-Pero may games na mukhang blockbuster ang quality kahit mas mababa ang reported budget compare sa pinakamalalaking Western productions.
+Para maintindihan kung bakit, kailangan muna nating himayin kung paano gumagana ang AAA game business at production model. Paano napopondohan ang isang laro? Paano bumabalik ang investment? At bakit naging effective ang model na ito noon, pero mas mahirap nang panatilihin ngayon?
 
-Kasama rito ang _Alan Wake 2_ ng Remedy, _Black Myth: Wukong_ ng Game Science sa China, at _Crimson Desert_ ng Pearl Abyss sa South Korea. At kung gusto nating makita kung paano puwedeng lumaki ang ganitong production strategy sa mas malaking scale, magandang tingnan ang Capcom.
+Pagkatapos, titingnan natin ang Remedy, Game Science sa China, Pearl Abyss sa South Korea, at Capcom—apat na magkakaibang halimbawa ng studios na sinusubukang gumawa ng high-end games nang may sariling production strategy.
 
-Kaya ang tanong: may paraan ba ang mga studio na ito para makagawa ng high-end games nang mas controlled ang gastos? Mas mura ba talaga kapag hindi sa US ginagawa? At ano ang role ng technology, team size, at production choices?
-
-Bilang fan ng _Alan Wake_ at _Control_, nagsimula ako sa Remedy. Pero habang kinukumpara ko ang public estimates, lumabas na magkakaiba ang paraan ng bawat studio—at hindi lang budget o labor cost ang paliwanag.
+Ang tanong: **maaari bang gumawa ng AAA-quality games nang mas sustainable ang gastos at production?**
 
 **[TITLE CARD]**
+
+## Paano gumagana ang AAA game business?
+
+Linawin lang natin: ang “AAA” ay hindi isang opisyal na budget tier na may eksaktong cutoff. Karaniwang tawag ito sa malalaking commercial productions na may malaking development team, mataas na production values, at malawak na marketing. Pero magkakaiba pa rin ang laki at gastos ng mga larong tinatawag na AAA.
+
+Ganito ang karaniwang flow.
+
+May studio na nagpa-pitch ng concept, prototype, o vertical slice—isang maliit pero representative na bahagi ng laro. Tinitingnan ng publisher o ng sariling management kung may audience, kung kaya itong buuin, magkano ang posibleng gastos, at kung paano ito babagay sa portfolio. Kapag na-greenlight, naglalaan ng budget at nagse-set ng milestones. Puwedeng publisher ang mag-advance ng development funds at marketing, o publisher mismo ang developer at sasagot sa gastos internally. May independent studios ding self-fund o kumuha ng co-funding partner.
+
+Pagkatapos, papasok ang ilang taon ng pre-production at production. Itinatayo ang gameplay systems, content pipelines, tools at assets; lumalaki ang team habang dumadami ang kailangang gawin. Kasabay nito ang QA, localization, console certification, external co-development, at marketing preparation. Habang tumatagal ang project, tumataas ang cash na kailangan bago pa magkaroon ng sales revenue.
+
+Sa launch, kailangang dumaan ang game sa digital stores, console platforms, at minsan physical retail. Bawat kasunduan ay may terms at fees. Kung publisher ang nagpondo, maaaring unahing i-recoup ang gastos na sakop ng kontrata bago magsimula ang developer royalties o profit share. Sa _Alan Wake 2_, halimbawa, sinabi ng Remedy na Epic funded most of the development and marketing costs, at pagkatapos lamang ma-recoup ang mga iyon naging entitled ang Remedy sa 50% share ng net revenue. Iba-iba ang deal, kaya walang iisang formula para sa lahat.
+
+Pagkatapos ng launch, may patches, DLC, expansions, subscriptions, discounts, ports, at catalog sales. Ang mga ito ang maaaring magpahaba sa revenue life ng game. Kaya ang publisher ay hindi lang tumataya sa isang launch weekend: umaasa ito sa sales over time at sa buong portfolio. Kapag may hit, puwedeng pondohan ng kita ang susunod na projects. Kapag may malaking miss, puwedeng malagay sa alanganin ang studio o ang susunod na investment.
+
+Ito ang mahalagang mekanismo: **malaki at paunang gastos, pero hindi sigurado at kadalasang huling dumarating ang kita.** Kaya bawat greenlight ay financial bet, hindi lang creative approval.
+
+## Bakit gumana ang model noon?
+
+Gumana ito dahil may panahon na lumalaki ang console at PC audience, tumataas ang kakayahan ng bagong hardware, at may malinaw na dahilan para bumili ng bagong release. Mas magandang graphics, mas malalaking worlds, online play, o bagong franchise installments ang nakikitang value sa bagong generation.
+
+Kasabay nito, maraming taon na sagana ang investment capital at mas handang sumugal ang publishers at investors sa malalaking projects. Sa panahon ng mababang interest rates at mabilis na paglago ng games market, may mga kumpanya na kayang mag-commit ng malaking pera kahit matagal bago makita ang return. Umaasa silang mababawi iyon sa isang malaking hit, sa franchise na tatagal ng maraming releases, o sa buong portfolio ng games. Hindi ibig sabihin na walang risk noon; mas handang saluhin ng investors ang risk dahil malaki ang inaasahang market at may capital na magagamit.
+
+Nakatulong din ang publisher system. Puwedeng pondohan ng malalaking kumpanya ang maraming projects at gamitin ang marketing, retail relationships, platform access, at established franchises para maabot ang malaking audience. Hindi lahat ng game kailangang maging hit kung may portfolio ang publisher at may ilang malalaking success na kayang bumawi sa misses.
+
+At kapag naging hit ang isang game, hindi natatapos ang kita sa unang release. Sequel, expansion, rerelease, PC port, sale, at iba pang long-tail sales ay puwedeng magpatuloy nang maraming taon. Sa ganitong setup, may dahilan ang publishers na mag-invest sa malalaking productions—malaki ang risk, pero malaki rin ang posibleng return.
+
+## Bakit nahihirapan ang model ngayon?
+
+Hindi ibig sabihin nito na patay na ang games industry o wala nang pera rito. Newzoo estimates that global games revenue passed **US$200 billion in 2025** and forecasts continued growth. Pero aggregate industry revenue ay hindi nangangahulugang madaling kumita ang bawat AAA project. Puwedeng lumaki ang buong market habang nagiging mas mahirap hulaan kung aling laro ang makakakuha ng sapat na attention at sales.
+
+Nagbago rin ang financing climate. Mas mataas ang interest rates kaysa sa low-rate years, at mas maingat ang investors sa speculative projects na maraming taon bago kumita. May investment activity pa rin, pero mas kaunti ang deals: ayon sa S&P Global Market Intelligence, bumaba nang **45% year over year** ang bilang ng private-equity at venture-capital deals sa video games noong 2025, sa ikaapat na sunod na taunang pagbaba, kaya ibig sabihin kakaunting investment and napupunta sa gaming industry ngayon.
+
+May mahalagang caveat: hindi tama na sabihing siguradong papasok sa global recession ang mundo o wala ng investment na papasok sa gaming industry. IMF at OECD forecasts still project global growth for 2026, pero mabagal ang momentum at may downside risks; OECD also points to higher interest rates as one factor weighing on near-term growth. Kaya mas eksakto ang sabihin na **recession worries, slower growth, and more expensive capital make investors more cautious**.
+
+Ang cost side ang isang malaking pressure. Sa 2023 report ng UK Competition and Markets Authority, ang AAA console at PC games na inaasahang i-rerelease sa 2024–25 ay may average development budgets na **US$200 million o higit pa**, kumpara sa reported range na **US$50–150 million** 5 years ago. Hindi ito universal average para sa lahat ng AAA studios, pero malinaw na senyales ito ng tumataas na scale at risk.
+
+Kasabay nito, humahaba ang development cycles at mas maraming tao ang kailangang mag-coordinate. Kapag nadagdagan ang taon, nadadagdagan din ang payroll, outsourcing, rent, tech support, at management overhead. Habang hindi pa tapos ang game, hindi pa rin bumabalik ang puhunan.
+
+Tapos, lalong nagiging hit-driven ang greenlighting. Sinasabi ng Boston Consulting Group na dahil umaabot na sa $100 million o higit pa ang maraming AAA productions, mas kaunti at mas malalaki ang bets ng publishers. Kapag mas kaunti ang projects, mas kaunti rin ang pagkakataong makabawi kapag may isang miss.
+
+At crowded ang market. Hindi lang ibang bagong AAA games ang kalaban sa oras at pera ng players; pati games na pag-aari na nila, live-service titles, subscriptions, sales, at backlog. Kahit maganda ang laro, kailangan pa ring mapansin at mapili ng audience sa tamang panahon.
+
+Makikita ang pressure sa workforce. Sa 2026 GDC State of the Game Industry survey, **28% ng respondents** ang nagsabing nakaranas sila ng layoff sa nakaraang dalawang taon; sa US respondents, **33%**. Kabilang sa mga iniulat na dahilan sa kumpanya ang restructuring, budget cuts, market conditions, at project cancellations. Survey ito ng mahigit 2,300 industry professionals, hindi census ng buong global workforce—pero malinaw na malawak ang nararamdamang instability.
+
+Kaya ang mas eksaktong diagnosis ay: **hindi nawawala ang demand sa games, pero mas mahal at mas mapanganib ang paggawa ng malaking hit.** Kapag kailangang bawiin ang sobrang laki ng puhunan, mas kaunti ang gustong sumugal sa bagong ideas, mas umaasa sa established IP, at mas mabilis nagre-restructure pagkatapos ng miss.
+
+At dito papasok ang tanong: may ibang paraan ba para mag-deliver ng high-end quality nang mas sustainable? Tingnan natin ang ilang halimbawa.
 
 ## Remedy: sariling tools, sariling identity
 
@@ -39,9 +85,7 @@ May clue rin tayo sa laki ng production. Sinabi ng Remedy CEO na umabot sa **130
 
 Para sa budget, may mga report na humigit-kumulang **€50 million para sa development** at **€20 million para sa marketing**. Hindi ito detalyadong budget breakdown na inilathala ng Remedy, kaya estimate lang ito.
 
-Sa rough conversion, ang development cost ay nasa **US$54 million**; kung isasama ang marketing, nasa **US$76 million**. Magkaiba ang dalawang iyon, kaya mahalagang linawin kung development lang ba ang pinag-uusapan o buong budget kasama ang marketing.
-
-At tungkol sa recoupment: hindi umabot ng dalawang taon bago na-recover ang reported development at marketing investment. Ayon sa Remedy, nalampasan ng _Alan Wake 2_ ang dalawang milyong sales noong huling quarter ng 2024 at na-recoup ang development fees at marketing investment bago matapos ang taon. Inilabas ito noong October 2023, kaya humigit-kumulang **14 na buwan** iyon. Sa Epic publishing arrangement, nagsimula nang mag-accrue ng royalties ang Remedy pagkatapos ma-recoup ang gastos. Hindi awtomatikong ibig sabihin ng “recouped” na kumita na agad ang Remedy ng malaking net profit.
+At tungkol sa recoupment: Ayon sa Remedy, nalampasan ng _Alan Wake 2_ ang dalawang milyong sales noong huling quarter ng 2024 at na-recoup ang development fees at marketing investment bago matapos ang taon. Inilabas ito noong October 2023, kaya humigit-kumulang **14 na buwan** iyon. Sa Epic publishing arrangement, nagsimula nang mag-accrue ng royalties ang Remedy pagkatapos ma-recoup ang gastos. Hindi awtomatikong ibig sabihin ng “recouped” na kumita na agad ang Remedy ng malaking net profit.
 
 ## China: _Black Myth: Wukong_
 
@@ -112,6 +156,13 @@ Kayo, anong tingin ninyo? Mas gusto ninyo ba ang focused games na may controlled
 **[END CARD]**
 
 ## Sources and verification notes
+
+- The UK Competition and Markets Authority's 2023 report compares AAA console/PC budgets five years apart and notes $200m+ average budgets for games greenlit for 2024–25: [CMA Microsoft/Activision final report](https://assets.publishing.service.gov.uk/media/644939aa529eda000c3b0525/Microsoft_Activision_Final_Report_.pdf).
+- Boston Consulting Group's industry analysis discusses rising AAA costs and publishers placing fewer, larger bets: [BCG — Leveling Up for the New Reality](https://www.bcg.com/publications/2024/leveling-up-new-reality).
+- The 2026 GDC State of the Game Industry results cover more than 2,300 respondents; the layoff percentages are survey responses, not a census of all global developers: [GDC report announcement](https://gdconf.com/article/gdc-2026-state-of-the-game-industry-reveals-impact-of-layoffs-generative-ai-and-more/) and [full report PDF](https://investgame.net/wp-content/uploads/2026/01/2026-01-29-dec052f4_d88e_48ce_9f83_a18ce2f2a6e5_541400_GDC26_PDF_SOTI_Report.pdf).
+- Global market size and forward growth are Newzoo estimates: [Newzoo — Global Games Market 2025](https://newzoo.com/articles/global-games-market-2025).
+- The capital-climate point uses S&P Global Market Intelligence's count of game-sector PE and VC deal volume, alongside the OECD's current growth and interest-rate outlook; these support a claim of more caution and slower growth, not a certainty of global recession: [S&P Global — video game investment falls](https://www.spglobal.com/market-intelligence/en/news-insights/articles/2026/3/private-equity-investment-in-video-games-falls-as-investors-shift-focus-99722617) and [OECD Economic Outlook, September 2026](https://www.oecd.org/en/publications/oecd-economic-outlook-interim-report-september-2026_f751d02b-en.html).
+- Remedy's 2024 annual report is also the source for the specific Epic funding, recoupment, and 50% net revenue-share example: [Remedy Annual Report 2024](https://investors.remedygames.com/app/uploads/2025/03/remedy-annual-report-2024.pdf).
 
 - Remedy’s overview of its Northlight engine and toolset: [Remedy — Northlight](https://www.remedygames.com/northlight).
 - The 130 internal developers at peak and additional external developers: [Remedy Q1 2024 earnings-call transcript](https://stockanalysis.com/quote/hel/REMEDY/transcripts/127900-q1-2024/).

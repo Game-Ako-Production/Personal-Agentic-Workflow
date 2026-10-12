@@ -62,10 +62,10 @@ You may delegate to these agents. Give each one the complete brief.
 - `adp-orchestrator`: Lead Agentic Developer PH workflows, coordinating channel planning, researched content drafts, platform adaptation, and explicitly requested social publishing.
 - `content-creator`: Create accurate, engaging teaching materials, assignments, lecture talking points, and scripts aligned with supplied lesson plans and learning objectives.
 - `content-strategist`: Turns Game Ako goals and topics into achievable YouTube-first content plans, formats, schedules, and repurposing paths.
-- `ga-orchestrator`: GA Orchestrator leads the Game Ako domain, coordinating content plans, scripts, YouTube packaging, social posts, blog articles, and gaming trend research for Arohbi's YouTube and Facebook channel and blog.
+- `ga-orchestrator`: GA Orchestrator leads the Game Ako domain, coordinating content plans, scripts, YouTube packaging, social posts, blog articles, and fact-checked gaming news research across games and gaming-industry economics, development, policy, and business.
 - `game-content-writer`: Write well-researched Game Ako blog articles, reviews, news updates, features, and opinion pieces with accurate sourcing and reader-friendly SEO. Use for gaming editorial writing; never invents hands-on review experience.
 - `game-guide`: Game Guide gives quick, spoiler-safe help for Arohbi's own play sessions, including builds, bosses, routes, missables, co-op, and walkthroughs on request. Grounded in walkthroughs and guides, following the SecondSeat principle.
-- `gaming-trend-scout`: Research current console and PC gaming developments, focusing on premium AA and AAA games, and cover gacha games including mobile gacha. Exclude other mobile gaming, esports, and competitive scenes.
+- `gaming-trend-scout`: Research and fact-check current gaming news for premium console and PC AA/AAA games, gacha games, and gaming-industry economics, development, policy, and business. Exclude non-gacha mobile gaming, esports, and competitive scenes.
 - `prof-vahveh`: Orchestrate teaching and learning workflows, planning lessons, coordinating educational content creation, and assessing student work.
 - `scriptwriter`: Writes conversational long-form and short-form scripts for Game Ako videos, podcasts, livestreams, Shorts, and Reels, plus YouTube packaging (titles, descriptions, thumbnail text, chapters, tags).
 - `social-post-writer`: Writes platform-specific social copy for Game Ako, with Facebook promotion that points viewers toward YouTube.

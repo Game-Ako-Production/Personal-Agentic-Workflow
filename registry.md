@@ -176,9 +176,9 @@ Game Ako channel planning, scripts, social posts, blog articles, and gaming tren
 | Agent | Mode | Called by | Delegates to | Skills | Description |
 | --- | --- | --- | --- | --- | --- |
 | `content-strategist` | subagent | `asurada`, `ga-orchestrator` | — | `content-strategy` | Turns Game Ako goals and topics into achievable YouTube-first content plans, formats, schedules, and repurposing paths. |
-| `ga-orchestrator` | all | `asurada` | `content-strategist`, `scriptwriter`, `social-post-writer`, `game-content-writer`, `gaming-trend-scout` | — | GA Orchestrator leads the Game Ako domain, coordinating content plans, scripts, YouTube packaging, social posts, blog articles, and gaming trend research for Arohbi's YouTube and Facebook channel and blog. |
+| `ga-orchestrator` | all | `asurada` | `content-strategist`, `scriptwriter`, `social-post-writer`, `game-content-writer`, `gaming-trend-scout` | — | GA Orchestrator leads the Game Ako domain, coordinating content plans, scripts, YouTube packaging, social posts, blog articles, and fact-checked gaming news research across games and gaming-industry economics, development, policy, and business. |
 | `game-content-writer` | subagent | `asurada`, `ga-orchestrator` | — | `content-writing`, `article-writing` | Write well-researched Game Ako blog articles, reviews, news updates, features, and opinion pieces with accurate sourcing and reader-friendly SEO. Use for gaming editorial writing; never invents hands-on review experience. |
-| `gaming-trend-scout` | subagent | `asurada`, `ga-orchestrator` | — | `gaming-trend` | Research current console and PC gaming developments, focusing on premium AA and AAA games, and cover gacha games including mobile gacha. Exclude other mobile gaming, esports, and competitive scenes. |
+| `gaming-trend-scout` | subagent | `asurada`, `ga-orchestrator` | — | `gaming-trend` | Research and fact-check current gaming news for premium console and PC AA/AAA games, gacha games, and gaming-industry economics, development, policy, and business. Exclude non-gacha mobile gaming, esports, and competitive scenes. |
 | `scriptwriter` | subagent | `asurada`, `ga-orchestrator` | — | `content-writing`, `long-form-scriptwriting`, `short-form-scriptwriting`, `youtube-packaging` | Writes conversational long-form and short-form scripts for Game Ako videos, podcasts, livestreams, Shorts, and Reels, plus YouTube packaging (titles, descriptions, thumbnail text, chapters, tags). |
 | `social-post-writer` | subagent | `asurada`, `ga-orchestrator` | — | `content-writing`, `social-post-writing` | Writes platform-specific social copy for Game Ako, with Facebook promotion that points viewers toward YouTube. |
 
@@ -187,7 +187,7 @@ Game Ako channel planning, scripts, social posts, blog articles, and gaming tren
 | Command | Runs as | Isolated | Skills | Codex entry | Description |
 | --- | --- | --- | --- | --- | --- |
 | `/create-content <topic and content type>` | `ga-orchestrator` | no | `gaming-trend`, `content-strategy`, `content-writing`, `long-form-scriptwriting`, `short-form-scriptwriting`, `youtube-packaging`, `social-post-writing` | wrapper skill `create-content` | Plan and create a Game Ako content piece or package (plan, long-form script, short-form script, YouTube packaging, social post) with companion pieces |
-| `/scout-gaming-trend <topic or trend> [time period]` | `gaming-trend-scout` | yes | `gaming-trend` | skill `gaming-trend` | Research current console and PC premium AA and AAA games, plus gacha games including mobile gacha, and return a sourced Game Ako brief |
+| `/scout-gaming-trend <topic or trend> [time period]` | `gaming-trend-scout` | yes | `gaming-trend` | skill `gaming-trend` | Research and fact-check gaming news, including premium console and PC AA/AAA games, gacha games, and gaming-industry economics, development, policy, and business, for a sourced Game Ako brief |
 | `/write-article <topic and article type>` | `ga-orchestrator` | no | `gaming-trend`, `content-writing`, `article-writing` | skill `article-writing` | Draft a researched Game Ako blog article, review, news update, feature, or opinion piece |
 
 **Skills**
@@ -195,7 +195,7 @@ Game Ako channel planning, scripts, social posts, blog articles, and gaming tren
 | Skill | Used by | Description |
 | --- | --- | --- |
 | `content-strategy` | `content-strategist`, `/create-content` | Build a practical, sustainable content plan for Game Ako from a topic, goal, audience, or requested cadence. Use whenever Arohbi asks what to make, how to sequence content, or how to plan YouTube and Facebook content. |
-| `gaming-trend` | `gaming-trend-scout`, `/create-content`, `/scout-gaming-trend`, `/write-article` | Research current console and PC gaming news, trends, announcements, and market developments, focusing on premium AA and AAA games. Also cover gacha games as an explicit exception, including mobile gacha; exclude other mobile gaming, esports, and competitive scenes. Use whenever Arohbi asks what is happening in these areas or wants a sourced brief for Game Ako content planning. |
+| `gaming-trend` | `gaming-trend-scout`, `/create-content`, `/scout-gaming-trend`, `/write-article` | Research and fact-check current gaming news for Game Ako, including premium console and PC AA/AAA games, gacha games, and the industry's economics, development, policy, and business. Use whenever Arohbi asks for gaming news, market developments, or an evidence-led gaming-industry brief; retain the existing non-gacha mobile, esports, and competitive-scene exclusions. |
 | `youtube-packaging` | `scriptwriter`, `/create-content` | Package a Game Ako YouTube upload with English title options, a Taglish description, thumbnail text, chapters, and tags. Use when Arohbi asks for a YouTube title, description, thumbnail text, chapters, timestamps, tags, or upload metadata for a video, podcast, livestream, or Short. |
 
 ## Workflow utilities (`utility`)

@@ -1,6 +1,6 @@
 ---
 name: gaming-trend
-description: Research current console and PC gaming news, trends, announcements, and market developments, focusing on premium AA and AAA games. Also cover gacha games as an explicit exception, including mobile gacha; exclude other mobile gaming, esports, and competitive scenes. Use whenever Arohbi asks what is happening in these areas or wants a sourced brief for Game Ako content planning.
+description: Research and fact-check current gaming news for Game Ako, including premium console and PC AA/AAA games, gacha games, and the industry's economics, development, policy, and business. Use whenever Arohbi asks for gaming news, market developments, or an evidence-led gaming-industry brief; retain the existing non-gacha mobile, esports, and competitive-scene exclusions.
 ---
 
 # Gaming Trend Research
@@ -9,10 +9,15 @@ Create a concise, evidence-led brief about the gaming topic or trend Arohbi spec
 
 ## Coverage scope
 
-Prioritize:
+Cover both game-level developments and the wider gaming industry:
 
 - Console and PC games using the traditional premium purchase model, especially AA and AAA releases, studios, publishers, development, launches, sales, and industry trends.
-- Gacha games as an explicit exception to the mobile exclusion. Include gacha titles across mobile, PC, and console, including their releases, major updates, player-facing systems, and business or industry developments.
+- Gacha games as an explicit exception to the mobile exclusion. Include gacha titles across mobile, PC, and console, including releases, major updates, player-facing systems, and business or industry developments.
+- Gaming economics and business, including market performance, sales, pricing, subscriptions, monetization, platform economics, investment, mergers and acquisitions, financial results, restructuring, distribution, and industry-wide trends.
+- Game development and production, including studio operations, production costs, labor and working conditions, technology, delays, cancellations, and changes to development strategy.
+- Gaming-related policy and regulation, including laws, government decisions, platform rules, trade, and institutional actions that affect games, players, studios, publishers, or distribution.
+
+The economics, development, policy, and business angles add to the game and release coverage above; they do not replace it. Keep reporting focused on gaming and explain when an industry-wide story has broader reach than the existing title/platform coverage.
 
 Exclude:
 
@@ -24,26 +29,29 @@ When a requested topic mixes included and excluded areas, focus on the in-scope 
 
 ## Process
 
-1. Identify the topic, platforms, requested time period, and why the information may matter to Game Ako. Apply the coverage scope before collecting sources. Ask one question only if a missing detail would materially change the research.
-2. Search current, relevant sources. Prefer primary sources such as official game/developer/publisher announcements, platform-holder newsrooms, filings, and original datasets. Use reputable reporting for context and corroboration. Do not treat social posts, search snippets, or industry forecasts as independently verified facts.
-3. Verify important claims against the underlying source and, when consequential, a second independent source. Record when an event happened separately from when a source reported it. Note conflicting accounts and evidence gaps.
-4. Summarize only the strongest relevant findings. Distinguish verified facts, attributed claims, analysis, and speculation. Explain relevance to Game Ako without deciding what Arohbi should make.
-5. Provide a concise Markdown brief with the scope/date range, key findings, source links, and meaningful caveats. Keep the response on screen; create a saved artifact only when requested, following `context/artifacts.md` and saving under `docs/game-ako/research/`.
+1. Identify the topic, platforms or industry segment, requested time period, and why the information may matter to Game Ako. Apply the coverage scope before collecting sources. Ask one question only if a missing detail would materially change the research.
+2. Search current, relevant sources. Prefer primary evidence appropriate to the claim: official game, developer, publisher, or platform announcements; company filings and financial statements; policy or regulatory documents; and original datasets. Use reputable reporting for context and corroboration. Search snippets, social posts, and forecasts are leads or attributed statements, not independent verification.
+3. Fact-check every prospective news item before including it. Break it into material claims; confirm the central event and details against evidence that directly supports them. Seek independent corroboration for consequential, disputed, financial, or industry-wide claims, and do not count multiple reports based on the same original source as independent. Record event dates separately from publication dates. Note conflicts, unavailable primary evidence, and other gaps.
+4. Assign a verification status to every item. Use `✅ Verified` only when the evidence supports the central event and material details, with primary evidence where available and appropriate corroboration for consequential claims. Use `⚠️ Not fully verified` when material details remain unconfirmed; explain the limitation and keep the item separate from confirmed findings or omit it if it cannot be responsibly framed. Never describe an item as verified merely because it was reported.
+5. Summarize only the strongest relevant findings. Distinguish verified facts, attributed statements or estimates, analysis, and speculation. Explain relevance to Game Ako without deciding what Arohbi should make.
+6. Provide a concise Markdown brief with scope/date range, key findings, an explicit verification status for each item, supporting evidence, direct source links, and meaningful caveats. Keep the response on screen; create a saved artifact only when requested, following `context/artifacts.md` and saving under `docs/game-ako/research/`.
 
 ## Output
 
-For each finding, include:
+For every news item or finding, include:
 
 - **Finding:** What happened or what pattern is visible.
-- **Evidence:** The source-backed detail and event/publication date where useful.
+- **Verification:** `✅ Verified` or `⚠️ Not fully verified`, followed by a concise explanation when not fully verified.
+- **Evidence:** The source-backed detail, relevant event date, and publication date where useful. Attribute claims, estimates, and forecasts to their source.
 - **Game Ako relevance:** A neutral explanation of why it may matter to the channel.
-- **Sources:** Direct links to the supporting sources.
+- **Sources:** Direct links to primary evidence and independent corroboration where available.
 
-End with a brief note on uncertainty or coverage gaps when applicable. Do not force recommendations when the evidence only supports reporting findings.
+Keep unverified items clearly separate from verified findings and do not state unconfirmed claims as facts. End with a brief note on uncertainty or coverage gaps when applicable. Do not force recommendations when the evidence only supports reporting findings.
 
 ## Boundaries
 
 - Do not invent metrics, trends, or citations. State when data is unavailable or cannot be verified.
+- Do not use `✅ Verified` unless you have checked the underlying evidence for the item's central event and material details.
 - Attribute forecasts, marketing claims, and analyst estimates to their sources.
 - Do not research or summarize esports, competitive scenes, or non-gacha mobile gaming under the default scope.
 - Do not make decisions or take actions on Arohbi's behalf, publish or share material, or generate files unless explicitly requested.

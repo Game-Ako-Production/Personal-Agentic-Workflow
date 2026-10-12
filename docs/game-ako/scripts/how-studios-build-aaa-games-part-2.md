@@ -4,14 +4,14 @@
 **Language:** Taglish  
 **Estimated runtime:** 12–15 minutes  
 **Scope:** Remedy, Game Science (_Black Myth: Wukong_), Pearl Abyss (_Crimson Desert_), and Capcom; production strategies and the limits of comparing their costs and results  
-**Research date:** September 30, 2026  
-**Assumptions:** Budget figures are estimates unless identified as company disclosures. Currency conversions are approximate and depend on exchange rates. This script is based on the supplied research and does not add new research.
+**Research date:** October 2, 2026
+**Assumptions:** Budget figures are estimates unless identified as company disclosures. Currency conversions are approximate and depend on exchange rates. Salary figures use different populations and methods, so they are not direct role-for-role comparisons.
 
 ## Script
 
 **[OPEN — montage: Northlight and RE Engine footage, _Black Myth: Wukong_, _Crimson Desert_, then different kinds of game worlds and production art]**
 
-May isang tempting na explanation kapag pinag-uusapan kung paano gumawa ng high-end games nang mas sustainable: “Baka mas mura lang ang developers doon.”
+May isang tempting na explanation kapag pinag-uusapan kung bakit hindi sustainable ang paggawa ng high-end games: “Mahal kasi ang mga developers lalo na sa US.”
 
 Pero kulang ang public data para gawing sagot iyon. Hindi natin alam ang buong breakdown ng bawat laro—payroll, outsourcing, marketing, technology, team size over time, at kung sino ang sumalo ng aling gastos.
 
@@ -49,17 +49,25 @@ Kaya ang Remedy example ay tungkol sa creative identity at accumulated experienc
 
 Ngayon, lipat tayo sa China at sa _Black Myth: Wukong_.
 
-Napakalaki ng naging commercial impact nito. Bloomberg reported that the game sold **18 million copies in two weeks**. Sa parehong reporting, inilagay ang budget nito sa humigit-kumulang **US$70 million**, sa loob ng mahigit anim na taon ng development.
+Napakalaki ng naging commercial impact nito. Iniulat ng Bloomberg na nakabenta ang laro ng **18 million copies sa unang dalawang linggo** at tinatayang nasa **US$70 million** ang development budget. Estimate iyon sa reporting, hindi official audited budget breakdown. May hiwalay ding report mula sa Zhejiang tax bureau na nag-quote sa finance representative ng Hangzhou Youke Interactive: lampas **RMB 300 million** daw ang development cost. Hindi malinaw kung pareho ang saklaw ng dalawang figures, kaya huwag natin silang ituring na eksaktong apples-to-apples numbers.
 
-Kung gagamitin natin ang $70 million estimate, nasa kaparehong broad range ito ng _Alan Wake 2_ pero mas mababa kaysa sa ilang mega-budget Western productions.
+So, ano ang posibleng nakatulong sa production economics nito?
 
-Pero hindi dapat tayo mag-jump into conclusion na “mas mura lang ang developers sa China.” Wala tayong apples-to-apples public breakdown na nagsasabi kung magkano ang payroll, outsourcing, marketing, technology, at iba pang gastos ng _Wukong_.
+Una, **labor costs**. Broad wage data point to lower average payroll costs in China kaysa sa US at ilang high-cost European hubs. Pero hindi ito role-for-role comparison ng mga developer ng _Wukong_. Wala tayong public breakdown ng kanilang actual payroll, at hindi natin masasabi kung magkano ang naging tipid o kung gaano kalaki ang naging share nito sa total budget. Isa itong plausible advantage, hindi patunay na pareho ang team ay awtomatikong mas mura sa China.
 
-Ang mas ligtas na punto: nakagawa ang Game Science ng napaka-ambisyosong laro sa **naiulat na mas mababang budget kaysa sa ilang mega-budget games**—at naging malaking hit ito.
+Pangalawa, **tax incentives at local support**. May tax benefits sa China para sa mga kumpanyang pumapasa sa specific requirements—halimbawa, ilang qualified high-tech at software enterprises. Hindi ibig sabihin nito na automatic na kuwalipikado ang lahat ng game studios. Iniulat din ng _The Paper_ na nakatanggap ang _Wukong_ ng suporta sa ilalim ng Hangzhou animation-and-games fund, pero hindi ibinunyag ang halaga.
 
-Magkaiba rin ang technology strategy nila. Ang _Wukong_ ay ginawa gamit ang Unreal Engine, samantalang sariling engine ang Northlight ng Remedy. Hindi pareho ang production setup nila, kaya hindi natin puwedeng ipaliwanag ang budget ng Game Science gamit ang Remedy’s engine reuse.
+May isa pang konkretong detalye: ayon sa tax bureau, nakagamit ang Hangzhou Youke Interactive ng mahigit **RMB 28 million** na additional R&D expense deductions noong 2023. Deductible expense iyon, hindi katumbas ng RMB 28 million na tax savings. At sinabi ng bureau na tinulungan nila ang kumpanya sa high-tech enterprise application; hindi nito kinukumpirma na naaprubahan ang status na iyon.
 
-At mahalagang tandaan: ang pagiging hit ng _Wukong_ ay hindi garantiya na pareho ang sales o return ng susunod na game. Isa itong halimbawa ng malaking commercial success, hindi default na kinalalabasan ng mas maliit na budget.
+Pangatlo, **production tools at workflow**. Sa interview sa Unreal Engine, sinabi ng Game Science developers na nakatulong ang UE5 features tulad ng Nanite at Lumen sa visuals at asset-creation workflow ng _Wukong_. Pero ibang claim ang “efficient ang tools” sa “nag-reuse sila ng finished assets sa iba’t ibang games.” Wala tayong reliable public evidence na nagpapatunay ng cross-game asset reuse ng Game Science.
+
+**Sa opinion ko**, kapag sobrang umaasa ang isang studio sa pare-parehong assets o workflows, puwedeng magkaroon ng risk na magmukhang magkakahawig ang ilang creative choices. Pero opinion at concern ko iyon—not a verified description ng ginagawa ng Game Science. At hindi rin automatic na magiging monotonous ang story o art direction kapag nire-reuse ang code, tools, o production know-how.
+
+Unreal Engine, meanwhile, ay hindi cost-free shortcut. Sa standard terms, generally may royalty sa qualifying product revenue kapag lumampas sa **US$1 million lifetime revenue**. Inilabas ang _Wukong_ noong 2024, kaya hindi ito pasok sa mas bagong 3.5% Launch Everywhere rate. Hindi natin alam ang exact terms ng Game Science, kaya hindi rin natin mako-compute ang actual royalty nila. Pero malinaw na hindi China-specific advantage ang Unreal licensing: available ito sa studios sa iba’t ibang bansa, at puwede rin itong maging production cost kapag malakas ang sales.
+
+Kaya hindi “cheap labor lang” ang paliwanag, at hindi rin “Unreal ang sekreto.” Mas maingat na tingnan ang **posibleng kombinasyon ng labor-cost environment, conditional tax o local support, at efficient production workflows**—kasabay ng katotohanang hindi natin alam ang buong budget breakdown o ang bigat ng bawat factor.
+
+At mahalagang tandaan: malaking hit ang _Wukong_, pero hindi ibig sabihin na garantisado na ang parehong resulta sa susunod na laro. Mula rito, tingnan naman natin ang Pearl Abyss—ibang studio, ibang production context.
 
 **[TRANSITION]**
 
@@ -144,10 +152,14 @@ Kayo, anong tingin ninyo? Mas gusto ninyo ba ang focused games na may controlled
 - The 130 internal developers at peak and additional external developers: [Remedy Q1 2024 earnings-call transcript](https://stockanalysis.com/quote/hel/REMEDY/transcripts/127900-q1-2024/).
 - Reported _Alan Wake 2_ development and marketing estimates (€50m and €20m): [Helsingin Sanomat](https://www.hs.fi/talous/art-2000009952209.html). These are not a detailed official Remedy budget disclosure.
 - Remedy’s year-end 2024 recoupment statement: [Remedy 2024 annual report](https://investors.remedygames.com/app/uploads/2025/03/remedy-annual-report-2024.pdf).
-- _Black Myth: Wukong_’s $70m estimate, six-year timeline, and 18m sales report: [Bloomberg report via Yahoo Finance](https://finance.yahoo.com/news/investor-risked-wukong-scores-another-063710088.html). The separate 300m yuan figure concerns R&D expenses cited in connection with tax incentives; it should not be presented as a directly comparable total production budget.
+- _Black Myth: Wukong_’s roughly $70m budget estimate and 18m sales report: [Bloomberg report via Yahoo Finance](https://finance.yahoo.com/news/investor-risked-wukong-scores-another-063710088.html). Treat the budget as a reported estimate, not an official title-level accounting disclosure. A separate Zhejiang Taxation Bureau article quotes a Hangzhou Youke Interactive finance representative estimating development cost above RMB 300m; the public reporting does not establish that the two figures use the same scope.
+- China wage context: the National Bureau of Statistics reported a 2024 average annual wage of RMB 238,966 for urban non-private information-transmission, software, and IT-services units (a broad sector, not game developers): [NBS release](https://www.stats.gov.cn/english/PressRelease/202505/t20250520_1959885.html). GDC's 2025 US game-industry salary survey reported a $129,000 median among respondents: [GDC summary](https://gdconf.com/article/us-game-development-salaries-in-2025-what-our-latest-industry-report-reveals/). The European games-industry survey reports senior gross salary medians from €43,500 for artists/designers to €92,500 for top managers across EU+UK+Switzerland: [2025 survey](https://files.gameindustrylibrary.com/documents/big-games-industry-employment-survey-europe-2025.pdf). These sources use different populations and methods; they support only a cautious directional point, not a matched comparison or a specific Game Science payroll claim.
+- China tax incentives are conditional, not automatic for all game studios. Qualified high-and-new-technology enterprises may access a 15% corporate income-tax rate subject to requirements: [State Taxation Administration](https://www.chinatax.gov.cn/chinatax/c101915/c5167710/content.html). National software-enterprise incentives also have eligibility requirements: [State Council policy](https://www.gov.cn/zhengce/content/2020-08/04/content_5532370.htm). The Zhejiang Taxation Bureau reported that Hangzhou Youke Interactive received over RMB 28m in additional R&D expense deductions in 2023; this is the deductible expense amount, not tax savings, and the article does not confirm HNTE approval: [Zhejiang Taxation Bureau](https://zhejiang.chinatax.gov.cn/art/2024/10/8/art_13230_625629.html).
+- Local support: [The Paper](https://www.thepaper.cn/newsDetail_forward_28481158) reports that _Wukong_ received support under Hangzhou's 2022 animation-and-games special-fund program. The article does not disclose the amount.
+- Game Science's account of UE5 workflow: [Unreal Engine interview](https://www.unrealengine.com/developer-interviews/black-myth-wukong-wows-with-ue5-early-access-visuals). This supports claims about Nanite, Lumen, and asset-creation workflow for _Wukong_; it is not evidence of finished-asset reuse across games. No reliable public evidence located for this script establishes cross-game asset reuse or resulting creative monotony.
+- Unreal Engine licensing: [Epic license](https://www.unrealengine.com/license) and [royalty documentation](https://dev.epicgames.com/docs/dev-portal/unreal-engine/release-forms-and-royalties/royalties). Standard terms generally specify a 5% royalty on qualifying product revenue above the first $1m in lifetime gross revenue, subject to the agreement and applicable exclusions. Epic's 3.5% Launch Everywhere rate applies to eligible releases on or after Jan. 1, 2025; _Wukong_ launched in 2024: [Game Science's official site](https://gamesci.cn/wukong). Game Science's exact licensing terms and royalty payment are not public.
 - The approximately ₩200bn / $130m _Crimson Desert_ estimate is secondary reporting, not an official title-level budget disclosure: [budget estimate summary](https://thegameswiki.com/crimson-desert/wiki/sales-and-reception/).
 - Salary comparisons remain qualitative because the available Korean and US figures use different populations and methods: [Korean game-company pay reporting](https://biz.chosun.com/en/en-it/2026/03/27/KEKA3G4PMZBIZMNBNWTSGHAHUQ/?outputType=amp) and [GDC US salary survey summary](https://www.linkedin.com/posts/gdc-festival-of-gaming_gamedev-salaryreport-gdc2025-activity-7395197095730679809-efA6).
-- The supplied Chinese salary-comparison table and claim about government tax incentives were not included because the supplied material flags them as unverified and does not provide comparable, sourced evidence for those claims.
 - Capcom says RE Engine supports all its titles, improves developer mobility, and will continue receiving investment: [Capcom Integrated Report 2025 — RE Engine](https://www.capcom.co.jp/ir/english/data/oar/2025/re-engine.html).
 - Capcom's 2016 interview says the team worked on _Resident Evil 7_ and RE Engine development simultaneously: [Capcom developer interview](https://www.capcom.co.jp/ir/english/interview/2016/vol03.html).
 - Capcom says feedback received by customer support is analyzed and used in new product development: [Relationships with Customers and the Community](https://www.capcom.co.jp/ir/english/sustainability/cslocal.html).

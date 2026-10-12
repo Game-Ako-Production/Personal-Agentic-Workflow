@@ -23,7 +23,7 @@ Dito pumapasok ang interesting na ginagawa ng Sony at AMD—and the question of 
 
 Kamakailan, inanunsyo ng Sony ang QSSR, o Quick Spectral Super Resolution, para sa PS5. Isa itong AI-upscaling technology na inilalarawan ng Sony bilang bahagi ng “performance tier” na nagmula sa Project Amethyst collaboration nila with AMD.
 
-Sa announcement, sinabi ng Sony na gumagamit ang QSSR ng streamlined neural-network architecture at mayroon itong hand-tuned implementation para sa PS5. Binanggit din nila na magiging karagdagang graphics option ito sa *Marvel’s Wolverine* at *Ghost of Yōtei*.
+Sa announcement, sinabi ng Sony na gumagamit ang QSSR ng streamlined neural-network architecture at mayroon itong hand-tuned implementation para sa PS5. Binanggit din nila na magiging karagdagang graphics option ito sa _Marvel’s Wolverine_ at _Ghost of Yōtei_.
 
 Importanteng linawin: ang image-quality benefits na binanggit ng Sony ay claims ng kumpanya. Hindi pa iyon independent test results, at hindi rin ibig sabihin na garantisado ang isang partikular na performance improvement sa bawat laro. Ang announcement ay tungkol sa QSSR sa PS5; hindi ito kumpirmasyon na gagamitin din ang parehong technology sa PS6.
 
@@ -41,23 +41,19 @@ Sa FY2025 earnings Q&A noong May 2026, sinabi ng Sony na hindi pa napagdedesisyu
 
 Sa hiwalay na Q&A tungkol sa Games and Network Services segment, sinabi ng Sony na hindi realistic na saluhin nila ang lahat ng pagtaas ng component costs, at wala silang intensyong magbenta ng hardware nang may significant losses.
 
-Ang tamang basa rito: may cost uncertainty at kailangang pag-isipan ng Sony ang pricing at approach nito. **Hindi ito kumpirmasyon** na may production blockage, na hindi makakakuha ang Sony ng components para sa susunod na console, o na huminto ang development.
-
-May mas malawak ding pressure sa memory market dahil sa demand mula sa AI data centers, gaya ng iniulat ng Reuters at tinalakay ng J.P. Morgan. Pero broad market context lang iyon. Hindi nito pinatutunayan na naka-block ang Sony sa pagkuha ng components para sa future console.
-
-May context din tungkol sa Sony at AMD. Noong 2024, iniulat ng Reuters—batay sa tatlong sources—na nanalo ang AMD sa competitive bid noong 2022 para magdisenyo ng chip para sa next-generation PlayStation. Report iyon ng Reuters; hindi opisyal na confirmation ng final design o features ng console.
+The right call for this is that, may cost uncertainty at kailangang pag-isipan ng Sony ang pricing at approach nito. **Hindi ito kumpirmasyon** na may production blockage, na hindi makakakuha ang Sony ng components para sa susunod na console, o na huminto ang development.
 
 ### Arohbi’s take
 
-At dito ko gustong ibigay ang personal take ko.
+This is my personal take.
 
-Hindi ko iniisip na ang pangunahing punto ng Sony–AMD collaboration ay para magkaroon ang PlayStation ng special access sa memory supply. Wala tayong ebidensiya para sabihin iyon. Para sa akin, mas interesting isipin ang partnership bilang pagsasama ng complementary strengths: chip, graphics, at AI expertise ng AMD, kasama ang software, platform integration, at game-development experience ng Sony.
+Para sa akin, interesting isipin ang partnership ng Sony at AMD bilang pagsasama ng complementary strengths: chip, graphics, at AI expertise ng AMD, kasama ang software, platform integration, at game-development experience ng Sony.
 
 Hindi ito kumpirmadong future plan ng Sony—opinyon ko lang ito sa direksiyong ipinapakita ng QSSR at ng technology partnership nila.
 
-Habang patuloy na umuunlad ang technology, puwedeng mas mabilis ding tumaas ang expectations natin sa graphics at performance kaysa sa bilis ng console refresh cycle—and beyond what many players can afford. Kaya baka hindi palaging solusyon ang mas malaking raw specs lang. Puwedeng makatulong ang AI upscaling at software optimization para masulit ang hardware na praktikal gawin at bilhin.
+Habang patuloy na umuunlad ang technology, tumataas ang expectation nating mga gamers sa graphics at performance ngunit and console refresh cycle at PC components ay nananatiling elevated ang price at hirap tayong makakuha sa affordable na price. Kaya baka hindi palaging solusyon ang mas malaking raw specs lang. Puwedeng makatulong ang AI upscaling at software optimization para masulit ang hardware na praktikal gawin at bilhin.
 
-Pero hindi magic ang AI. Hindi nito pinapalitan ang hardware, at hindi nito inaalis ang pangangailangan sa memory at iba pang components. Ang mas makatwirang posibilidad ay makatulong ito para gamitin nang mas episyente ang hardware na mayroon tayo—kung maganda ang implementation at kapaki-pakinabang ang resulta sa mga laro.
+Pero hindi magic ang AI. Hindi nito pinapalitan ang hardware, at hindi nito inaalis ang pangangailangan sa memory at iba pang components. Ang mas makatwirang posibilidad ay makatulong ito para gamitin nang mas efficient ang hardware na mayroon tayo—kung maganda ang implementation at kapaki-pakinabang ang resulta sa mga laro.
 
 Kaya para sa akin, ang mas interesting na tanong ay hindi lang, “Gaano kalakas ang susunod na console?” Kundi, “Paano mas mapapaganda ng developers at platform makers ang experience gamit ang hardware na kaya talagang gawin at bilhin?”
 
@@ -75,4 +71,4 @@ I-comment mo ang take mo sa baba. At kung gusto mo pa ng gaming commentary at di
 - [Reuters: “How Intel lost Sony PlayStation business” (September 16, 2024)](https://www.reuters.com/technology/how-intel-lost-sony-playstation-business-2024-09-16/) — AMD chip-design bid reporting, attributed to Reuters and its sources.
 - [Reuters: AI-driven supply-chain context (December 3, 2025)](https://www.reuters.com/world/china/ai-frenzy-is-driving-new-global-supply-chain-crisis-2025-12-03/); [J.P. Morgan Global Research (August 6, 2026)](https://www.jpmorgan.com/insights/global-research/artificial-intelligence/dram-memory-shortage-from-ai) — Broad market context, not evidence that Sony’s next-generation component sourcing is blocked.
 
-**Review status:** Draft for Arohbi’s review and approval. Not published, scheduled, or shared.
+**Review status:** Approved for internal review by Arohbi. Not yet published or shared.

@@ -42,13 +42,14 @@ domains:
   - id: game-ako
     title: Game Ako content and blog
     lead: ga-orchestrator
-    purpose: Game Ako channel planning, scripts, social posts, blog articles, and gaming trend research.
+    purpose: Game Ako channel planning, scripts, social posts, blog articles including Before Waldas reviews, and gaming trend research.
     artifacts:
       - docs/game-ako/sources/
       - docs/game-ako/research/
       - docs/game-ako/plans/
       - docs/game-ako/scripts/
       - docs/game-ako/articles/
+      - docs/game-ako/review/
       - docs/game-ako/posts/
 
   - id: utility

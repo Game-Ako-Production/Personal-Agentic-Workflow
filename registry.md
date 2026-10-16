@@ -12,7 +12,7 @@ Start with `asurada`: it handles general requests and routes specialist work to 
 | Teaching and learning (`teaching`) | `prof-vahveh` | To create a structured approach for teaching and learning activities. | `docs/teaching/` |
 | Agentic Developer PH channel (`agentic-developer-ph`) | `adp-orchestrator` | Agentic Developer PH content planning, researched scripts and articles, social copy, platform adaptation, and explicitly requested publishing. | `docs/adp/` |
 | Video game guides (`game-guide`) | `game-guide` | Quick, spoiler-safe walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play (SecondSeat principle). | `docs/games/` |
-| Game Ako content and blog (`game-ako`) | `ga-orchestrator` | Game Ako channel planning, scripts, social posts, blog articles, and gaming trend research. | `docs/game-ako/sources/`<br>`docs/game-ako/research/`<br>`docs/game-ako/plans/`<br>`docs/game-ako/scripts/`<br>`docs/game-ako/articles/`<br>`docs/game-ako/posts/` |
+| Game Ako content and blog (`game-ako`) | `ga-orchestrator` | Game Ako channel planning, scripts, social posts, blog articles including Before Waldas reviews, and gaming trend research. | `docs/game-ako/sources/`<br>`docs/game-ako/research/`<br>`docs/game-ako/plans/`<br>`docs/game-ako/scripts/`<br>`docs/game-ako/articles/`<br>`docs/game-ako/review/`<br>`docs/game-ako/posts/` |
 | Workflow utilities (`utility`) | any agent | Scaffold and maintain agents, subagents, skills, and commands in this repository. | — |
 
 ## Delegation map
@@ -49,6 +49,7 @@ flowchart LR
     cmd_create_content{{"/create-content"}}
     cmd_scout_gaming_trend{{"/scout-gaming-trend"}}
     cmd_write_article{{"/write-article"}}
+    cmd_write_game_review{{"/write-game-review"}}
   end
   subgraph domain_utility["Workflow utilities"]
     cmd_scaffold_workflow{{"/scaffold-workflow"}}
@@ -76,6 +77,7 @@ flowchart LR
   cmd_latest_in_ai -.-> asurada
   cmd_scout_gaming_trend -.-> gaming_trend_scout
   cmd_write_article -.-> ga_orchestrator
+  cmd_write_game_review -.-> game_content_writer
 ```
 
 ## Personal assistance and AI trends (`personal`)
@@ -169,7 +171,7 @@ Quick, spoiler-safe walkthroughs, builds, boss strategies, routes, and co-op adv
 
 ## Game Ako content and blog (`game-ako`)
 
-Game Ako channel planning, scripts, social posts, blog articles, and gaming trend research.
+Game Ako channel planning, scripts, social posts, blog articles including Before Waldas reviews, and gaming trend research.
 
 **Agents**
 
@@ -177,7 +179,7 @@ Game Ako channel planning, scripts, social posts, blog articles, and gaming tren
 | --- | --- | --- | --- | --- | --- |
 | `content-strategist` | subagent | `asurada`, `ga-orchestrator` | — | `content-strategy` | Turns Game Ako goals and topics into achievable YouTube-first content plans, formats, schedules, and repurposing paths. |
 | `ga-orchestrator` | all | `asurada` | `content-strategist`, `scriptwriter`, `social-post-writer`, `game-content-writer`, `gaming-trend-scout` | — | GA Orchestrator leads the Game Ako domain, coordinating content plans, scripts, YouTube packaging, social posts, blog articles, and fact-checked gaming news research across games and gaming-industry economics, development, policy, and business. |
-| `game-content-writer` | subagent | `asurada`, `ga-orchestrator` | — | `content-writing`, `article-writing` | Write well-researched Game Ako blog articles, reviews, news updates, features, and opinion pieces with accurate sourcing and reader-friendly SEO. Use for gaming editorial writing; never invents hands-on review experience. |
+| `game-content-writer` | subagent | `asurada`, `ga-orchestrator` | — | `content-writing`, `article-writing`, `game-review-writer` | Write Game Ako blog articles, reviews, news updates, features, and opinion pieces. Use `game-review-writer` for `/write-game-review`; never invent hands-on review experience. |
 | `gaming-trend-scout` | subagent | `asurada`, `ga-orchestrator` | — | `gaming-trend` | Research and fact-check current gaming news for premium console and PC AA/AAA games, gacha games, and gaming-industry economics, development, policy, and business. Exclude non-gacha mobile gaming, esports, and competitive scenes. |
 | `scriptwriter` | subagent | `asurada`, `ga-orchestrator` | — | `content-writing`, `long-form-scriptwriting`, `short-form-scriptwriting`, `youtube-packaging` | Writes conversational long-form and short-form scripts for Game Ako videos, podcasts, livestreams, Shorts, and Reels, plus YouTube packaging (titles, descriptions, thumbnail text, chapters, tags). |
 | `social-post-writer` | subagent | `asurada`, `ga-orchestrator` | — | `content-writing`, `social-post-writing` | Writes platform-specific social copy for Game Ako, with Facebook promotion that points viewers toward YouTube. |
@@ -189,12 +191,14 @@ Game Ako channel planning, scripts, social posts, blog articles, and gaming tren
 | `/create-content <topic and content type>` | `ga-orchestrator` | no | `gaming-trend`, `content-strategy`, `content-writing`, `long-form-scriptwriting`, `short-form-scriptwriting`, `youtube-packaging`, `social-post-writing` | wrapper skill `create-content` | Plan and create a Game Ako content piece or package (plan, long-form script, short-form script, YouTube packaging, social post) with companion pieces |
 | `/scout-gaming-trend <topic or trend> [time period]` | `gaming-trend-scout` | yes | `gaming-trend` | skill `gaming-trend` | Research and fact-check gaming news, including premium console and PC AA/AAA games, gacha games, and gaming-industry economics, development, policy, and business, for a sourced Game Ako brief |
 | `/write-article <topic and article type>` | `ga-orchestrator` | no | `gaming-trend`, `content-writing`, `article-writing` | skill `article-writing` | Draft a researched Game Ako blog article, review, news update, feature, or opinion piece |
+| `/write-game-review [game title, review notes, or revision request]` | `game-content-writer` | no | `game-review-writer` | skill `game-review-writer` | Draft or revise a spoiler-free Before Waldas game review from supplied gameplay notes |
 
 **Skills**
 
 | Skill | Used by | Description |
 | --- | --- | --- |
 | `content-strategy` | `content-strategist`, `/create-content` | Build a practical, sustainable content plan for Game Ako from a topic, goal, audience, or requested cadence. Use whenever Arohbi asks what to make, how to sequence content, or how to plan YouTube and Facebook content. |
+| `game-review-writer` | `game-content-writer`, `/write-game-review` | Draft or revise a spoiler-free Before Waldas first-impressions game review from Arohbi's supplied gameplay notes. Use this skill whenever Arohbi invokes `/write-game-review`; do not research games online for this workflow. |
 | `gaming-trend` | `gaming-trend-scout`, `/create-content`, `/scout-gaming-trend`, `/write-article` | Research and fact-check current gaming news for Game Ako, including premium console and PC AA/AAA games, gacha games, and the industry's economics, development, policy, and business. Use whenever Arohbi asks for gaming news, market developments, or an evidence-led gaming-industry brief; retain the existing non-gacha mobile, esports, and competitive-scene exclusions. |
 | `youtube-packaging` | `scriptwriter`, `/create-content` | Package a Game Ako YouTube upload with English title options, a Taglish description, thumbnail text, chapters, and tags. Use when Arohbi asks for a YouTube title, description, thumbnail text, chapters, timestamps, tags, or upload metadata for a video, podcast, livestream, or Short. |
 

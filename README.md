@@ -51,6 +51,7 @@ flowchart LR
     cmd_create_content{{"/create-content"}}
     cmd_scout_gaming_trend{{"/scout-gaming-trend"}}
     cmd_write_article{{"/write-article"}}
+    cmd_write_game_review{{"/write-game-review"}}
   end
   subgraph domain_utility["Workflow utilities"]
     cmd_scaffold_workflow{{"/scaffold-workflow"}}
@@ -78,6 +79,7 @@ flowchart LR
   cmd_latest_in_ai -.-> asurada
   cmd_scout_gaming_trend -.-> gaming_trend_scout
   cmd_write_article -.-> ga_orchestrator
+  cmd_write_game_review -.-> game_content_writer
 ```
 
 <!-- END GENERATED: delegation-map -->

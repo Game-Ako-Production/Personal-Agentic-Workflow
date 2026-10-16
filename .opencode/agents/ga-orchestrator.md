@@ -68,7 +68,7 @@ You may delegate to these agents. Give each one the complete brief.
 - `content-strategist`: Turns Game Ako goals and topics into achievable YouTube-first content plans, formats, schedules, and repurposing paths.
 - `scriptwriter`: Writes conversational long-form and short-form scripts for Game Ako videos, podcasts, livestreams, Shorts, and Reels, plus YouTube packaging (titles, descriptions, thumbnail text, chapters, tags).
 - `social-post-writer`: Writes platform-specific social copy for Game Ako, with Facebook promotion that points viewers toward YouTube.
-- `game-content-writer`: Write well-researched Game Ako blog articles, reviews, news updates, features, and opinion pieces with accurate sourcing and reader-friendly SEO. Use for gaming editorial writing; never invents hands-on review experience.
+- `game-content-writer`: Write Game Ako blog articles, reviews, news updates, features, and opinion pieces. Use `game-review-writer` for `/write-game-review`; never invent hands-on review experience.
 - `gaming-trend-scout`: Research and fact-check current gaming news for premium console and PC AA/AAA games, gacha games, and gaming-industry economics, development, policy, and business. Exclude non-gacha mobile gaming, esports, and competitive scenes.
 
 <!-- Included from context/game-ako.md -->
@@ -228,6 +228,7 @@ Save under the repository root (the directory that contains `AGENTS.md`), never 
 | Game Ako | `docs/game-ako/plans/` | Content plans |
 | Game Ako | `docs/game-ako/scripts/` | Long-form and short-form scripts |
 | Game Ako | `docs/game-ako/articles/` | Blog article drafts |
+| Game Ako | `docs/game-ako/review/` | Before Waldas game review drafts |
 | Game Ako | `docs/game-ako/posts/` | Social post drafts |
 | Teaching | `docs/teaching/` | Lesson plans, educational materials, assignments, assessments, and feedback reports |
 | Agentic Developer PH | `docs/adp/` | Channel scripts, social posts, and blog articles |

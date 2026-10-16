@@ -10,6 +10,7 @@
 - [x] News research command
 - [ ] Instruct agents to response in english while artifacts are in Taglish.
 - [ ] agent ssems to prefer english when it was stated ahead.
+- [ ] Add dedicated workflow for game review `Before Waldas`
 
 ## Backlogs Topic
 

@@ -8,9 +8,9 @@
 - [ ] Add a way to track installed skills and custom skills created by /scaffold-workflow command.
 - [x] Fact-Checking and Verification Workflow
 - [x] News research command
-- [ ] Instruct agents to response in english while artifacts are in Taglish.
-- [ ] agent ssems to prefer english when it was stated ahead.
-- [ ] Add dedicated workflow for game review `Before Waldas`
+- [x] Instruct agents to response in english while artifacts are in Taglish.
+- [x] agent ssems to prefer english when it was stated ahead.
+- [x] Add dedicated workflow for game review `Before Waldas`
 
 ## Backlogs Topic
 

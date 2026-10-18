@@ -11,6 +11,7 @@ skills:
   - game-review-writer
 includes:
   - context/game-ako.md
+  - context/game-ako-series.md
   - context/game-ako-blog.md
   - context/artifacts.md
 permissions:

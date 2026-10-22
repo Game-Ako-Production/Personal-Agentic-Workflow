@@ -24,6 +24,7 @@ flowchart LR
   user([Arohbi])
   subgraph domain_personal["Personal assistance and AI trends"]
     asurada[[asurada]]
+    idea_graph_mapper[[idea-graph-mapper]]
     cmd_latest_in_ai{{"/latest-in-ai"}}
     cmd_memory{{"/memory"}}
   end
@@ -60,8 +61,10 @@ flowchart LR
   user -.-> adp_orchestrator
   user -.-> ga_orchestrator
   user -.-> game_guide
+  user -.-> idea_graph_mapper
   user -.-> prof_vahveh
   adp_orchestrator --> adp_content_creator
+  asurada --> idea_graph_mapper
   asurada --> domain_teaching
   asurada --> domain_agentic_developer_ph
   asurada --> domain_game_guide

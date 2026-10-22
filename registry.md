@@ -22,6 +22,7 @@ flowchart LR
   user([Arohbi])
   subgraph domain_personal["Personal assistance and AI trends"]
     asurada[[asurada]]
+    idea_graph_mapper[[idea-graph-mapper]]
     cmd_latest_in_ai{{"/latest-in-ai"}}
     cmd_memory{{"/memory"}}
   end
@@ -58,8 +59,10 @@ flowchart LR
   user -.-> adp_orchestrator
   user -.-> ga_orchestrator
   user -.-> game_guide
+  user -.-> idea_graph_mapper
   user -.-> prof_vahveh
   adp_orchestrator --> adp_content_creator
+  asurada --> idea_graph_mapper
   asurada --> domain_teaching
   asurada --> domain_agentic_developer_ph
   asurada --> domain_game_guide
@@ -88,7 +91,8 @@ Daily research, analysis, automation, decision support, Arohbi's private portabl
 
 | Agent | Mode | Called by | Delegates to | Skills | Description |
 | --- | --- | --- | --- | --- | --- |
-| `asurada` | primary | — | any agent | `ai-trend-tracker`, `game-guide-expert`, `memory-management` | Asurada is Arohbi's primary assistant and front door for research, analysis, automation, decision support, game guides, and AI trends; routes specialist work to domain leads such as Prof. Vahveh, ADP Orchestrator, and GA-Orchestrator. |
+| `asurada` | primary | — | any agent | `ai-trend-tracker`, `game-guide-expert`, `memory-management`, `idea-graph-generator` | Asurada is Arohbi's primary assistant and front door for research, analysis, automation, decision support, game guides, idea mapping, and AI trends; routes specialist work to domain leads such as Prof. Vahveh, ADP Orchestrator, and GA-Orchestrator. |
+| `idea-graph-mapper` | all | `asurada` | — | `idea-graph-generator` | Build clear Mermaid flowcharts that map a user's thesis, notes, article insights, argument, trend, or future scenario into causes, consequences, counterforces, and a nuanced synthesis. |
 
 **Commands**
 
@@ -102,6 +106,7 @@ Daily research, analysis, automation, decision support, Arohbi's private portabl
 | Skill | Used by | Description |
 | --- | --- | --- |
 | `ai-trend-tracker` | `asurada`, `/latest-in-ai` | Research and track recent AI developments across models and research, tools and products, and market and industry. Use when Arohbi asks for the latest AI news, a trend roundup, or a digest of AI developments. |
+| `idea-graph-generator` | `asurada`, `idea-graph-mapper` | Create a clear, Obsidian-friendly Mermaid flowchart from a thesis, notes, article links, or an existing map. Use whenever Arohbi asks to map an idea, argument, trend, or future scenario as a Mermaid chart or mind map, including when he supplies articles to incorporate. |
 | `memory-management` | `asurada`, `/memory` | Manage Arohbi's private, portable memory — remember, recall, forget, compact session notes, and export or import plain bundles when switching models or harnesses. Use when Arohbi asks to remember, recall, or forget something, asks what the workflow knows about him, or runs /memory. |
 
 ## Teaching and learning (`teaching`)

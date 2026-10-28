@@ -1,7 +1,8 @@
 // npm run eval — routing tests against OpenCode. Uses model calls; run deliberately.
 //
 // Usage: node scripts/eval.mjs [--case <id>[,<id>]] [--model provider/model] [--timeout 240]
-// (npm run eval runs every case with defaults; PowerShell strips the -- npm needs to forward flags.)
+// Defaults to opencode-go/gpt-6-luna. Use the node command above for overrides,
+// since PowerShell/npm can consume flags before they reach the script.
 // Each case stops at its first routing action (see tests/routing.yaml), so runs stay short.
 import { spawn, execSync } from 'node:child_process'
 import fs from 'node:fs'
@@ -15,7 +16,7 @@ const opt = (name) => {
   return i >= 0 ? args[i + 1] : undefined
 }
 const only = opt('case')?.split(',')
-const model = opt('model')
+const model = opt('model') ?? 'opencode-go/gpt-6-luna'
 const timeoutSec = Number(opt('timeout') ?? 240)
 
 const { cases = [] } = YAML.parse(readText('tests/routing.yaml')) ?? {}
@@ -37,7 +38,9 @@ function routingAction(event) {
   if (event.type !== 'tool_use') return null
   const tool = event.part?.tool
   const input = event.part?.state?.input ?? {}
-  if (tool === 'skill' && input.name) return `skill:${input.name}`
+  // OpenCode's skill tool identifies the selected skill with `id`.
+  const skill = input.name ?? input.id
+  if (tool === 'skill' && skill) return `skill:${skill}`
   if (tool === 'task') return `task:${input.subagent_type ?? input.agent ?? input.subagent ?? '?'}`
   if (tool === 'read') {
     const p = String(input.filePath ?? input.path ?? '').replace(/\\/g, '/')
@@ -95,14 +98,20 @@ function runCase(c) {
 function resolveBinary() {
   if (process.platform !== 'win32') return { command: 'opencode', shell: false }
   try {
-    const exe = path.join(execSync('npm root -g', { encoding: 'utf8' }).trim(), 'opencode-ai', 'bin', 'opencode.exe')
-    if (fs.existsSync(exe)) return { command: exe, shell: false }
+    const globalRoot = execSync('npm root -g', { encoding: 'utf8' }).trim()
+    // Current OpenCode installs use @opencode/cli; keep the old package path
+    // as a fallback for installations created before the package rename.
+    for (const packagePath of ['@opencode/cli', 'opencode-ai']) {
+      const exe = path.join(globalRoot, packagePath, 'bin', 'opencode.exe')
+      if (fs.existsSync(exe)) return { command: exe, shell: false }
+    }
   } catch {}
   return { command: 'opencode.exe', shell: false }
 }
 const bin = resolveBinary()
 
 let passed = 0
+console.log(`Model: ${model}`)
 for (const c of selected) {
   const started = Date.now()
   process.stdout.write(`${c.id.padEnd(26)} `)

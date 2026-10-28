@@ -115,7 +115,7 @@ Commands:
 1. Describe the new work (see `templates/brief.md`) and run `/scaffold-workflow`, or edit the canonical sources directly: `workflow.yaml`, `agents/`, `commands/`, `.agents/skills/`, `context/`.
 2. Run `npm run sync` to regenerate platform files, `registry.md`, and the map above.
 3. Run `npm run check` until it passes.
-4. Optionally add routing cases to `tests/routing.yaml` and run `npm run eval` (uses OpenCode and model calls).
+4. Optionally add routing cases to `tests/routing.yaml` and run `npm run eval` (uses OpenCode and model calls; defaults to `opencode-go/gpt-6-luna`). To override the model or select cases, run `node scripts/eval.mjs --model provider/model` or `node scripts/eval.mjs --case case-id` (direct invocation avoids PowerShell/npm argument-forwarding quirks).
 5. Restart your OpenCode, Claude Code, or Codex session to load the changes.
 
 See `AGENTS.md` for conventions and platform details.

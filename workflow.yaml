@@ -21,7 +21,7 @@ domains:
   - id: teaching
     title: Teaching and learning
     lead: prof-vahveh
-    purpose: To create a structured approach for teaching and learning activities.
+    purpose: Develop course outlines, lesson-aligned learning materials, and video recording plans for college, personalized 1 on 1, and short-course learners.
     artifacts: [docs/teaching/]
 
   - id: agentic-developer-ph

@@ -9,7 +9,7 @@ Start with `asurada`: it handles general requests and routes specialist work to 
 | Domain | Lead | Purpose | Artifacts |
 | --- | --- | --- | --- |
 | Personal assistance and AI trends (`personal`) | `asurada` | Daily research, analysis, automation, decision support, Arohbi's private portable memory, and the weekly AI trend digest. | `docs/ai-trends/` |
-| Teaching and learning (`teaching`) | `prof-vahveh` | To create a structured approach for teaching and learning activities. | `docs/teaching/` |
+| Teaching and learning (`teaching`) | `prof-vahveh` | Develop course outlines, lesson-aligned learning materials, and video recording plans for college, personalized 1 on 1, and short-course learners. | `docs/teaching/` |
 | Agentic Developer PH channel (`agentic-developer-ph`) | `adp-orchestrator` | Agentic Developer PH content planning, researched scripts and articles, social copy, platform adaptation, and explicitly requested publishing. | `docs/adp/` |
 | Video game guides (`game-guide`) | `game-guide` | Quick, spoiler-safe walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play (SecondSeat principle). | `docs/games/` |
 | Game Ako content and blog (`game-ako`) | `ga-orchestrator` | Game Ako channel planning, scripts, social posts, blog articles including Before Waldas reviews, and gaming trend research. | `docs/game-ako/sources/`<br>`docs/game-ako/research/`<br>`docs/game-ako/plans/`<br>`docs/game-ako/scripts/`<br>`docs/game-ako/articles/`<br>`docs/game-ako/review/`<br>`docs/game-ako/posts/` |
@@ -29,6 +29,7 @@ flowchart LR
   subgraph domain_teaching["Teaching and learning"]
     content_creator[content-creator]
     prof_vahveh[[prof-vahveh]]
+    cmd_develop_course{{"/develop-course"}}
   end
   subgraph domain_agentic_developer_ph["Agentic Developer PH channel"]
     adp_content_creator[adp-content-creator]
@@ -76,6 +77,7 @@ flowchart LR
   cmd_adp_content -.-> adp_orchestrator
   cmd_adp_social -.-> adp_orchestrator
   cmd_create_content -.-> ga_orchestrator
+  cmd_develop_course -.-> prof_vahveh
   cmd_game_guide -.-> game_guide
   cmd_latest_in_ai -.-> asurada
   cmd_scout_gaming_trend -.-> gaming_trend_scout
@@ -111,21 +113,28 @@ Daily research, analysis, automation, decision support, Arohbi's private portabl
 
 ## Teaching and learning (`teaching`)
 
-To create a structured approach for teaching and learning activities.
+Develop course outlines, lesson-aligned learning materials, and video recording plans for college, personalized 1 on 1, and short-course learners.
 
 **Agents**
 
 | Agent | Mode | Called by | Delegates to | Skills | Description |
 | --- | --- | --- | --- | --- | --- |
 | `content-creator` | subagent | `asurada`, `prof-vahveh` | — | `content-creation` | Create accurate, engaging teaching materials, assignments, lecture talking points, and scripts aligned with supplied lesson plans and learning objectives. |
-| `prof-vahveh` | primary | `asurada` | `content-creator` | `lesson-planning`, `content-creation`, `student-assessment` | Orchestrate teaching and learning workflows, planning lessons, coordinating educational content creation, and assessing student work. |
+| `prof-vahveh` | primary | `asurada` | `content-creator` | `course-development`, `lesson-planning`, `content-creation`, `student-assessment` | Orchestrate teaching and learning workflows, including course packages with outlines, lesson materials, video plans, lesson planning, and student-work assessment. |
+
+**Commands**
+
+| Command | Runs as | Isolated | Skills | Codex entry | Description |
+| --- | --- | --- | --- | --- | --- |
+| `/develop-course <college\|1-on-1\|short-course> [brief]` | `prof-vahveh` | no | `course-development`, `lesson-planning`, `content-creation` | wrapper skill `develop-course` | Build a course outline, lesson-aligned learning materials, and a video recording plan for a specified learner track. |
 
 **Skills**
 
 | Skill | Used by | Description |
 | --- | --- | --- |
-| `content-creation` | `content-creator`, `prof-vahveh` | Create educational materials, assignments, lecture talking points, and scripts from lesson plans and learning objectives. Use when a user asks to draft classroom-ready teaching content; this skill creates materials rather than planning lesson structure or evaluating student work. |
-| `lesson-planning` | `prof-vahveh` | Design structured lesson plans from learning objectives, curriculum standards, and student needs. Use when a user asks to plan, organize, sequence, or structure a lesson; focus on the lesson design rather than drafting its full teaching materials. |
+| `content-creation` | `content-creator`, `prof-vahveh`, `/develop-course` | Create educational materials, assignments, lecture talking points, and scripts from lesson plans and learning objectives. Use when a user asks to draft classroom-ready teaching content; this skill creates materials rather than planning lesson structure or evaluating student work. |
+| `course-development` | `prof-vahveh`, `/develop-course` | Develop a complete course package from a school syllabus, an educator's own brief, or both. Use whenever Arohbi wants to plan a course, short course, or personalized learning program with an outline, learning materials, and a video recording plan. |
+| `lesson-planning` | `prof-vahveh`, `/develop-course` | Design structured lesson plans from learning objectives, curriculum standards, and student needs. Use when a user asks to plan, organize, sequence, or structure a lesson; focus on the lesson design rather than drafting its full teaching materials. |
 | `student-assessment` | `prof-vahveh` | Evaluate student work against supplied assessment criteria and learning objectives, then provide specific, constructive feedback. Use when a user asks to review, assess, score, or give feedback on student work; do not use for creating lesson plans or authoring assessment materials. |
 
 ## Agentic Developer PH channel (`agentic-developer-ph`)

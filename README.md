@@ -31,6 +31,7 @@ flowchart LR
   subgraph domain_teaching["Teaching and learning"]
     content_creator[content-creator]
     prof_vahveh[[prof-vahveh]]
+    cmd_develop_course{{"/develop-course"}}
   end
   subgraph domain_agentic_developer_ph["Agentic Developer PH channel"]
     adp_content_creator[adp-content-creator]
@@ -78,6 +79,7 @@ flowchart LR
   cmd_adp_content -.-> adp_orchestrator
   cmd_adp_social -.-> adp_orchestrator
   cmd_create_content -.-> ga_orchestrator
+  cmd_develop_course -.-> prof_vahveh
   cmd_game_guide -.-> game_guide
   cmd_latest_in_ai -.-> asurada
   cmd_scout_gaming_trend -.-> gaming_trend_scout

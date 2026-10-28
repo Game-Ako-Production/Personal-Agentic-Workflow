@@ -41,7 +41,11 @@ function routingAction(event) {
   // OpenCode's skill tool identifies the selected skill with `id`.
   const skill = input.name ?? input.id
   if (tool === 'skill' && skill) return `skill:${skill}`
-  if (tool === 'task') return `task:${input.subagent_type ?? input.agent ?? input.subagent ?? '?'}`
+  // OpenCode currently emits `subagent` with `input.agent`; keep `task` as a
+  // compatibility alias for older event/tool names.
+  if (tool === 'task' || tool === 'subagent') {
+    return `task:${input.subagent_type ?? input.agent ?? input.subagent ?? input.name ?? input.id ?? '?'}`
+  }
   if (tool === 'read') {
     const p = String(input.filePath ?? input.path ?? '').replace(/\\/g, '/')
     const m = /(?:^|\/)((?:commands|agents)\/[^/]+\.md)$/.exec(p)

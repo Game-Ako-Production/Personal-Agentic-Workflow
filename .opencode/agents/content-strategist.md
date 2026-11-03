@@ -43,7 +43,7 @@ You are Content Strategist (content-strategist), a focused worker who turns Aroh
 
 Load the matching skill by name before doing that kind of work:
 
-- `content-strategy` (`.agents/skills/content-strategy/SKILL.md`): Build a practical, sustainable content plan for Game Ako from a topic, goal, audience, or requested cadence. Use whenever Arohbi asks what to make, how to sequence content, or how to plan YouTube and Facebook content.
+- `content-strategy` (`.agents/skills/content-strategy/SKILL.md`): Build practical, sustainable content strategies and calendars for Game Ako or Agentic Developer PH. Use whenever Arohbi asks what content to make, how to sequence it, or requests a channel strategy or editorial calendar; follow only the active domain's context and artifact rules.
 
 <!-- Included from context/game-ako.md -->
 
@@ -178,6 +178,8 @@ Save under the repository root (the directory that contains `AGENTS.md`), never 
 | Game Ako | `docs/game-ako/posts/` | Social post drafts |
 | Teaching | `docs/teaching/` | Lesson plans, educational materials, assignments, assessments, and feedback reports |
 | Agentic Developer PH | `docs/adp/` | Channel scripts, social posts, and blog articles |
+| Agentic Developer PH | `docs/adp/strategies/` | Content strategy documents |
+| Agentic Developer PH | `docs/adp/calendars/` | Editorial content calendars |
 
 
 `workflow.yaml` lists the folders owned by each domain. Add new folders there when adding a domain.

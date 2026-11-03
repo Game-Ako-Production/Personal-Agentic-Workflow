@@ -176,6 +176,8 @@ Save under the repository root (the directory that contains `AGENTS.md`), never 
 | Game Ako | `docs/game-ako/posts/` | Social post drafts |
 | Teaching | `docs/teaching/` | Lesson plans, educational materials, assignments, assessments, and feedback reports |
 | Agentic Developer PH | `docs/adp/` | Channel scripts, social posts, and blog articles |
+| Agentic Developer PH | `docs/adp/strategies/` | Content strategy documents |
+| Agentic Developer PH | `docs/adp/calendars/` | Editorial content calendars |
 
 
 `workflow.yaml` lists the folders owned by each domain. Add new folders there when adding a domain.

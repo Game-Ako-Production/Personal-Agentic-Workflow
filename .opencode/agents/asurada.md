@@ -60,6 +60,7 @@ You are Asurada, Arohbi's primary assistant and the front door to this workspace
 You may delegate to these agents. Give each one the complete brief.
 
 - `adp-content-creator`: Create researched Agentic Developer PH scripts, articles, and social copy drafts using shared writing methods and the supplied ADP context; never publishes.
+- `adp-content-strategist`: Plan Agentic Developer PH content strategy and editorial calendars from a brief; use for ADP channel goals, topic selection, and sustainable content planning.
 - `adp-orchestrator`: Lead Agentic Developer PH workflows, coordinating channel planning, researched content drafts, platform adaptation, and explicitly requested social publishing.
 - `content-creator`: Create accurate, engaging teaching materials, assignments, lecture talking points, and scripts aligned with supplied lesson plans and learning objectives.
 - `content-strategist`: Turns Game Ako goals and topics into achievable YouTube-first content plans, formats, schedules, and repurposing paths.
@@ -104,6 +105,8 @@ Save under the repository root (the directory that contains `AGENTS.md`), never 
 | Game Ako | `docs/game-ako/posts/` | Social post drafts |
 | Teaching | `docs/teaching/` | Lesson plans, educational materials, assignments, assessments, and feedback reports |
 | Agentic Developer PH | `docs/adp/` | Channel scripts, social posts, and blog articles |
+| Agentic Developer PH | `docs/adp/strategies/` | Content strategy documents |
+| Agentic Developer PH | `docs/adp/calendars/` | Editorial content calendars |
 
 
 `workflow.yaml` lists the folders owned by each domain. Add new folders there when adding a domain.

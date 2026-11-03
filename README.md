@@ -35,6 +35,7 @@ flowchart LR
   end
   subgraph domain_agentic_developer_ph["Agentic Developer PH channel"]
     adp_content_creator[adp-content-creator]
+    adp_content_strategist[adp-content-strategist]
     adp_orchestrator[[adp-orchestrator]]
     cmd_adp_content{{"/adp-content"}}
     cmd_adp_social{{"/adp-social"}}
@@ -65,6 +66,7 @@ flowchart LR
   user -.-> idea_graph_mapper
   user -.-> prof_vahveh
   adp_orchestrator --> adp_content_creator
+  adp_orchestrator --> adp_content_strategist
   asurada --> idea_graph_mapper
   asurada --> domain_teaching
   asurada --> domain_agentic_developer_ph

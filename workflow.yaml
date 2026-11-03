@@ -29,7 +29,7 @@ domains:
     lead: adp-orchestrator
     purpose: Agentic Developer PH content planning, researched scripts and articles, social copy, platform adaptation, and explicitly requested publishing.
     skills: [adp-social-media-posting]
-    artifacts: [docs/adp/]
+    artifacts: [docs/adp/, docs/adp/strategies/, docs/adp/calendars/]
 
   - id: game-guide
     title: Video game guides

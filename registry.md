@@ -10,7 +10,7 @@ Start with `asurada`: it handles general requests and routes specialist work to 
 | --- | --- | --- | --- |
 | Personal assistance and AI trends (`personal`) | `asurada` | Daily research, analysis, automation, decision support, Arohbi's private portable memory, and the weekly AI trend digest. | `docs/ai-trends/` |
 | Teaching and learning (`teaching`) | `prof-vahveh` | Develop course outlines, lesson-aligned learning materials, and video recording plans for college, personalized 1 on 1, and short-course learners. | `docs/teaching/` |
-| Agentic Developer PH channel (`agentic-developer-ph`) | `adp-orchestrator` | Agentic Developer PH content planning, researched scripts and articles, social copy, platform adaptation, and explicitly requested publishing. | `docs/adp/` |
+| Agentic Developer PH channel (`agentic-developer-ph`) | `adp-orchestrator` | Agentic Developer PH content planning, researched scripts and articles, social copy, platform adaptation, and explicitly requested publishing. | `docs/adp/`<br>`docs/adp/strategies/`<br>`docs/adp/calendars/` |
 | Video game guides (`game-guide`) | `game-guide` | Quick, spoiler-safe walkthroughs, builds, boss strategies, routes, and co-op advice for Arohbi's own play (SecondSeat principle). | `docs/games/` |
 | Game Ako content and blog (`game-ako`) | `ga-orchestrator` | Game Ako channel planning, scripts, social posts, blog articles including Before Waldas reviews, and gaming trend research. | `docs/game-ako/sources/`<br>`docs/game-ako/research/`<br>`docs/game-ako/plans/`<br>`docs/game-ako/scripts/`<br>`docs/game-ako/articles/`<br>`docs/game-ako/review/`<br>`docs/game-ako/posts/` |
 | Workflow utilities (`utility`) | any agent | Scaffold and maintain agents, subagents, skills, and commands in this repository. | — |
@@ -33,6 +33,7 @@ flowchart LR
   end
   subgraph domain_agentic_developer_ph["Agentic Developer PH channel"]
     adp_content_creator[adp-content-creator]
+    adp_content_strategist[adp-content-strategist]
     adp_orchestrator[[adp-orchestrator]]
     cmd_adp_content{{"/adp-content"}}
     cmd_adp_social{{"/adp-social"}}
@@ -63,6 +64,7 @@ flowchart LR
   user -.-> idea_graph_mapper
   user -.-> prof_vahveh
   adp_orchestrator --> adp_content_creator
+  adp_orchestrator --> adp_content_strategist
   asurada --> idea_graph_mapper
   asurada --> domain_teaching
   asurada --> domain_agentic_developer_ph
@@ -146,7 +148,8 @@ Agentic Developer PH content planning, researched scripts and articles, social c
 | Agent | Mode | Called by | Delegates to | Skills | Description |
 | --- | --- | --- | --- | --- | --- |
 | `adp-content-creator` | subagent | `adp-orchestrator`, `asurada` | — | `content-writing`, `article-writing`, `long-form-scriptwriting`, `short-form-scriptwriting`, `social-post-writing` | Create researched Agentic Developer PH scripts, articles, and social copy drafts using shared writing methods and the supplied ADP context; never publishes. |
-| `adp-orchestrator` | primary | `asurada` | `adp-content-creator` | `social-post-writing`, `adp-social-media-posting` | Lead Agentic Developer PH workflows, coordinating channel planning, researched content drafts, platform adaptation, and explicitly requested social publishing. |
+| `adp-content-strategist` | subagent | `adp-orchestrator`, `asurada` | — | `content-strategy` | Plan Agentic Developer PH content strategy and editorial calendars from a brief; use for ADP channel goals, topic selection, and sustainable content planning. |
+| `adp-orchestrator` | primary | `asurada` | `adp-content-creator`, `adp-content-strategist` | `social-post-writing`, `adp-social-media-posting` | Lead Agentic Developer PH workflows, coordinating channel planning, researched content drafts, platform adaptation, and explicitly requested social publishing. |
 
 **Commands**
 
@@ -211,7 +214,6 @@ Game Ako channel planning, scripts, social posts, blog articles including Before
 
 | Skill | Used by | Description |
 | --- | --- | --- |
-| `content-strategy` | `content-strategist`, `/create-content` | Build a practical, sustainable content plan for Game Ako from a topic, goal, audience, or requested cadence. Use whenever Arohbi asks what to make, how to sequence content, or how to plan YouTube and Facebook content. |
 | `game-review-writer` | `game-content-writer`, `/create-content`, `/write-game-review` | Draft or revise a spoiler-free Before Waldas first-impressions game review from Arohbi's supplied gameplay notes. Use this skill whenever Arohbi invokes `/write-game-review`; do not research games online for this workflow. |
 | `gaming-trend` | `gaming-trend-scout`, `/create-content`, `/scout-gaming-trend`, `/write-article` | Research and fact-check current gaming news for Game Ako, including premium console and PC AA/AAA games, gacha games, and the industry's economics, development, policy, and business. Use whenever Arohbi asks for gaming news, market developments, or an evidence-led gaming-industry brief; retain the existing non-gacha mobile, esports, and competitive-scene exclusions. |
 | `youtube-packaging` | `scriptwriter`, `/create-content` | Package a Game Ako YouTube upload with English title options and descriptions by default, thumbnail text, chapters, and tags. Use when Arohbi asks for a YouTube title, description, thumbnail text, chapters, timestamps, tags, or upload metadata for a video, podcast, livestream, or Short. |
@@ -231,6 +233,7 @@ Scaffold and maintain agents, subagents, skills, and commands in this repository
 | Skill | Used by | Description |
 | --- | --- | --- |
 | `article-writing` | `adp-content-creator`, `game-content-writer`, `/adp-content`, `/create-content`, `/write-article` | Draft sourced editorial articles, reviews, news updates, features, or opinion pieces for a supported content domain. Use with that domain's context for audience, language, style, and metadata conventions. |
+| `content-strategy` | `adp-content-strategist`, `content-strategist`, `/create-content` | Build practical, sustainable content strategies and calendars for Game Ako or Agentic Developer PH. Use whenever Arohbi asks what content to make, how to sequence it, or requests a channel strategy or editorial calendar; follow only the active domain's context and artifact rules. |
 | `content-writing` | `adp-content-creator`, `game-content-writer`, `scriptwriter`, `social-post-writer`, `/adp-content`, `/create-content`, `/write-article` | Research and draft accurate original content across supported domains when Arohbi requests a script, article, or social copy. Use with the task-specific writing skill and loaded domain context; this skill does not publish. |
 | `long-form-scriptwriting` | `adp-content-creator`, `scriptwriter`, `/adp-content`, `/create-content` | Outline or draft long-form spoken content for a supported content domain, including commentary, podcasts, livestreams, and other requested formats. Use for full scripts, outlines, episode structures, talking points, or long-form rewrites; follow the active domain context for voice and language. |
 | `short-form-scriptwriting` | `adp-content-creator`, `scriptwriter`, `/adp-content`, `/create-content` | Write or revise concise, self-contained short-form scripts for a supported content domain. Use when Arohbi requests a short video script, reel, hook, or short-form adaptation; follow the active domain context for platform, audience, voice, and language. |
